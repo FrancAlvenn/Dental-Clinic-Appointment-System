@@ -16,7 +16,7 @@ $(document).ready(function() {
         $('.chat_box').html(response); // Insert content into container div
       },
       error: function() {
-        console.error('Error loading content from ' + url);
+        console.error('Error loading content from ' + url);           
       }
     });
   };

@@ -15,7 +15,21 @@ $(document).ready(function() {
         });
       };
 
-  
+
+      const fetchChat = function(url) {
+        // AJAX request to load content from PHP file
+        $.ajax({
+          url: url, // URL of the PHP file
+          type: 'GET',
+          success: function(response) {
+            $('.chat-space-admin').html(response); // Insert content into container div
+          },
+          error: function() {
+            console.error('Error loading content from ' + url);
+          }
+        });
+      };
+
     // Call the AJAX function when the button is clicked
 
     //Function Call for Toggle
@@ -33,6 +47,7 @@ $(document).ready(function() {
     });
 
 
+    
 
 
   });
