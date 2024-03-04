@@ -1,0 +1,961 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #f7f7f7;
+  padding: 0 10px;
+}
+.wrapper{
+  background: #fff;
+  max-width: 450px;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
+              0 32px 64px -48px rgba(0,0,0,0.5);
+}
+
+
+/* Web Design */
+#nav{
+  flex-grow: 0;
+
+}
+.box{
+  background: #9BE0FF;
+  border: 1px solid black;
+  height: 50px;
+}
+.btn{
+  background: #9BE0FF;
+}
+.centered-text {
+  display: flex;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+  height: 100%; /* Adjust height as needed */
+}
+.card{
+  background-color: #e6e6e6;
+}
+.card-body{
+  background-color: #e6e6e6;
+}
+#testimonial-section h6{
+  color: #19b6ff;
+}
+.testimonial-body{
+  background-color: #9BE0FF   ;
+}
+
+button .sched-btn{
+  background-color: #19b6ff;
+}
+
+
+/* Chat Toggle */
+/* Import Google font - Poppins */
+.chat_box-toggler {
+  z-index: 10;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  outline: none;
+  border: none;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #9BE0FF;
+  transition: all 0.2s ease;
+}
+body.show-chat_box .chat_box-toggler {
+  transform: rotate(90deg);
+}
+.chat_box-toggler span {
+  color: #fff;
+  position: absolute;
+}
+.chat_box-toggler span:last-child,
+body.show-chat_box .chat_box-toggler span:first-child  {
+  opacity: 0;
+}
+body.show-chat_box .chat_box-toggler span:last-child {
+  opacity: 1;
+}
+.chat_box {
+  z-index: 10;
+  position: fixed;
+  right: 90px;
+  bottom: 120px;
+  width: 450px;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.5);
+  transform-origin: bottom right;
+  box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
+              0 32px 64px -48px rgba(0,0,0,0.5);
+  transition: all 0.1s ease;
+}
+body.show-chat_box .chat_box {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+.chat_box header {
+  padding: 25px 0;
+  position: relative;
+  text-align: center;
+  color: #fff;
+  background: #9BE0FF;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.chat_box header span {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  display: none;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+header h2 {
+  font-size: 1.4rem;
+}
+
+
+/* Login & Signup Form CSS Start */
+.form{
+  padding: 25px 30px;
+}
+.form header{
+  font-size: 25px;
+  font-weight: 600;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e6e6e6;
+}
+.form form{
+  margin: 20px 0;
+}
+.form form .error-text{
+  color: #721c24;
+  padding: 8px 10px;
+  text-align: center;
+  border-radius: 5px;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  margin-bottom: 10px;
+  display: none;
+}
+.form form .name-details{
+  display: flex;
+}
+.form .name-details .field:first-child{
+  margin-right: 10px;
+}
+.form .name-details .field:last-child{
+  margin-left: 10px;
+}
+.form form .field{
+  display: flex;
+  margin-bottom: 10px;
+  flex-direction: column;
+  position: relative;
+}
+.form form .field label{
+  margin-bottom: 2px;
+}
+.form form .input input{
+  height: 40px;
+  width: 100%;
+  font-size: 16px;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.form form .field input{
+  outline: none;
+}
+.form form .image input{
+  font-size: 17px;
+}
+.form form .button input{
+  height: 45px;
+  border: none;
+  color: #fff;
+  font-size: 17px;
+  background: #9BE0FF;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 13px;
+}
+.form form .field i{
+  position: absolute;
+  right: 15px;
+  top: 70%;
+  color: #ccc;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+.form form .field i.active::before{
+  color: #333;
+  content: "\f070";
+}
+.form .link{
+  text-align: center;
+  margin: 10px 0;
+  font-size: 17px;
+}
+.form .link a{
+  color: #333;
+}
+.form .link a:hover{
+  text-decoration: underline;
+}
+
+
+/* Users List CSS Start */
+.users{
+  padding: 25px 30px;
+}
+.users header,
+.users-list a{
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e6e6e6;
+  justify-content: space-between;
+}
+.wrapper img{
+  object-fit: cover;
+  border-radius: 50%;
+}
+.users header img{
+  height: 50px;
+  width: 50px;
+}
+:is(.users, .users-list) .content{
+  display: flex;
+  align-items: center;
+}
+:is(.users, .users-list) .content .details{
+  color: #000;
+  margin-left: 20px;
+}
+:is(.users, .users-list) .details span{
+  font-size: 18px;
+  font-weight: 500;
+}
+.users header .logout{
+  display: block;
+  background: #333;
+  color: #fff;
+  outline: none;
+  border: none;
+  padding: 7px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 17px;
+}
+.users .search{
+  margin: 20px 0;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+}
+.users .search .text{
+  font-size: 18px;
+}
+.users .search input{
+  position: absolute;
+  height: 42px;
+  width: calc(100% - 50px);
+  font-size: 16px;
+  padding: 0 13px;
+  border: 1px solid #e6e6e6;
+  outline: none;
+  border-radius: 5px 0 0 5px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+.users .search input.show{
+  opacity: 1;
+  pointer-events: auto;
+}
+.users .search button{
+  position: relative;
+  z-index: 1;
+  width: 47px;
+  height: 42px;
+  font-size: 17px;
+  cursor: pointer;
+  border: none;
+  background: #fff;
+  color: #333;
+  outline: none;
+  border-radius: 0 5px 5px 0;
+  transition: all 0.2s ease;
+}
+.users .search button.active{
+  background: #333;
+  color: #fff;
+}
+.search button.active i::before{
+  content: '\f00d';
+}
+.users-list{
+  max-height: 350px;
+  overflow-y: auto;
+}
+:is(.users-list, .chat-box)::-webkit-scrollbar{
+  width: 0px;
+}
+.users-list a{
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  padding-right: 15px;
+  border-bottom-color: #f1f1f1;
+}
+.users-list a:last-child{
+  margin-bottom: 0px;
+  border-bottom: none;
+}
+.users-list a img{
+  height: 40px;
+  width: 40px;
+}
+.users-list a .details p{
+  color: #67676a;
+}
+.users-list a .status-dot{
+  font-size: 12px;
+  color: #468669;
+  padding-left: 10px;
+}
+.users-list a .status-dot.offline{
+  color: #ccc;
+}
+
+/* Chat Area CSS Start */
+.chat-area header{
+  display: flex;
+  align-items: center;
+  padding: 18px 30px;
+}
+.chat-area header .back-icon{
+  color: #333;
+  font-size: 18px;
+  padding-right: 25px;
+}
+
+.chat-area header .details h6{
+  text-align: start !important;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+
+.chat-box{
+  
+  position: relative;
+  min-height: 500px;
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 10px 30px 20px 30px;
+  background: #f7f7f7;
+  box-shadow: inset 0 32px 32px -32px rgb(0 0 0 / 5%),
+              inset 0 -32px 32px -32px rgb(0 0 0 / 5%);
+}
+.chat-box .text{
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: calc(100% - 50px);
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+.chat-box .chat{
+  margin: 15px 0;
+}
+.chat-box .chat p{
+  word-wrap: break-word;
+  padding: 8px 16px;
+  box-shadow: 0 0 32px rgb(0 0 0 / 8%),
+              0rem 16px 16px -16px rgb(0 0 0 / 10%);
+}
+.chat-box .outgoing{
+  display: flex;
+}
+.chat-box .outgoing .details{
+  margin-left: auto;
+  max-width: calc(100% - 130px);
+}
+.outgoing .details p{
+  background: #333;
+  color: #fff;
+  border-radius: 18px 18px 0 18px;
+}
+.chat-box .incoming{
+  display: flex;
+  align-items: flex-end;
+}
+.chat-box .incoming img{
+  height: 35px;
+  width: 35px;
+}
+.chat-box .incoming .details{
+  margin-right: auto;
+  margin-left: 10px;
+  max-width: calc(100% - 130px);
+}
+.incoming .details p{
+  background: #fff;
+  color: #333;
+  border-radius: 18px 18px 18px 0;
+}
+.typing-area{
+  padding: 18px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.typing-area input{
+  height: 45px;
+  width: calc(100% - 58px);
+  font-size: 16px;
+  padding: 0 13px;
+  border: 1px solid #e6e6e6;
+  outline: none;
+  border-radius: 5px 0 0 5px;
+}
+.typing-area button{
+  color: #fff;
+  width: 55px;
+  border: none;
+  outline: none;
+  background: #333;
+  font-size: 19px;
+  cursor: pointer;
+  opacity: 0.7;
+  pointer-events: none;
+  border-radius: 0 5px 5px 0;
+  transition: all 0.3s ease;
+}
+.typing-area button.active{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Responive media query */
+@media (max-width: 450px) {
+  .form, .users{
+    padding: 20px;
+  }
+  .form header{
+    text-align: center;
+  }
+  .form form .name-details{
+    flex-direction: column;
+  }
+  .form .name-details .field:first-child{
+    margin-right: 0px;
+  }
+  .form .name-details .field:last-child{
+    margin-left: 0px;
+  }
+
+  .users header img{
+    height: 45px;
+    width: 45px;
+  }
+  .users header .logout{
+    padding: 6px 10px;
+    font-size: 16px;
+  }
+  :is(.users, .users-list) .content .details{
+    margin-left: 15px;
+  }
+
+  .users-list a{
+    padding-right: 10px;
+  }
+
+  .chat-area header{
+    padding: 15px 20px;
+  }
+  .chat-box{
+    min-height: 400px;
+    padding: 10px 15px 15px 20px;
+  }
+  .chat-box .chat p{
+    font-size: 15px;
+  }
+  .chat-box .outogoing .details{
+    max-width: 230px;
+  }
+  .chat-box .incoming .details{
+    max-width: 265px;
+  }
+  .incoming .details img{
+    height: 30px;
+    width: 30px;
+  }
+  .chat-area form{
+    padding: 20px;
+  }
+  .chat-area form input{
+    height: 40px;
+    width: calc(100% - 48px);
+  }
+  .chat-area form button{
+    width: 45px;
+  }
+}
+
+@media (max-width: 490px) {
+  .chat_box-toggler {
+    right: 20px;
+    bottom: 20px;
+  }
+  .chat_box {
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    border-radius: 0;
+    width: 100%;
+  }
+  .chat_box header{
+    margin-top: 80px;
+  }
+  .chat_box .chat_box {
+    height: 90%;
+    padding: 25px 15px 100px;
+  }
+  .chat_box .chat-input {
+    padding: 5px 15px;
+  }
+  .chat_box header span {
+    display: block;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media (max-width: 600px) {
+  /*Navigation Bar*/
+  .navbar-img{
+      width: 50px!important;
+  }
+
+  .navbar-brand{
+       font-size: 10px!important;
+  }
+
+  nav li{
+      font-size: 10px;
+  }
+
+  .nav-btn{
+      font-size: 10px!important;
+  }
+
+  /*Header Carousel*/
+  #headerCarousel{
+      margin-top: 60px;
+  }
+  .collapse button{
+      font-size: 8px;
+  }
+  .carousel-item h3 {
+      visibility: hidden;
+  }
+
+  .carousel-item p{
+      visibility: hidden;
+  }
+
+  .carousel-item button{
+      font-size: 8px;
+  }
+
+  .carousel-caption{
+      top: 30%!important;
+  }
+
+  /*Image Header Text*/
+  .container p{
+      font-size: 10px;
+  }
+
+  .image-header-text{
+      width: 80%;
+  }
+
+  .image-header-text img{
+      width: 350px;
+  }
+
+  .image-header-text .col-md-6{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 50px;
+  }
+
+  /*Services Carousel*/
+  .card-body{
+      text-align: center;
+  }
+
+
+  /*Appointment Form*/
+
+  .form-header{
+      padding-left: 50px;
+  }
+
+  .form-body{
+      font-size: small;
+  }
+
+  #map-container-google-1 iframe{
+      width: 270px;
+      height: 270px;
+  }
+
+  .form-appointment{
+      margin-bottom: 10px!important;
+  }
+
+  /*Footer*/
+  footer p{
+      font-size: 10px;
+  }
+
+  .footer-img{
+      visibility: hidden;
+  }
+
+  
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media (min-width: 576px) {
+          /*Navigation Bar*/
+          .navbar-img{
+              width: 50px!important;
+          }
+
+          .navbar-brand{
+               font-size: 10px!important;
+          }
+
+          nav li{
+              font-size: smaller;
+          }
+
+          .nav-btn{
+              font-size: 10px!important;
+          }
+
+          /*Header Carousel*/
+          #headerCarousel{
+              margin-top: 60px;
+          }
+          .collapse button{
+              font-size: small;
+          }
+          .carousel-item h3 {
+              font-size: medium;
+          }
+
+          .carousel-item p{
+              font-size: 10px;
+          }
+
+          .carousel-item button{
+              font-size: 11px;
+          }
+
+          .carousel-caption{
+              top: 61%!important;
+          }
+
+          /*Image Header Text*/
+          .container p{
+              font-size: small;
+          }
+
+          .image-header-text{
+              width: 80%;
+          }
+
+          /*Services Carousel*/
+          .card-body{
+              text-align: center;
+          }
+
+          .carousel-control-next{
+              justify-content: end;
+          }
+
+          .carousel-control-prev{
+              justify-content: start;
+          }
+
+
+          /*Appointment Form*/
+
+          .form-body{
+              font-size: small;
+          }
+
+          #map-container-google-1 iframe{
+              width: 410px;
+              height: 410px;
+          }
+
+          /*Footer*/
+          footer p{
+              font-size: 10px;
+          }
+
+          .footer-img{
+              visibility: hidden;
+          }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media (min-width: 768px) {
+
+      /*Navigation Bar*/
+      .navbar-img{
+          width: 50px!important;
+      }
+
+      .navbar-brand{
+           font-size: 10px!important;
+      }
+
+      nav li{
+          font-size: 10px;
+      }
+
+      .nav-btn{
+          font-size: 10px!important;
+      }
+
+      /*Header Carousel*/
+      #headerCarousel{
+          margin-top: 60px;
+      }
+      .collapse button{
+          font-size: small;
+      }
+      .carousel-item h3 {
+          font-size: medium;
+      }
+
+      .carousel-item p{
+          font-size: 10px;
+      }
+
+      .carousel-item button{
+          font-size: 11px;
+      }
+
+      .carousel-caption{
+          top: 61%!important;
+      }
+
+      /*Image Header Text*/
+      .container p{
+          font-size: small;
+      }
+
+      .image-header-text{
+          width: 80%;
+      }
+
+      /*Services Carousel*/
+      .card-body{
+          text-align: center;
+      }
+
+      .carousel-control-next{
+          justify-content: end;
+      }
+
+      .carousel-control-prev{
+          justify-content: start;
+      }
+
+
+      /*Appointment Form*/
+
+      .form-body{
+          font-size: small;
+      }
+
+      #map-container-google-1 iframe{
+          width: 410px;
+          height: 410px;
+      }
+
+      /*Footer*/
+      footer p{
+          font-size: 10px;
+      }
+
+      .footer-img{
+          visibility: visible;
+      }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media  (min-width: 992px) {
+  /*Navigation Bar*/
+  .navbar-img{
+      width: 60px!important;
+  }
+
+  .navbar-brand{
+       font-size: small!important;
+  }
+
+  nav li{
+      font-size: small;
+  }
+
+  .nav-btn{
+      font-size: small!important;
+  }
+
+  /*Header Carousel*/
+  #headerCarousel{
+      margin-top: 50px;
+  }
+  .collapse button{
+      font-size: small;
+  }
+  .carousel-item h3 {
+      font-size: large;
+  }
+
+  .carousel-item p{
+      font-size: small;
+  }
+
+  .carousel-item button{
+      font-size: small;
+  }
+
+  /*Image Header Text*/
+  .container p{
+      font-size: small;
+  }
+
+  .image-header-text{
+      width: 80%;
+  }
+
+  /*Services Carousel*/
+  .card-body{
+      text-align: center;
+  }
+
+
+  /*Appointment Form*/
+  .form-header{
+      padding-left: 50px;
+  }
+
+  .form-body{
+      margin-left: 40px;
+      font-size: small;
+  }
+
+  #map-container-google-1 iframe{
+      width: 350px;
+      height: 350px;
+  }
+
+  /*Footer*/
+  footer p{
+      font-size: smaller;
+  }
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+  /*Navigation Bar*/
+  .navbar-img{
+      width: 70px!important;
+  }
+
+  /*Header Carousel*/
+  #headerCarousel{
+      margin-top: 50px;
+  }
+  .collapse button{
+      font-size: medium;
+  }
+  .carousel-item h3 {
+      font-size: x-large;
+  }
+  .carousel-item p{
+      font-size: medium;
+  }
+  .carousel-item button{
+      font-size: medium;
+  }
+
+  /*Image Header Text*/
+  .container p{
+      font-size: medium;
+  }
+  .image-header-text{
+      width: 80%;
+  }
+
+  /*Services Carousel*/
+  .card-body{
+      text-align: center;
+  }
+  .carousel-control-next{
+      justify-content: end;
+  }
+  .carousel-control-prev{
+      justify-content: start;
+  }
+
+
+  /*Appointment Form*/
+  .form-header{
+      padding-left: 100px;
+  }
+  .form-body{
+      margin-left: 40px;
+      font-size: small;
+  }
+  #map-container-google-1 iframe{
+      width: 490px;
+      height: 450px;
+  }
+}
+
+
+

@@ -1,0 +1,11 @@
+When changing database, don't forget to change the location href to the unique id of the Admin User for the following files:
+
+login.php
+login.js
+signup.js
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Change the config.php file to match the hostname, username, password and database name of your current database
+
