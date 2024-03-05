@@ -1,10 +1,3 @@
-<?php 
-  session_start();
-  include_once "php/config.php";
-  if(!isset($_SESSION['unique_id'])){
-    header("location: login.php");
-  }
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,38 +63,31 @@
                     <div class="box d-flex align-content-center justify-content-center p-5 " >
                         <div class="center-div chat-space-admin d-flex flex-column align-items-center justify-content-center ">
                         <!-- Chat Area -->
-                        <div class="wrapper">
-                          <section class="users">
-                            <header>
-                              <div class="content">
-                                <?php 
-                                  $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$_SESSION['unique_id']}");
-                                  if(mysqli_num_rows($sql) > 0){
-                                    $row = mysqli_fetch_assoc($sql);
-                                  }
-                                ?>
-                                
-                                <div class="details">
-                                  <span><?php echo $row['fname']. " " . $row['lname'] ?></span>
-                                  <p><?php echo $row['status']; ?></p>
-                                </div>
+                        <header>
+                            <h2>Login</h2>
+                        </header>
+                        <section class="form login">
+                            <form action="#" method="POST" enctype="multipart/form-data" autocomplete="off">
+                              <div class="error-text"></div>
+                              <div class="field input">
+                                <label>Email Address</label>
+                                <input type="text" name="email" placeholder="Enter your email" required>
                               </div>
-                              <a href="php/logout-admin.php?logout_id=<?php echo $row['unique_id']; ?>" class="logout">Logout</a>
-                            </header>
-                            <div class="search">
-                              <span class="text">Select an user to start chat</span>
-                              <input type="text" placeholder="Enter name to search...">
-                              <button><i class="fas fa-search"></i></button>
-                            </div>
-                            <div class="users-list">
-                        
-                            </div>
-                            <script src="javascript/load-content.js"></script>
-                          </section>
+                              <div class="field input">
+                                <label>Password</label>
+                                <input type="password" name="password" placeholder="Enter your password" required>
+                                <i class="fas fa-eye"></i>
+                              </div>
+                              <div class="field button">
+                                <input type="submit" name="submit" value="Continue to Chat">
+                              </div>
+                            </form>
+                        </section>
+                        <script src="javascript/toggle.js"></script>
+                        <script src="javascript/pass-show-hide.js"></script>
+                        <script src="javascript/login.js"></script>
                         </div>
-
-                        <script src="javascript/load-content.js"></script>
-                        <script src="javascript/users.js"></script>
+                        
                     </div>
                 </div>
             </div>

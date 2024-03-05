@@ -30,8 +30,7 @@ $(document).ready(function() {
             if(xhr.status === 200){
                 let data = xhr.response;
                 if(data === "success"){
-                  fetchContent('users.php');
-                  // location.href="users.php";
+                  location.href="users.php";
                 }else if(data === "failed"){
                   fetchContent('chat-user.php?user_id=1285204382');
                   // location.href = "chat-user.php?user_id=1285204382";
