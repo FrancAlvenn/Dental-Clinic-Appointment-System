@@ -1,8 +1,8 @@
 <?php 
   session_start();
-  include_once "php/config.php";
+  include_once "../php/config.php";
   if(!isset($_SESSION['unique_id'])){
-    header("location: login.php");
+    header("location: ../login.php");
   }
 ?>
 <!DOCTYPE html>
@@ -28,7 +28,7 @@
 <body>
     <div class="container pt-5 ">
             <div class="row ">
-                <div class="col-3 pt-5 ">
+            <div class="col-3 pt-5 ">
                     <div class="box d-flex flex-column align-items-between justify-content-between ">
                         <div class="header">
                             <div class="row d-flex align-items-center justify-content-center pt-5">
@@ -39,74 +39,84 @@
                         <div class="body">
                             <div class="row d-flex align-items-center justify-content-center pt-5">
                                 <div class="col-2 "><i class="fa-solid fa-gauge-high"></i></div>
-                                <div class="col-5"><h6 style="margin:0;">Dashboard</h6></div>
+                                <div class="col-5">
+                                    <a href="dashboard.php" class="sidebar-link">Dashboard</a>
+                                </div>
                             </div>
                             <div class="row d-flex align-items-center justify-content-center pt-5">
                                 <div class="col-2 "><i class="fa-solid fa-clipboard-list"></i></div>
-                                <div class="col-5"><h6 style="margin:0;">Schedule</h6></div>
+                                <div class="col-5">
+                                    <a href="#" class="sidebar-link">Schedule</a>    
+                                </div>
                             </div>
                             <div class="row d-flex align-items-center justify-content-center pt-5">
                                 <div class="col-2 "><i class="fa-solid fa-calendar-days"></i></div>
-                                <div class="col-5"><h6 style="margin:0;">Calendar</h6></div>
+                                <div class="col-5">
+                                    <a href="#" class="sidebar-link">Calendar</a>
+                                </div>
                             </div>
                             <div class="row d-flex align-items-center justify-content-center pt-5">
                                 <div class="col-2 "><i class="fa-solid fa-envelope"></i></div>
-                                <div class="col-5"><h6 style="margin:0;">Messages</h6></div>
+                                <div class="col-5">
+                                    <a href="users.php" class="sidebar-link current-page">Messages</a>
+                                </div>
                             </div>
                             <div class="row d-flex align-items-center justify-content-center pt-5">
                                 <div class="col-2 "><i class="fa-solid fa-hospital-user"></i></div>
-                                <div class="col-5"><h6 style="margin:0;">Patients</h6></div>
+                                <div class="col-5">
+                                    <a href="#" class="sidebar-link">Patient List</a>
+                                </div>
                             </div>
                         </div>
                         <div class="footer">
                             <div class="row d-flex align-items-center justify-content-center pt-5 pb-5 ">
                                 <div class="col-3"><i class="fa-solid fa-right-from-bracket"></i></div>
-                                <div class="col-4"><h6 style="margin:0;">Logout</h6></div>
+                                <div class="col-4">
+                                    <a href="php/logout-admin.php?logout_id=1285204382" class="sidebar-link">Logout</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-9 pt-5 ">
-                    <div class="box d-flex align-content-center justify-content-center p-5 " >
+                    <div class="box p-5 " >
                         <div class="center-div chat-space-admin d-flex flex-column align-items-center justify-content-center ">
                         <!-- Chat Area -->
-                        <div class="wrapper">
-                          <section class="users">
-                            <header>
-                              <div class="content">
-                                <?php 
-                                  $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$_SESSION['unique_id']}");
-                                  if(mysqli_num_rows($sql) > 0){
-                                    $row = mysqli_fetch_assoc($sql);
-                                  }
-                                ?>
-                                
-                                <div class="details">
-                                  <span><?php echo $row['fname']. " " . $row['lname'] ?></span>
-                                  <p><?php echo $row['status']; ?></p>
-                                </div>
-                              </div>
-                              <a href="php/logout-admin.php?logout_id=<?php echo $row['unique_id']; ?>" class="logout">Logout</a>
-                            </header>
-                            <div class="search">
-                              <span class="text">Select an user to start chat</span>
-                              <input type="text" placeholder="Enter name to search...">
-                              <button><i class="fas fa-search"></i></button>
+                        <section class="chat-area">
+                          <header>
+                            <?php 
+                              $user_id = mysqli_real_escape_string($conn, $_GET['user_id']);
+                              $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$user_id}");
+                              if(mysqli_num_rows($sql) > 0){
+                                $row = mysqli_fetch_assoc($sql);
+                              }else{
+                                header("location: users.php");
+                              }
+                            ?>
+                            <a href="users.php" class="back-icon"><i class="fas fa-arrow-left"></i></a>
+                            <div class="details">
+                              <span><?php echo $row['fname']. " " . $row['lname'] ?></span>
+                              <p><?php echo $row['status']; ?></p>
                             </div>
-                            <div class="users-list">
-                        
-                            </div>
-                            <script src="javascript/load-content.js"></script>
-                          </section>
-                        </div>
+                            
+                          </header>
+                          <div class="chat-box">
 
-                        <script src="javascript/load-content.js"></script>
-                        <script src="javascript/users.js"></script>
+                          </div>
+                          <form action="#" class="typing-area">
+                            <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $user_id; ?>" hidden>
+                            <input type="text" name="message" class="input-field" placeholder="Type a message here..." autocomplete="off">
+                            <button><i class="fab fa-telegram-plane"></i></button>
+                          </form>
+                      </section>
+
+  <script src="javascript/chat.js"></script>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
     </div>
-    <script src="javascript/load-content.js"></script>
 
 
     <script>

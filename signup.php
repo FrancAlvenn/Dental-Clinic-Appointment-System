@@ -14,20 +14,16 @@
     <div class="error-text"></div>
     <div class="name-details">
         <div class="field input">
-        <label>First Name</label>
         <input type="text" name="fname" placeholder="First name" required>
         </div>
         <div class="field input">
-        <label>Last Name</label>
         <input type="text" name="lname" placeholder="Last name" required>
         </div>
     </div>
     <div class="field input">
-        <label>Email Address</label>
         <input type="text" name="email" placeholder="Enter your email" required>
     </div>
     <div class="field input">
-        <label>Password</label>
         <input type="password" name="password" placeholder="Enter new password" required>
         <i class="fas fa-eye"></i>
     </div>

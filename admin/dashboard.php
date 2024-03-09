@@ -1,3 +1,10 @@
+<?php 
+  session_start();
+  include_once "../php/config.php";
+  if(!isset($_SESSION['unique_id'])){
+    header("location: ../login.php");
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,67 +39,55 @@
                         <div class="body">
                             <div class="row d-flex align-items-center justify-content-center pt-5">
                                 <div class="col-2 "><i class="fa-solid fa-gauge-high"></i></div>
-                                <div class="col-5"><h6 style="margin:0;">Dashboard</h6></div>
+                                <div class="col-5">
+                                    <a href="dashboard.php" class="sidebar-link current-page" >Dashboard</a>
+                                </div>
                             </div>
                             <div class="row d-flex align-items-center justify-content-center pt-5">
                                 <div class="col-2 "><i class="fa-solid fa-clipboard-list"></i></div>
-                                <div class="col-5"><h6 style="margin:0;">Schedule</h6></div>
+                                <div class="col-5">
+                                    <a href="#" class="sidebar-link">Schedule</a>    
+                                </div>
                             </div>
                             <div class="row d-flex align-items-center justify-content-center pt-5">
                                 <div class="col-2 "><i class="fa-solid fa-calendar-days"></i></div>
-                                <div class="col-5"><h6 style="margin:0;">Calendar</h6></div>
+                                <div class="col-5">
+                                    <a href="#" class="sidebar-link">Calendar</a>
+                                </div>
                             </div>
                             <div class="row d-flex align-items-center justify-content-center pt-5">
                                 <div class="col-2 "><i class="fa-solid fa-envelope"></i></div>
-                                <div class="col-5"><h6 style="margin:0;">Messages</h6></div>
+                                <div class="col-5">
+                                    <a href="users.php" class="sidebar-link">Messages</a>
+                                </div>
                             </div>
                             <div class="row d-flex align-items-center justify-content-center pt-5">
                                 <div class="col-2 "><i class="fa-solid fa-hospital-user"></i></div>
-                                <div class="col-5"><h6 style="margin:0;">Patients</h6></div>
+                                <div class="col-5">
+                                    <a href="#" class="sidebar-link">Patient List</a>
+                                </div>
                             </div>
                         </div>
                         <div class="footer">
                             <div class="row d-flex align-items-center justify-content-center pt-5 pb-5 ">
                                 <div class="col-3"><i class="fa-solid fa-right-from-bracket"></i></div>
-                                <div class="col-4"><h6 style="margin:0;">Logout</h6></div>
+                                <div class="col-4">
+                                    <a href="php/logout-admin.php?logout_id=1285204382" class="sidebar-link">Logout</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-9 pt-5 ">
-                    <div class="box d-flex align-content-center justify-content-center p-5 " >
+                    <div class="box p-5 " >
                         <div class="center-div chat-space-admin d-flex flex-column align-items-center justify-content-center ">
                         <!-- Chat Area -->
-                        <header>
-                            <h2>Login</h2>
-                        </header>
-                        <section class="form login">
-                            <form action="#" method="POST" enctype="multipart/form-data" autocomplete="off">
-                              <div class="error-text"></div>
-                              <div class="field input">
-                                <label>Email Address</label>
-                                <input type="text" name="email" placeholder="Enter your email" required>
-                              </div>
-                              <div class="field input">
-                                <label>Password</label>
-                                <input type="password" name="password" placeholder="Enter your password" required>
-                                <i class="fas fa-eye"></i>
-                              </div>
-                              <div class="field button">
-                                <input type="submit" name="submit" value="Continue to Chat">
-                              </div>
-                            </form>
-                        </section>
-                        <script src="javascript/toggle.js"></script>
-                        <script src="javascript/pass-show-hide.js"></script>
-                        <script src="javascript/login.js"></script>
-                        </div>
                         
+                        </div>
                     </div>
                 </div>
             </div>
     </div>
-    <script src="javascript/load-content.js"></script>
 
 
     <script>
