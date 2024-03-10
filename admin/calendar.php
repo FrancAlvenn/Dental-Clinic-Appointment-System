@@ -40,7 +40,7 @@
                             <div class="row d-flex align-items-center justify-content-center pt-5">
                                 <div class="col-2 "><i class="fa-solid fa-gauge-high"></i></div>
                                 <div class="col-5">
-                                    <a href="dashboard.php" class="sidebar-link" id="current-page" >Dashboard</a>
+                                    <a href="dashboard.php" class="sidebar-link" >Dashboard</a>
                                 </div>
                             </div>
                             <div class="row d-flex align-items-center justify-content-center pt-5">
@@ -52,7 +52,7 @@
                             <div class="row d-flex align-items-center justify-content-center pt-5">
                                 <div class="col-2 "><i class="fa-solid fa-calendar-days"></i></div>
                                 <div class="col-5">
-                                    <a href="calendar.php" class="sidebar-link">Calendar</a>
+                                    <a href="calendar.php" class="sidebar-link" id="current-page">Calendar</a>
                                 </div>
                             </div>
                             <div class="row d-flex align-items-center justify-content-center pt-5">
@@ -79,78 +79,11 @@
                     </div>
                 </div>
                 <div class="col-9 pt-5 ">
-                    <div class="row box-header">
-                        <div class="center-div chat-space-admin d-flex align-items-center justify-content-around text-center ">
-                        <!-- Dashboard Header-->
-                                <div class="col-3 ">
-                                    <div class="row">
-                                        <div class="col-4 d-flex align-items-center">
-                                            <i class="fa-solid fa-users"></i>
-                                        </div>
-                                        <div class="col-8 ">
-                                            <div class="row ">
-                                                <div class="col mt-2 ">
-                                                    <h6 class="number_of_patients" style="font-size: 13px">Number of Patients</h6>
-                                                </div>
-                                            </div>
-                                            <div class="row mt-2 ">
-                                                <div class="col ">
-                                                    <h3>20</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="vertical-line"></div>
-                                <div class="col-3 ">
-                                    <div class="row">
-                                        <div class="col-4 d-flex align-items-center">
-                                            <i class="fa-solid fa-user-plus"></i>
-                                        </div>
-                                        <div class="col-8 ">
-                                            <div class="row ">
-                                                <div class="col mt-2 ">
-                                                    <h6 class="number_of_patients" style="font-size: 13px">New Patients</h6>
-                                                </div>
-                                            </div>
-                                            <div class="row mt-2 ">
-                                                <div class="col ">
-                                                    <h3>5</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="vertical-line"></div>
-                                <div class="col-3 ">
-                                    <div class="row">
-                                        <div class="col-4 d-flex align-items-center">
-                                        <i class="fa-solid fa-address-book" style="font-size: 19px;"></i>
-                                        </div>
-                                        <div class="col-8 ">
-                                            <div class="row ">
-                                                <div class="col mt-2 ">
-                                                    <h6 class="number_of_patients" style="font-size: 13px">Total Patients</h6>
-                                                </div>
-                                            </div>
-                                            <div class="row mt-2 ">
-                                                <div class="col ">
-                                                    <h3>120</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-
-                    <div class="row box-body p-5 ">
+                    <div class="box p-5 " >
                         <div class="center-div chat-space-admin d-flex flex-column align-items-center justify-content-center ">
-                        <!-- Dashboard -->
-
+                        <!-- Calendar Area -->
                         </div>
                     </div>
-
                 </div>
             </div>
     </div>

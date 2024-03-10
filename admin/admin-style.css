@@ -28,10 +28,41 @@ body{
   flex-grow: 0;
 
 }
+
+.vertical-line {
+  border-left: 1px solid black; 
+  height: 100px; 
+}
+
 .box{
   background: #fff;
   box-shadow: 3px 3px 10px gray;
   height: 80vh;
+}
+
+.box-body{
+  background: #fff;
+  box-shadow: 3px 3px 10px gray;
+  height: 61vh;
+}
+
+.box-header{
+  background: #fff;
+  box-shadow: 3px 3px 10px gray;
+  height: 17vh;
+  margin-bottom: 2vh;
+}
+
+.box-header i {
+  background-color: #e4e4e4;
+  font-size: 17px;
+  color: hsl(207,91%,63%);
+  padding: 20px;
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
 }
 
 
@@ -46,7 +77,7 @@ body{
   color: #9BE0FF;
 }
 
-.sidebar-link .current-page {
+#current-page {
   color: #9BE0FF;
 }
 

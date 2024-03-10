@@ -40,13 +40,13 @@
                             <div class="row d-flex align-items-center justify-content-center pt-5">
                                 <div class="col-2 "><i class="fa-solid fa-gauge-high"></i></div>
                                 <div class="col-5">
-                                    <a href="dashboard.php" class="sidebar-link" id="current-page" >Dashboard</a>
+                                    <a href="dashboard.php" class="sidebar-link"" >Dashboard</a>
                                 </div>
                             </div>
                             <div class="row d-flex align-items-center justify-content-center pt-5">
                                 <div class="col-2 "><i class="fa-solid fa-clipboard-list"></i></div>
                                 <div class="col-5">
-                                    <a href="schedule.php" class="sidebar-link">Schedule</a>
+                                    <a href="schedule.php" class="sidebar-link" id="current-page">Schedule</a>
                                 </div>
                             </div>
                             <div class="row d-flex align-items-center justify-content-center pt-5">

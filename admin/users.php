@@ -46,25 +46,25 @@
                             <div class="row d-flex align-items-center justify-content-center pt-5">
                                 <div class="col-2 "><i class="fa-solid fa-clipboard-list"></i></div>
                                 <div class="col-5">
-                                    <a href="#" class="sidebar-link">Schedule</a>
+                                    <a href="schedule.php" class="sidebar-link">Schedule</a>
                                 </div>
                             </div>
                             <div class="row d-flex align-items-center justify-content-center pt-5">
                                 <div class="col-2 "><i class="fa-solid fa-calendar-days"></i></div>
                                 <div class="col-5">
-                                    <a href="#" class="sidebar-link">Calendar</a>
+                                    <a href="calendar.php" class="sidebar-link">Calendar</a>
                                 </div>
                             </div>
                             <div class="row d-flex align-items-center justify-content-center pt-5">
                                 <div class="col-2 "><i class="fa-solid fa-envelope"></i></div>
                                 <div class="col-5">
-                                    <a href="users.php" class="sidebar-link current-page">Messages</a>
+                                    <a href="users.php" class="sidebar-link" id="current-page">Messages</a>
                                 </div>
                             </div>
                             <div class="row d-flex align-items-center justify-content-center pt-5">
                                 <div class="col-2 "><i class="fa-solid fa-hospital-user"></i></div>
                                 <div class="col-5">
-                                    <a href="#" class="sidebar-link">Patient List</a>
+                                    <a href="patient-list.php" class="sidebar-link">Patient List</a>
                                 </div>
                             </div>
                         </div>
