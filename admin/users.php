@@ -97,13 +97,13 @@
                                   <p><?php echo $row['status']; ?></p>
                                 </div>
                               </div>
-                              <!-- <a href="php/logout-admin.php?logout_id=<?php echo $row['unique_id']; ?>" class="logout">Logout</a> -->
+                                <div class="search">
+                                    <span class="text">Select an user to start chat</span>
+                                    <input type="text" placeholder="Enter name to search...">
+                                    <button><i class="fas fa-search"></i></button>
+                                </div>
                             </header>
-                            <div class="search">
-                              <span class="text">Select an user to start chat</span>
-                              <input type="text" placeholder="Enter name to search...">
-                              <button><i class="fas fa-search"></i></button>
-                            </div>
+                            <!-- add div.class here to show search container below header -->
                             <div class="users-list">
                         
                             </div>

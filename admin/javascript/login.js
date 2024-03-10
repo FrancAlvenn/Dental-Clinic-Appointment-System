@@ -30,8 +30,6 @@ $(document).ready(function() {
                 let data = xhr.response;
                 if(data === "success"){
                   location.href="dashboard.php";
-                }else if(data === "failed"){
-                  fetchContent('chat-user.php?user_id=1285204382');
                 }else{
                   errorText.style.display = "block";
                   errorText.textContent = data;
