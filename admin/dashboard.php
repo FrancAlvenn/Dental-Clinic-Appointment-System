@@ -144,10 +144,19 @@
                         </div>
                     </div>
 
-                    <div class="row box-body p-5 ">
+                    <div class="row box-body p-2  ">
                         <div class="center-div chat-space-admin d-flex flex-column align-items-center justify-content-center ">
                         <!-- Dashboard -->
+                        <div class="chart-container d-flex justify-content-center align-content-center">
+                            <canvas id="mycanvas" >
 
+                            </canvas>
+                        </div>
+
+                        <!-- javascript -->
+                        <script type="text/javascript" src="javascript/jquery.min.js"></script>
+                        <script type="text/javascript" src="javascript/Chart.min.js"></script>
+                        <script type="text/javascript" src="javascript/linegraph.js"></script>
                         </div>
                     </div>
 

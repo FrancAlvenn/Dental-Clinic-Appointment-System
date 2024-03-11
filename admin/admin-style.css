@@ -175,6 +175,15 @@ body{
   }
 
 
+  /* Admin Dashboard */
+  .chart-container {
+    width: 100% !important;
+    height: auto;
+  }
+
+
+
+
 /* Users List CSS Start */
 .users{
   padding: 25px 30px;
