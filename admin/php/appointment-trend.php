@@ -1,15 +1,14 @@
 <?php
 // Setting header to JSON
 header('Content-Type: application/json');
-
-// Database configuration
-define('DB_HOST', '127.0.0.1');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
-define('DB_NAME', 'chat-feature');
+session_start();
+include_once "config.php";
+if(!isset($_SESSION['unique_id'])){
+  header("location: ../login.php");
+}
 
 // Get connection
-$mysqli = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+$mysqli = new mysqli($hostname, $username, $password, $dbname);
 
 // Check connection
 if ($mysqli->connect_error) {

@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$.ajax({
-		url : "http://localhost/DentalClinicAppointment_SAD/admin/followersdata.php",
+		url : "http://localhost/DentalClinicAppointment_SAD/admin/php/appointment-trend.php",
 		type : "GET",
 		success : function(data){
 			console.log(data);
