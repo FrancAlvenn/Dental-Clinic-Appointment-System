@@ -51,6 +51,52 @@ CREATE TABLE `users` (
   `auth` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `appointment-trend`
+--
+
+CREATE TABLE `chat-feature`.`appointment-trend` (
+  `month` INT NOT NULL ,
+  `total_appointments` INT NOT NULL ,
+  `new_patient_appointment` INT NOT NULL ,
+  `followup_appointments` INT NOT NULL
+  ) ENGINE = InnoDB;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `appointment_requests`
+--
+
+CREATE TABLE appointment-requests (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    firstname VARCHAR(50) NOT NULL,
+    lastname VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phone_number VARCHAR(20) NOT NULL,
+    preferred_date DATE NOT NULL,
+    preferred_time TIME NOT NULL,
+    comments TEXT,
+    status ENUM('pending', 'confirmed', 'rejected') DEFAULT 'pending'
+);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `patient-list`
+--
+
+CREATE TABLE patient-list(
+    patient_id INT(7) UNSIGNED PRIMARY KEY,
+    firstname VARCHAR(50) NOT NULL,
+    lastname VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phone_number VARCHAR(20) NOT NULL,
+    status ENUM('active', 'inactive','pending') DEFAULT 'pending'
+);
+
 --
 -- Indexes for dumped tables
 --
