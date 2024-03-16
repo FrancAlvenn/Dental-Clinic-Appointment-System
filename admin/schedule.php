@@ -144,11 +144,55 @@
                         </div>
                     </div>
 
-                    <div class="row box-body p-5 ">
-                        <div class="center-div chat-space-admin d-flex flex-column align-items-center justify-content-center ">
-                        <!-- Dashboard -->
+                    <div class="row box-body">
+                        <div class="center-div chat-space-admin d-flex justify-content-center">
+                        <!-- Schedule -->
+                        <section class="schedule">
+                        <h6 style="margin-bottom:0px!important;">Today: Appointments</h6>
+                            <header style="display: flex; justify-content: space-between;margin-bottom: 10px;">
+                                <div class="container">
+                                <div class="form-check-inline form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                    <label class="form-check-label text-success" for="flexSwitchCheckDefault">Approved</label>
+                                </div>
+                                <div class="form-check-inline form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                    <label class="form-check-label text-warning " for="flexSwitchCheckDefault">Pending</label>
+                                </div>
+                                <div class="form-check-inline form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                    <label class="form-check-label text-danger " for="flexSwitchCheckDefault">Declined</label>
+                                </div>
+                                </div>
+                                <div class="search" style="margin: 5px 0;">
+                                    <span class="text" ></span>
+                                    <input type="text" placeholder="Enter name to search...">
+                                    <button><i class="fas fa-search"></i></button>
+                                </div>
+                            </header>
+                            <div class="schedule-list">
+                            <div class="row mb-5">
+                                <div class="col d-flex justify-content-center align-items-center pb-5 col-xl-4">
+                                    <div class="card" style="width: 18rem;">
+                                        <div class="container pt-3">
+                                            <i class="fas fa-circle"></i> 
+                                            <h4 class="card-title text-center pt-3">Teeth Whitening</h4>
+                                            <div class="card-body text-center">
+                                                <p class="card-text">Franc Alvenn Dela Cruz </p>
+                                                <h6> 9:30 AM </h6>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn p-3">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
 
+                          </section>
+
+                        <script src="javascript/users.js"></script>
                         </div>
+                        <script src="javascript/users.js"></script>
                     </div>
 
                 </div>
@@ -179,6 +223,7 @@
             };
         });
     </script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>

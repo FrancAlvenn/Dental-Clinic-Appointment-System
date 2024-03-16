@@ -97,8 +97,8 @@
                                   <p><?php echo $row['status']; ?></p>
                                 </div>
                               </div>
-                                <div class="search">
-                                    <span class="text">Select an user to start chat</span>
+                                <div class="search" style="width: 40%;">
+                                    <span class="text"></span>
                                     <input type="text" placeholder="Enter name to search...">
                                     <button><i class="fas fa-search"></i></button>
                                 </div>
