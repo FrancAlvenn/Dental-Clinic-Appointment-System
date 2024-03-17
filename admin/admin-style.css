@@ -505,7 +505,7 @@ body{
 
 
 .schedule-list{
-  height: 430px;
+  height: 540px;
   overflow-y: auto;
   padding: 10px;
 }
@@ -546,3 +546,8 @@ body{
   background-color: #9BE0FF;
 }
 
+
+.schedule .container button{
+  font-size: 12px;
+  background-color: #9BE0FF;
+}

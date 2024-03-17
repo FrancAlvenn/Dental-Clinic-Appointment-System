@@ -18,14 +18,15 @@
     // Check if there are appointments for today
 if(mysqli_num_rows($query2) > 0) {
     // Loop through the appointments
-    while($row2 = mysqli_fetch_assoc($query)) {
+    while($row2 = mysqli_fetch_assoc($query2)) {
         $output .= '<div class="col d-flex justify-content-center align-items-center pb-5 col-xl-4">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card" style="width: 30rem;">
                             <div class="container pt-3">
-                                <i class="fas fa-circle"></i> 
-                                <h4 class="card-title text-center pt-3">Teeth Whitening</h4>
+                                <i class="fas fa-circle"></i>
+                                <h4 class="card-title text-center pt-3">' . $row2['service'] . '</h4>
                                 <div class="card-body text-center">
                                     <p class="card-text">' . $row2['firstname'] . ' ' . $row2['lastname'] . '</p>
+                                    <h6>' . $row2['preferred_date'] . '</h6>
                                     <h6>' . $row2['preferred_time'] . '</h6>
                                 </div>
                             </div>
@@ -35,6 +36,6 @@ if(mysqli_num_rows($query2) > 0) {
     }
 } else {
     // No appointments for today
-    $output = " ...  No appointments today.";
+    $output = " ...  No appointments for " . $selectedDate;
 }
 

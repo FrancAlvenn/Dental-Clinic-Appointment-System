@@ -55,6 +55,7 @@ $(document).ready(function() {
             if(xhr.readyState === XMLHttpRequest.DONE){
                 if(xhr.status === 200){
                     let data = xhr.response;
+                    
                     if(!searchBar.classList.contains("active")){
                         scheduleList.innerHTML = data;
                     }

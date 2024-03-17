@@ -22,7 +22,7 @@
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
     <title>Chat Feature</title>
 </head>
 <body>
@@ -79,75 +79,19 @@
                     </div>
                 </div>
                 <div class="col-9 pt-5 ">
-                    <div class="row box-header">
-                        <div class="center-div chat-space-admin d-flex align-items-center justify-content-around text-center ">
-                        <!-- Dashboard Header-->
-                                <div class="col-3 ">
-                                    <div class="row">
-                                        <div class="col-4 d-flex align-items-center">
-                                            <i class="fa-solid fa-users"></i>
-                                        </div>
-                                        <div class="col-8 ">
-                                            <div class="row ">
-                                                <div class="col mt-2 ">
-                                                    <h6 class="number_of_patients" style="font-size: 13px">Number of Patients</h6>
-                                                </div>
-                                            </div>
-                                            <div class="row mt-2 ">
-                                                <div class="col ">
-                                                    <h3>20</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="vertical-line"></div>
-                                <div class="col-3 ">
-                                    <div class="row">
-                                        <div class="col-4 d-flex align-items-center">
-                                            <i class="fa-solid fa-user-plus"></i>
-                                        </div>
-                                        <div class="col-8 ">
-                                            <div class="row ">
-                                                <div class="col mt-2 ">
-                                                    <h6 class="number_of_patients" style="font-size: 13px">New Patients</h6>
-                                                </div>
-                                            </div>
-                                            <div class="row mt-2 ">
-                                                <div class="col ">
-                                                    <h3>5</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="vertical-line"></div>
-                                <div class="col-3 ">
-                                    <div class="row">
-                                        <div class="col-4 d-flex align-items-center">
-                                        <i class="fa-solid fa-address-book" style="font-size: 19px;"></i>
-                                        </div>
-                                        <div class="col-8 ">
-                                            <div class="row ">
-                                                <div class="col mt-2 ">
-                                                    <h6 class="number_of_patients" style="font-size: 13px">Total Patients</h6>
-                                                </div>
-                                            </div>
-                                            <div class="row mt-2 ">
-                                                <div class="col ">
-                                                    <h3>120</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-                    <h6 style="margin-bottom:15px!important;">Today: Appointments</h6>
-                    <div class="row box-body " style="height:530px;">
+                    <div class="row box-body " style="height:745px;">
+                    
                         <div class="center-div chat-space-admin d-flex justify-content-center">
+                        
                         <!-- Schedule -->
                         <section class="schedule">
+                            <div class="container d-flex justify-content-between mb-3 ">
+                                <h6 style="margin-bottom:15px!important;">Appointment List</h6>
+                                <button type="button" class="btn float-end" data-bs-toggle="modal" data-bs-target="#studentAddModal">
+                                    Add Appointment
+                                </button>
+                            </div>
+                            
                             <header style="display: flex; justify-content: space-between;margin-bottom: 10px;">
                             <div class="form-floating form-appointment">
                                 <input type="date" class="form-control input-date" name="schedule_date" placeholder ="Enter a date" style="font-size:12px;" value="<?php echo date('Y-m-d'); ?>">
@@ -194,8 +138,90 @@
 
                 </div>
             </div>
+            <div class="row">
+                
+            </div>
     </div>
 
+    <div class="modal fade" id="studentAddModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Appointment</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="saveAppointment">
+                <div class="modal-body">
+                    <div id="errorMessage" class="alert alert-warning d-none"></div>
+                        <div class="row mb-5 mb-lg-3 pt-4 mb-md-3 form-appointment">
+                            <div class="col-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" name="firstname" placeholder="First Name" required="" style="margin-right: 10px;">
+                                    <label for="text">First Name*</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" name="lastname" placeholder="First Name" required="">
+                                    <label for="text">Last Name*</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-5 mb-lg-3 mb-md-3 form-appointment">
+                            <div class="col-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" name="email" placeholder="Enter you email here:" required="">
+                                    <label for="email">Email*</label>
+                                    <div class="invalid-feedback">Invalid Email</div>
+                                    <div class="valid-feedback">Valid Email</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-floating">
+                                    <input type="number_format" class="form-control" name="phone_number" placeholder="Enter you phone number here" required="">
+                                    <label for="number">Phone Number*</label>
+                                    <div class="invalid-feedback">Invalid Phone Number</div>
+                                    <div class="valid-feedback">Valid Phone Number</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-floating mb-5 mb-lg-3 mb-md-3 form-appointment">
+                            <input type="text" class="form-control" name="other_service" placeholder="Enter service here">
+                            <label for="other_service">Service</label>
+                        </div>
+
+                                            
+                        <div class="form-floating mb-5 mb-lg-3 mb-md-3 form-appointment">
+                            <input type="date" class="form-control" name="preferred_date" placeholder="Enter your preferred date" required="">
+                            <label for="date">Preferred Date*</label>
+                            <div class="invalid-feedback">Invalid Date</div>
+                            <div class="valid-feedback">Valid Date</div>
+                        </div>
+                        <div class="form-floating mb-5 mb-lg-3 mb-md-3 form-appointment">
+                            <input type="time" class="form-control" name="preferred_time" placeholder="Enter your preferred time" required="">
+                            <label for="time">Preferred Time*</label>
+                            <div class="invalid-feedback">Invalid Time</div>
+                            <div class="valid-feedback">Valid Time</div>
+                        </div>
+                        <div class="form-floating mb-5 mb-lg-3 mb-md-3 form-appointment">
+                            <textarea class="form-control" id="textarea" rows="4" name="comments" placeholder="Comments/Concerns" style="height: 200px; resize: none;"></textarea>
+                            <label for="textarea">Comments/Concerns</label>
+                        </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save Student</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script src="javascript/schedule-crud.js"></script>
 
     <script>
         $(document).ready(function() {
