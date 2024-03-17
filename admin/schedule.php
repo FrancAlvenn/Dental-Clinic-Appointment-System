@@ -143,27 +143,36 @@
                                 </div>
                         </div>
                     </div>
-
-                    <div class="row box-body">
+                    <h6 style="margin-bottom:15px!important;">Today: Appointments</h6>
+                    <div class="row box-body " style="height:530px;">
                         <div class="center-div chat-space-admin d-flex justify-content-center">
                         <!-- Schedule -->
                         <section class="schedule">
-                        <h6 style="margin-bottom:0px!important;">Today: Appointments</h6>
                             <header style="display: flex; justify-content: space-between;margin-bottom: 10px;">
-                                <div class="container">
-                                <div class="form-check-inline form-switch">
-                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label text-success" for="flexSwitchCheckDefault">Approved</label>
-                                </div>
-                                <div class="form-check-inline form-switch">
-                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label text-warning " for="flexSwitchCheckDefault">Pending</label>
-                                </div>
-                                <div class="form-check-inline form-switch">
-                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label text-danger " for="flexSwitchCheckDefault">Declined</label>
-                                </div>
-                                </div>
+                            <div class="form-floating form-appointment">
+                                <input type="date" class="form-control input-date" name="schedule_date" placeholder ="Enter a date" style="font-size:12px;" value="<?php echo date('Y-m-d'); ?>">
+                                <label for="date">Date</label>
+                                <div class="invalid-feedback">Invalid Date</div>
+                                <div class="valid-feedback">Valid Date</div>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault" checked>
+                                <label class="form-check-label" for="flexRadioDefault">
+                                    Confirmed
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault">
+                                <label class="form-check-label" for="flexRadioDefault">
+                                    Pending
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault">
+                                <label class="form-check-label" for="flexRadioDefault">
+                                    Declined
+                                </label>
+                            </div>
                                 <div class="search" style="margin: 5px 0;">
                                     <span class="text" ></span>
                                     <input type="text" placeholder="Enter name to search...">
@@ -171,28 +180,16 @@
                                 </div>
                             </header>
                             <div class="schedule-list">
-                            <div class="row mb-5">
-                                <div class="col d-flex justify-content-center align-items-center pb-5 col-xl-4">
-                                    <div class="card" style="width: 18rem;">
-                                        <div class="container pt-3">
-                                            <i class="fas fa-circle"></i> 
-                                            <h4 class="card-title text-center pt-3">Teeth Whitening</h4>
-                                            <div class="card-body text-center">
-                                                <p class="card-text">Franc Alvenn Dela Cruz </p>
-                                                <h6> 9:30 AM </h6>
-                                            </div>
-                                        </div>
-                                        <button type="button" class="btn p-3">View Details</button>
-                                    </div>
-                                </div>
+                            <div class="row mb-5 schedule-list-area">
+                                <!-- Schedule List Area -->
+                                
                             </div>
                             </div>
 
                           </section>
 
-                        <script src="javascript/users.js"></script>
+                        <script src="javascript/schedule.js"></script>
                         </div>
-                        <script src="javascript/users.js"></script>
                     </div>
 
                 </div>
