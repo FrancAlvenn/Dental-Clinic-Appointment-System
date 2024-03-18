@@ -551,3 +551,200 @@ body{
   font-size: 12px;
   background-color: #9BE0FF;
 }
+
+
+
+
+/* Alert Notification */
+.notification-container {
+  z-index: 100;
+  position: fixed; /* Position the container relative to its normal position */
+  top: 30px;
+  right: 0px;
+}
+
+
+.alert{
+  background-color: #C4F3D7 !important;
+  padding: 20px 40px;
+  min-width: 450px;
+  position: absolute;
+  right: 0;
+  top: 130px;
+  border-radius: 4px;
+  border-left: 8px solid #1CB358;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  
+}
+.alert.showAlert{
+  opacity: 1;
+  pointer-events: auto;
+}
+.alert.show{
+  animation: show_slide 1s ease forwards;
+}
+@keyframes show_slide {
+  0%{
+    transform: translateX(100%);
+  }
+  40%{
+    transform: translateX(-10%);
+  }
+  80%{
+    transform: translateX(0%);
+  }
+  100%{
+    transform: translateX(-10px);
+  }
+}
+.alert.hide{
+  animation: hide_slide 1s ease forwards;
+}
+@keyframes hide_slide {
+  0%{
+    transform: translateX(-10px);
+  }
+  40%{
+    transform: translateX(0%);
+  }
+  80%{
+    transform: translateX(-10%);
+  }
+  100%{
+    transform: translateX(120%);
+    -webkit-transform: translateX(120%);
+    -moz-transform: translateX(120%);
+    -ms-transform: translateX(120%);
+    -o-transform: translateX(120%);
+}
+}
+.alert .fa-exclamation-circle{
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #1CB358;
+  font-size: 20px;
+}
+.alert .alert-msg{
+  padding: 0 30px;
+  font-size: 15px;
+  color: #1CB358;
+}
+.alert .close-btn{
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #C4F3D7;
+  padding: 20px 18px;
+  cursor: pointer;
+}
+.alert .close-btn:hover{
+  background: #C4F3D7;
+}
+.alert .close-btn .fas{
+  color: #1CB358;
+  font-size: 22px;
+  line-height: 40px;
+}
+
+
+
+
+
+
+
+
+
+/* Alert Notification */
+
+
+.alert-2{
+  background-color: #C4F3D7 !important;
+  padding: 20px 40px;
+  min-width: 450px;
+  position: fixed;
+  right: 0;
+  top: 130px;
+  border-radius: 4px;
+  border-left: 8px solid #1CB358;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  
+}
+.alert-2.showAlert{
+  opacity: 1;
+  pointer-events: auto;
+}
+.alert-2.show{
+  animation: show_slide 1s ease forwards;
+}
+@keyframes show_slide {
+  0%{
+    transform: translateX(100%);
+  }
+  40%{
+    transform: translateX(-10%);
+  }
+  80%{
+    transform: translateX(0%);
+  }
+  100%{
+    transform: translateX(-10px);
+  }
+}
+.alert-2.hide{
+  animation: hide_slide 1s ease forwards;
+}
+@keyframes hide_slide {
+  0%{
+    transform: translateX(-10px);
+  }
+  40%{
+    transform: translateX(0%);
+  }
+  80%{
+    transform: translateX(-10%);
+  }
+  100%{
+    transform: translateX(120%);
+    -webkit-transform: translateX(120%);
+    -moz-transform: translateX(120%);
+    -ms-transform: translateX(120%);
+    -o-transform: translateX(120%);
+}
+}
+.alert-2 .fa-exclamation-circle{
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #1CB358;
+  font-size: 20px;
+}
+.alert-2 .alert-msg-2{
+  padding: 0 30px;
+  font-size: 15px;
+  color: #1CB358;
+}
+.alert-2 .close-btn{
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #C4F3D7;
+  padding: 20px 18px;
+  cursor: pointer;
+}
+.alert-2 .close-btn:hover{
+  background: #C4F3D7;
+}
+.alert-2 .close-btn .fas{
+  color: #1CB358;
+  font-size: 22px;
+  line-height: 40px;
+}

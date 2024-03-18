@@ -26,6 +26,15 @@
     <title>Chat Feature</title>
 </head>
 <body>
+
+    <!-- Alert Notification -->
+    <div class="notification-container d-flex  justify-content-between ">
+        <div class="alert">
+            <span class="fas fa-exclamation-circle"></span>
+            <p class="alert-msg" style="margin: 5px 0px!important"></p>
+        </div>
+    </div>
+
     <div class="container pt-5 ">
             <div class="row ">
                 <div class="col-3 pt-5 ">
@@ -231,7 +240,7 @@
                 <h5 class="modal-title" id="exampleModalLabel">Edit Appointment</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="updateStudent">
+            <form id="updateAppointment">
             <div class="modal-body">
                     <div id="errorMessage" class="alert alert-warning d-none"></div>
                         <div class="row mb-5 mb-lg-3 pt-4 mb-md-3 form-appointment">
@@ -293,7 +302,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Update Student</button>
+                    <button type="button" value="" class="deleteButton btn btn-danger">Delete</button>
+                    <button type="submit" value="" class="btn btn-primary updateButton">Update Appointment</button>
                 </div>
             </form>
             </div>
@@ -303,7 +313,7 @@
 
 
     <script src="javascript/schedule-crud.js"></script>
-
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script>
         $(document).ready(function() {
             // Define the AJAX function using a variable
