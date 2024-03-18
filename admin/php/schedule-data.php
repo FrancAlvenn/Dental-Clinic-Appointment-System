@@ -30,7 +30,7 @@ if(mysqli_num_rows($query2) > 0) {
                                     <h6>' . $row2['preferred_time'] . '</h6>
                                 </div>
                             </div>
-                            <button type="button" class="btn p-3">View Details</button>
+                            <button type="button" value="' . $row2['request_id'] . '" class="editAppointment btn p-3">View Details</button>
                         </div>
                     </div>';
     }
