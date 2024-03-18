@@ -75,6 +75,7 @@ $(document).on('click', '.editAppointment', function () {
                 $('[name="email"]').val(res.data.email);
                 $('[name="phone_number"]').val(res.data.phone_number);
                 $('[name="service"]').val(res.data.service);
+                $('[name="status"]').val(res.data.status);
                 $('[name="preferred_date"]').val(res.data.preferred_date);
                 $('[name="preferred_time"]').val(res.data.preferred_time);
                 $('[name="comments"]').val(res.data.comments);

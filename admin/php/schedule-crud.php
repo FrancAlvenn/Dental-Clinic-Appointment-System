@@ -115,8 +115,9 @@ if(isset($_POST['update_appointment']))
     $firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
     $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $phone_number = mysqli_real_escape_string($conn, $_POST['phone_number']); // Corrected variable name
-    $service = mysqli_real_escape_string($conn, $_POST['service']); // Updated to match the name attribute in the HTML
+    $phone_number = mysqli_real_escape_string($conn, $_POST['phone_number']);
+    $service = mysqli_real_escape_string($conn, $_POST['service']);
+    $status = mysqli_real_escape_string($conn,$_POST['status']);
     $preferred_date = mysqli_real_escape_string($conn, $_POST['preferred_date']);
     $preferred_time = mysqli_real_escape_string($conn, $_POST['preferred_time']);
     $comments = mysqli_real_escape_string($conn, $_POST['comments']);
@@ -132,7 +133,7 @@ if(isset($_POST['update_appointment']))
     }
 
     // Check for existing appointments with the same preferred_date and preferred_time
-    $query_check_date_time = "SELECT * FROM appointment_requests WHERE preferred_date = '$preferred_date' AND preferred_time = '$preferred_time'";
+    $query_check_date_time = "SELECT * FROM appointment_requests WHERE preferred_date = '$preferred_date' AND preferred_time = '$preferred_time' AND request_id != '$appointment_id'";
     $result_date_time = mysqli_query($conn, $query_check_date_time);
 
     if (mysqli_num_rows($result_date_time) > 0) {
@@ -159,7 +160,7 @@ if(isset($_POST['update_appointment']))
         return;
     }
 
-    $query = "UPDATE appointment_requests SET firstname='$firstname', lastname='$lastname', email='$email', phone_number='$phone_number', service='$service', preferred_date='$preferred_date', preferred_time='$preferred_time', comments='$comments' 
+    $query = "UPDATE appointment_requests SET firstname='$firstname', lastname='$lastname', email='$email', phone_number='$phone_number', service='$service',status='$status', preferred_date='$preferred_date', preferred_time='$preferred_time', comments='$comments' 
                 WHERE request_id='$appointment_id'";
     $query_run = mysqli_query($conn, $query);
 

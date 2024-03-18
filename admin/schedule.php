@@ -108,24 +108,26 @@
                                 <div class="invalid-feedback">Invalid Date</div>
                                 <div class="valid-feedback">Valid Date</div>
                             </div>
+                            
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault" checked>
-                                <label class="form-check-label" for="flexRadioDefault">
+                                <input class="form-check-input" type="radio" name="appointment-status" id="confirm-radio">
+                                <label class="form-check-label custom-radio confirm-radio" for="confirm-radio">
                                     Confirmed
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault">
-                                <label class="form-check-label" for="flexRadioDefault">
+                                <input class="form-check-input" type="radio" name="appointment-status" id="pending-radio">
+                                <label class="form-check-label custom-radio pending-radio" for="pending-radio">
                                     Pending
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault">
-                                <label class="form-check-label" for="flexRadioDefault">
-                                    Declined
+                                <input class="form-check-input" type="radio" name="appointment-status" id="rejected-radio">
+                                <label class="form-check-label custom-radio rejected-radio" for="rejected-radio">
+                                    Rejected
                                 </label>
                             </div>
+
                                 <div class="search" style="margin: 5px 0;">
                                     <span class="text" ></span>
                                     <input type="text" placeholder="Enter name to search...">
@@ -275,13 +277,22 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="form-floating mb-5 mb-lg-3 mb-md-3 form-appointment">
-                            <input type="text" class="form-control" name="service" placeholder="Enter service here">
-                            <label for="other_service">Service</label>
+                        <div class="row mb-5 mb-lg-3 mb-md-3 form-appointment">
+                            <div class="col-7">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" name="service" placeholder="Enter service here">
+                                <label for="other_service">Service</label>
+                            </div>
+                            </div>
+                            <div class="col-5">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" name="status" placeholder="Enter status here">
+                                <label for="status">Status</label>
+                            </div>
+                            </div>
                         </div>
 
-                                            
+
                         <div class="form-floating mb-5 mb-lg-3 mb-md-3 form-appointment">
                             <input type="date" class="form-control" name="preferred_date" placeholder="Enter your preferred date" required="">
                             <label for="date">Preferred Date*</label>
