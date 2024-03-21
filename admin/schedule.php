@@ -88,7 +88,7 @@
                     </div>
                 </div>
                 <div class="col-9 pt-5 ">
-                    <div class="row box-body " style="height:745px;">
+                    <div class="row box-body " style="height:80vh;">
                     
                         <div class="center-div chat-space-admin d-flex justify-content-center">
                         
@@ -286,7 +286,11 @@
                             </div>
                             <div class="col-5">
                             <div class="form-floating">
-                                <input type="text" class="form-control" name="status" placeholder="Enter status here">
+                                <select class="form-select" name="status" id="status">
+                                    <option value="confirmed">Confirmed</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="rejected">Rejected</option>
+                                </select>
                                 <label for="status">Status</label>
                             </div>
                             </div>
