@@ -19,7 +19,8 @@
     <link rel="stylesheet" href="admin-style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
@@ -34,61 +35,67 @@
             <p class="alert-msg" style="margin: 5px 0px!important"></p>
         </div>
     </div>
+    <div class="sidebar">
+        <div class="logo-details">
+        <i class='bx bxs-user-circle icon'></i>
+            <div class="logo_name">Administrator</div>
+            <i class='bx bx-menu' id="btn" ></i>
+        </div>
+        <ul class="nav-list">
+        <li>
+            <a href="dashboard.php">
+            <i class='bx bx-grid-alt'></i>
+            <span class="links_name">Dashboard</span>
+            </a>
+            <span class="tooltip">Dashboard</span>
+        </li>
+        <li>
+        <a href="schedule.php">
+            <i class='bx bx-calendar-event' ></i>
+            <span class="links_name">Schedule</span>
+        </a>
+        <span class="tooltip">Schedule</span>
+        </li>
+        <li>
+            <a href="calendar.php">
+            <i class='bx bx-calendar' ></i>
+            <span class="links_name">Calendar</span>
+            </a>
+            <span class="tooltip">Calendar</span>
+        </li>
+        <li>
+        <a href="users.php">
+            <i class='bx bx-chat' ></i>
+            <span class="links_name">Messages</span>
+        </a>
+        <span class="tooltip">Messages</span>
+        </li>
+        <li>
+            <a href="patient-list.php">
+                <i class='bx bxs-user-detail' ></i>
+            <span class="links_name">Patient List</span>
+            </a>
+            <span class="tooltip">Patient List</span>
+        </li>
+        
+        <li class="profile">
+            <div class="profile-details">
+                <a href="php/logout-admin.php?logout_id=1285204382">
+                    <i class='bx bx-log-out' ></i>
+                    <span class="links_name">Logout</span>
+                </a>
+                <span class="tooltip">Logout</span>
+            </div>
 
-    <div class="container pt-5 ">
+        </li>
+        </ul>
+    </div>
+    <script src="javascript/sidebar.js"></script>
+
+    <div class="container p-2 ">
             <div class="row ">
-                <div class="col-3 pt-5 ">
-                    <div class="box d-flex flex-column align-items-between justify-content-between ">
-                        <div class="header">
-                            <div class="row d-flex align-items-center justify-content-center pt-5">
-                                <div class="col-auto "><i class="fa-solid fa-user-tie"></i></div>
-                                <div class="col-auto"><h5 style="margin:0;">Administrator</h5></div>
-                            </div>
-                        </div>
-                        <div class="body">
-                            <div class="row d-flex align-items-center justify-content-center pt-5">
-                                <div class="col-2 "><i class="fa-solid fa-gauge-high"></i></div>
-                                <div class="col-5">
-                                    <a href="dashboard.php" class="sidebar-link"" >Dashboard</a>
-                                </div>
-                            </div>
-                            <div class="row d-flex align-items-center justify-content-center pt-5">
-                                <div class="col-2 "><i class="fa-solid fa-clipboard-list"></i></div>
-                                <div class="col-5">
-                                    <a href="schedule.php" class="sidebar-link" id="current-page">Schedule</a>
-                                </div>
-                            </div>
-                            <div class="row d-flex align-items-center justify-content-center pt-5">
-                                <div class="col-2 "><i class="fa-solid fa-calendar-days"></i></div>
-                                <div class="col-5">
-                                    <a href="calendar.php" class="sidebar-link">Calendar</a>
-                                </div>
-                            </div>
-                            <div class="row d-flex align-items-center justify-content-center pt-5">
-                                <div class="col-2 "><i class="fa-solid fa-envelope"></i></div>
-                                <div class="col-5">
-                                    <a href="users.php" class="sidebar-link">Messages</a>
-                                </div>
-                            </div>
-                            <div class="row d-flex align-items-center justify-content-center pt-5">
-                                <div class="col-2 "><i class="fa-solid fa-hospital-user"></i></div>
-                                <div class="col-5">
-                                    <a href="patient-list.php" class="sidebar-link">Patient List</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="footer">
-                            <div class="row d-flex align-items-center justify-content-center pt-5 pb-5 ">
-                                <div class="col-3"><i class="fa-solid fa-right-from-bracket"></i></div>
-                                <div class="col-4">
-                                    <a href="php/logout-admin.php?logout_id=1285204382" class="sidebar-link">Logout</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-9 pt-5 ">
-                    <div class="row box-body " style="height:80vh;">
+                <div class="pt-5 ">
+                    <div class="row box-body p-3" style="height:90vh;">
                     
                         <div class="center-div chat-space-admin d-flex justify-content-center">
                         
@@ -128,11 +135,11 @@
                                 </label>
                             </div>
 
-                                <div class="search" style="margin: 5px 0;">
-                                    <span class="text" ></span>
-                                    <input type="text" placeholder="Enter name to search...">
-                                    <button><i class="fas fa-search"></i></button>
-                                </div>
+                            <div class="search" style="margin: 5px 0;">
+                                <span class="text" ></span>
+                                <input type="text" placeholder="Enter name to search...">
+                                <button><i class="fas fa-search"></i></button>
+                            </div>
                             </header>
                             <div class="schedule-list">
                             <div class="row mb-5 schedule-list-area">
