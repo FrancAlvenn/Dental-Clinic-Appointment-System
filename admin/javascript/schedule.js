@@ -8,9 +8,9 @@ $(document).ready(function() {
   const pendingRadio = document.querySelector('#pending-radio');
   const rejectedRadio = document.querySelector('#rejected-radio');
   const scheduleDateInput = document.querySelector('.input-date');
-  
+  let selectedDate;
   document.getElementById("confirm-radio").checked = true;
-  let scheduleIntervalId;
+   let scheduleIntervalId;
    clearInterval(scheduleIntervalId);
       const scheduleDate = scheduleDateInput.value; // Get the selected date
 
@@ -19,7 +19,7 @@ $(document).ready(function() {
           const selectedDateInput = document.querySelector('.input-date');
 
           // Initialize selectedDate with the current value of the input
-          let selectedDate = selectedDateInput.value;
+          selectedDate = selectedDateInput.value;
 
           // Add event listener for change event on the date input
           selectedDateInput.addEventListener('change', function() {

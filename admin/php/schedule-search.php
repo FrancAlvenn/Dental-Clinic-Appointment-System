@@ -19,7 +19,7 @@
     if(mysqli_num_rows($query) > 0){
         include_once "schedule-data.php";
     }else{
-        $output .= '... No user found related to your search term';
+        $output .= '... No user found related to your search';
     }
     echo $output;
 ?>

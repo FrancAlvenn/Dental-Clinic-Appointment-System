@@ -5,7 +5,7 @@
     $query = mysqli_query($conn, $sql);
     $output = "";
     if(mysqli_num_rows($query) == 0){
-        $output .= "... No patients";
+        $output .= "No patients";
     }elseif(mysqli_num_rows($query) > 0){
         include_once "patient-data.php";
     }

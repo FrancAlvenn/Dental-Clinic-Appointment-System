@@ -1,29 +1,38 @@
 <?php
-// SQL query to fetch appointments for the current date and arrange them based on time
-        $sql2 = "SELECT * FROM patient_list";
+include_once "config.php";
+// Fetch patient data from the database
+$sql = "SELECT * FROM patient_list";
+$result = mysqli_query($conn, $sql);
 
-        $query2 = mysqli_query($conn, $sql2);
-
-        // Check if there are appointments for today
-        if(mysqli_num_rows($query2) > 0) {
-        // Loop through the appointments
-        while($row2 = mysqli_fetch_assoc($query2)) {
-        $output .= '<div class="col d-flex justify-content-center align-items-center pb-5 col-xl-4">
-                    <div class="card" style="width: 30rem;">
-                        <div class="container pt-3">
-                            <!-- <i class="fas fa-circle"></i> -->
-                            <h5 class="card-title text-center pt-3">' . $row2['firstname'] . ' ' . $row2['lastname'] . '</h5>
-                            <div class="card-body text-center">
-                                <h6>' . $row2['email'] . '</h6>
-                                <h6>' . $row2['phone_number'] . '</h6>
-                            </div>
-                        </div>
-                        <button type="button" value="' . $row2['patient_id'] . '" class="editAppointment btn p-3">View Details</button>
-                    </div>
-                </div>';
+$patients = array();
+if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $address = '';
+        if (!empty($row['street'])) {
+            $address .= $row['street'] . ', ';
         }
-        } else {
-        // No appointments for today
-        $output = " ...  No patients found";
+        if (!empty($row['baranggay'])) {
+            $address .= $row['baranggay'] . ', ';
+        }
+        if (!empty($row['city_municipality'])) {
+            $address .= $row['city_municipality'] . ', ';
+        }
+        if (!empty($row['province'])) {
+            $address .= $row['province'];
         }
 
+        $patients[] = array(
+            'patient_id' => $row['patient_id'],
+            'firstname' => $row['firstname'],
+            'lastname' => $row['lastname'],
+            'email' => $row['email'],
+            'phone_number' => $row['phone_number'],
+            'date_of_birth' => $row['date_of_birth'],
+            'address' => $address,
+        );
+    }
+}
+
+// Return patient data as JSON
+header('Content-Type: application/json');
+echo json_encode($patients);

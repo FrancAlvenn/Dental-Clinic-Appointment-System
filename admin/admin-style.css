@@ -11,7 +11,7 @@ body{
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #e6e6e6;
+  background: #fff;
   padding: 0 10px;
 }
 .wrapper{
@@ -22,6 +22,7 @@ body{
   box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
               0 32px 64px -48px rgba(0,0,0,0.5);
 }
+
 
 
 /* Side bar */
@@ -1078,3 +1079,30 @@ body{
   font-size: 22px;
   line-height: 40px;
 }
+
+
+
+
+
+
+
+/* Patient List Table */
+
+#patientTable thead th {
+  background-color: #6fd1ff !important;
+}
+
+.patient-email{
+  max-width: 150px;
+  overflow: hidden !important;
+  white-space: nowrap;
+  text-overflow: ellipsis !important;
+ }
+
+.patient-address{
+ max-width: 200px;
+ overflow: hidden !important;
+ white-space: nowrap;
+ text-overflow: ellipsis !important;
+}
+
