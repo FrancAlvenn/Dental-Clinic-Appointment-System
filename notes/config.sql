@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 18, 2024 at 02:30 PM
+-- Host: localhost:3306
+-- Generation Time: Mar 26, 2024 at 10:56 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -56,7 +56,7 @@ CREATE TABLE `appointment_requests` (
   `lastname` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
   `phone_number` varchar(20) NOT NULL,
-  `service` varchar(255) DEFAULT 'Checkup',
+  `service` varchar(255) DEFAULT 'Dental Appointment',
   `preferred_date` date NOT NULL,
   `preferred_time` time NOT NULL,
   `comments` text DEFAULT NULL,
@@ -68,17 +68,17 @@ CREATE TABLE `appointment_requests` (
 -- Dumping data for table `appointment_requests`
 --
 
-INSERT INTO appointment_requests (`id`, `request_id`, `firstname`, `lastname`, `email`, `phone_number`, `service`, `preferred_date`, `preferred_time`, `status`) VALUES
-(1, 1699807961, 'John', 'Smith', 'john_smith@example.com', '09176090001', 'Teeth Cleaning', '2024-03-18', '10:00:00', 'confirmed'),
-(2, 1382883353, 'Jane', 'Doe', 'jane_doe@example.com', '09176090002', 'Dental Checkup', '2024-03-18', '12:00:00', 'pending'),
-(3, 731906361, 'Michael', 'Johnson', 'michael_johnson@example.com', '09176090003', 'Tooth Extraction', '2024-03-19', '09:30:00', 'confirmed'),
-(4, 1369986069, 'Emily', 'Brown', 'emily_brown@example.com', '09176090004', 'Dental Fillings', '2024-03-19', '14:00:00', 'rejected'),
-(5, 540758717, 'William', 'Taylor', 'william_taylor@example.com', '09176090005', 'Root Canal Therapy', '2024-03-20', '11:30:00', 'confirmed'),
-(6, 1443227303, 'Olivia', 'Martinez', 'olivia_martinez@example.com', '09176090006', 'Dental Crowns', '2024-03-20', '15:45:00', 'confirmed'),
-(7, 453476536, 'Ethan', 'Anderson', 'ethan_anderson@example.com', '09176090007', 'Dental Implants', '2024-03-21', '08:15:00', 'pending'),
-(8, 296976782, 'Sophia', 'Wilson', 'sophia_wilson@example.com', '09176090008', 'Braces', '2024-03-21', '13:20:00', 'confirmed'),
-(9, 829451207, 'Liam', 'Thomas', 'liam_thomas@example.com', '09176090009', 'Teeth Whitening', '2024-03-22', '16:00:00', 'pending'),
-(10, 715390864, 'Isabella', 'Garcia', 'isabella_garcia@example.com', '09176090010', 'Orthodontics', '2024-03-22', '18:30:00', 'rejected');
+INSERT INTO `appointment_requests` (`id`, `request_id`, `firstname`, `lastname`, `email`, `phone_number`, `service`, `preferred_date`, `preferred_time`, `comments`, `status`, `viewed`) VALUES
+(1, 1699807961, 'John', 'Smith', 'john_smith@example.com', '09176090001', 'Teeth Cleaning', '2024-03-18', '10:00:00', NULL, 'confirmed', 0),
+(2, 1382883353, 'Jane', 'Doe', 'jane_doe@example.com', '09176090002', 'Dental Checkup', '2024-03-18', '12:00:00', '', 'confirmed', 0),
+(3, 731906361, 'Michael', 'Johnson', 'michael_johnson@example.com', '09176090003', 'Tooth Extraction', '2024-03-19', '09:30:00', NULL, 'confirmed', 0),
+(4, 1369986069, 'Emily', 'Brown', 'emily_brown@example.com', '09176090004', 'Dental Fillings', '2024-03-19', '14:00:00', NULL, 'rejected', 0),
+(5, 540758717, 'William', 'Taylor', 'william_taylor@example.com', '09176090005', 'Root Canal Therapy', '2024-03-20', '11:30:00', NULL, 'confirmed', 0),
+(6, 1443227303, 'Olivia', 'Martinez', 'olivia_martinez@example.com', '09176090006', 'Dental Crowns', '2024-03-20', '15:45:00', NULL, 'confirmed', 0),
+(7, 453476536, 'Ethan', 'Anderson', 'ethan_anderson@example.com', '09176090007', 'Dental Implants', '2024-03-21', '08:15:00', '', 'confirmed', 0),
+(8, 296976782, 'Sophia', 'Wilson', 'sophia_wilson@example.com', '09176090008', 'Braces', '2024-03-21', '13:20:00', '', 'pending', 0),
+(9, 829451207, 'Liam', 'Thomas', 'liam_thomas@example.com', '09176090009', 'Teeth Whitening', '2024-03-21', '16:00:00', '', 'confirmed', 0),
+(10, 715390864, 'Isabella', 'Garcia', 'isabella_garcia@example.com', '09176090010', 'Orthodontics', '2024-03-22', '18:30:00', '', 'confirmed', 0),
 
 
 -- --------------------------------------------------------
@@ -106,21 +106,19 @@ CREATE TABLE `patient_list` (
   `lastname` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
   `phone_number` varchar(20) NOT NULL,
-  `status` enum('active','inactive','pending') DEFAULT 'pending'
+  `date_of_birth` date DEFAULT NULL,
+  `street` varchar(255) DEFAULT NULL,
+  `baranggay` varchar(255) DEFAULT NULL,
+  `city_municipality` varchar(255) DEFAULT NULL,
+  `province` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `patient_list`
 --
 
-INSERT INTO `patient_list` (`patient_id`, `firstname`, `lastname`, `email`, `phone_number`, `status`) VALUES
-(1, 'John', 'Smith', 'john_smith@example.com', '09176090001', 'active'),
-(2, 'Michael', 'Johnson', 'michael_johnson@example.com', '09176090003', 'active'),
-(5, 'William', 'Taylor', 'william_taylor@example.com', '09176090005', 'active'),
-(6, 'Olivia', 'Martinez', 'olivia_martinez@example.com', '09176090006', 'active'),
-(8, 'Sophia', 'Wilson', 'sophia_wilson@example.com', '09176090008', 'active'),
-(10, 'Isabella', 'Garcia', 'isabella_garcia@example.com', '09176090010', 'active');
-
+INSERT INTO `patient_list` (`patient_id`, `firstname`, `lastname`, `email`, `phone_number`, `date_of_birth`, `street`, `baranggay`, `city_municipality`, `province`) VALUES
+(688110452, 'Franc Alvenn', 'Dela Cruz', 'francalvenndelacruz@gmail.com', '09760900764', '2024-03-01', '374 Halvanz Drv', 'Sulucan', 'Bocaue', 'Bulacan');
 
 -- --------------------------------------------------------
 
@@ -144,7 +142,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `unique_id`, `fname`, `lname`, `email`, `password`, `status`, `auth`) VALUES
-(1, 1285204382, 'Administrator', '(1)', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 'Offline now', 1);
+(1, 1285204382, 'Administrator', '(1)', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 'Active now', 1);
 
 --
 -- Indexes for dumped tables
@@ -182,7 +180,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointment_requests`
 --
 ALTER TABLE `appointment_requests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `messages`
