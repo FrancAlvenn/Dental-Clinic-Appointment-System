@@ -13,7 +13,7 @@
                         <div class="">
                             <!-- SMS Sender Area-->
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Send SMS</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Send Appointment Notifications to Clients</h5>
                             </div>
                             <form id="smsForm">
                                 <div class="modal-body">

@@ -75,8 +75,8 @@ class ComposerStaticInitb1d700c4614c24013a24f9dbb524ef72
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
-            1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
-            2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
         ),
         'Webmozart\\Assert\\' => 
         array (
@@ -148,8 +148,8 @@ class ComposerStaticInitb1d700c4614c24013a24f9dbb524ef72
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -193,10 +193,22 @@ class ComposerStaticInitb1d700c4614c24013a24f9dbb524ef72
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'H' => 
+        array (
+            'HTTP_Request2' => 
+            array (
+                0 => __DIR__ . '/..' . '/pear/http_request2',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'CURLStringFile' => __DIR__ . '/..' . '/symfony/polyfill-php81/Resources/stubs/CURLStringFile.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Net_URL2' => __DIR__ . '/..' . '/pear/net_url2/Net/URL2.php',
         'Normalizer' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
+        'PEAR_Exception' => __DIR__ . '/..' . '/pear/pear_exception/PEAR/Exception.php',
         'ReturnTypeWillChange' => __DIR__ . '/..' . '/symfony/polyfill-php81/Resources/stubs/ReturnTypeWillChange.php',
     );
 
@@ -205,6 +217,7 @@ class ComposerStaticInitb1d700c4614c24013a24f9dbb524ef72
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitb1d700c4614c24013a24f9dbb524ef72::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitb1d700c4614c24013a24f9dbb524ef72::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitb1d700c4614c24013a24f9dbb524ef72::$prefixesPsr0;
             $loader->classMap = ComposerStaticInitb1d700c4614c24013a24f9dbb524ef72::$classMap;
 
         }, null, ClassLoader::class);
