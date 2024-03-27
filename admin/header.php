@@ -71,6 +71,13 @@
         <span class="tooltip">Messages</span>
         </li>
         <li>
+            <a href="message-sender.php">
+                <i class='bx bx-message-square-edit'></i>
+            <span class="links_name">Compose Message</span>
+            </a>
+            <span class="tooltip">Compose Message</span>
+        </li>
+        <li>
             <a href="patient-list.php">
                 <i class='bx bxs-user-detail' ></i>
             <span class="links_name">Patient List</span>
