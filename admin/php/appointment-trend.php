@@ -15,25 +15,53 @@ if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
 
-// Query to get data from the table
-$query = "SELECT month, total_appointments, new_patient_appointment, followup_appointments FROM `appointment-trend`";
-
-// Execute query
-$result = $mysqli->query($query);
-
-// Check if query was successful
-if (!$result) {
-    die("Query failed: " . $mysqli->error);
-}
-
-// Fetch data
+// Initialize an array to store the data
 $data = array();
-while ($row = $result->fetch_assoc()) {
-    $data[] = $row;
-}
 
-// Free result set
-$result->free();
+// Loop through each month and status combination
+for ($month = 1; $month <= 12; $month++) {
+    // Initialize counters for confirmed, pending, and total appointments
+    $confirmed_count = 0;
+    $pending_count = 0;
+    $total_count = 0;
+
+    // Query to get data from the table for the current month and status
+    $query = "SELECT COUNT(*) AS count, status FROM appointment_requests
+              WHERE MONTH(preferred_date) = $month
+              GROUP BY status";
+
+    // Execute query
+    $result = $mysqli->query($query);
+
+    // Check if query was successful
+    if ($result) {
+        // Fetch data
+        while ($row = $result->fetch_assoc()) {
+            if ($row['status'] == 'confirmed') {
+                $confirmed_count = $row['count'];
+            } elseif ($row['status'] == 'pending') {
+                $pending_count = $row['count'];
+            }
+            // Update total count
+            $total_count += $row['count'];
+        }
+        // Free result set
+        $result->free();
+    } else {
+        // Handle query error
+        die("Query failed: " . $mysqli->error);
+    }
+
+    $month_name = date("F", mktime(0, 0, 0, $month, 1));
+    // Store the data in an associative array
+    $data[$month_name] = array(
+        'month' => $month_name,
+        'total_appointment' => $total_count,
+        'confirmed_appointment' => $confirmed_count,
+        'pending_appointment' => $pending_count
+        
+    );
+}
 
 // Close connection
 $mysqli->close();

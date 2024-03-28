@@ -5,22 +5,38 @@ $(document).ready(function(){
 		success : function(data){
 			console.log(data);
 
-			var _month = [];
-			var _total_appointments = [];
-			var _new_patient_appointment = [];
-			var _followup_appointments = [];
+			var currentDate = new Date();
+			var currentMonth = currentDate.getMonth() + 1;
+			var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+			var currentMonthName = months[currentDate.getMonth()];
 
-			var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+			console.log("" + currentMonth);
 
-			for(var i in data) {
-				_month.push(months[i]);
-				_total_appointments.push(data[i].total_appointments);
-				_new_patient_appointment.push(data[i].new_patient_appointment);
-				_followup_appointments.push(data[i].followup_appointments);
-				console.log(_month[i], _total_appointments[i], _new_patient_appointment[i], _followup_appointments[i]);
+			let _month = [];
+			let _total_appointments = [];
+			let _confirmed_appointment = [];
+			let _pending_appointment = [];
+
+
+			for(let i in data) {
+				_month.push(data[i].month);
+				_total_appointments.push(data[i].total_appointment);
+				_confirmed_appointment.push(data[i].confirmed_appointment);
+				_pending_appointment.push(data[i].pending_appointment);
+
+
+				if(data[i].month == currentMonthName){
+					let totalAppointment = document.getElementById("total_appointments"),
+					confirmedAppointment = document.getElementById("confirmed_appointments"),
+					pendingAppointment = document.getElementById("pending_appointments");
+
+					totalAppointment.innerHTML = data[i].total_appointment;
+					confirmedAppointment.innerHTML = data[i].confirmed_appointment;
+					pendingAppointment.innerHTML = data[i].pending_appointment;
+				}
 			}
 
-			var chartdata = {
+			let chartdata = {
 				labels: _month,
 				datasets: [
 					{
@@ -34,31 +50,31 @@ $(document).ready(function(){
 						data: _total_appointments
 					},
 					{
-						label: "New Patient Appointments",
+						label: "Confirmed Appointments",
 						fill: false,
 						lineTension: 0.1,
-						backgroundColor: "rgba(29, 202, 255, 0.75)",
-						borderColor: "rgba(29, 202, 255, 1)",
-						pointHoverBackgroundColor: "rgba(29, 202, 255, 1)",
-						pointHoverBorderColor: "rgba(29, 202, 255, 1)",
-						data: _new_patient_appointment
+						backgroundColor: "rgba(104, 205, 86, 0.75)",
+						borderColor: "rgba(104, 205, 86, 1)",
+						pointHoverBackgroundColor: "rgba(104, 205, 86, 1)",
+						pointHoverBorderColor: "rgba(104, 205, 86, 1)",
+						data: _confirmed_appointment
 					},
 					{
-						label: "Follow-up Appointments",
+						label: "Pending Appointments",
 						fill: false,
 						lineTension: 0.1,
 						backgroundColor: "rgba(211, 72, 54, 0.75)",
 						borderColor: "rgba(211, 72, 54, 1)",
 						pointHoverBackgroundColor: "rgba(211, 72, 54, 1)",
 						pointHoverBorderColor: "rgba(211, 72, 54, 1)",
-						data: _followup_appointments
+						data: _pending_appointment
 					}
 				]
 			};
 
-			var ctx = $("#mycanvas");
+			let ctx = $("#mycanvas");
 
-			var LineGraph = new Chart(ctx, {
+			let LineGraph = new Chart(ctx, {
 				type: 'line',
 				data: chartdata,
 				options: {
@@ -71,6 +87,9 @@ $(document).ready(function(){
 							}
 						}],
 						yAxes: [{
+							ticks: {
+								beginAtZero: true // Ensure y-axis starts at 0
+							},
 							scaleLabel: {
 								display: true,
 								labelString: 'Count'

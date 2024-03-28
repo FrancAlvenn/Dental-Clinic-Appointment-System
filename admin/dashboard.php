@@ -15,12 +15,12 @@ include_once "header.php";
                             <div class="col-8 ">
                                 <div class="row ">
                                     <div class="col mt-2 ">
-                                        <h6 class="number_of_patients" style="font-size: 13px">Number of Patients</h6>
+                                        <h6 class="number_of_patients" style="font-size: 13px">Total Appointments</h6>
                                     </div>
                                 </div>
                                 <div class="row mt-2 ">
                                     <div class="col ">
-                                        <h3>20</h3>
+                                        <h3 id="total_appointments">0</h3>
                                     </div>
                                 </div>
                             </div>
@@ -35,12 +35,12 @@ include_once "header.php";
                             <div class="col-8 ">
                                 <div class="row ">
                                     <div class="col mt-2 ">
-                                        <h6 class="number_of_patients" style="font-size: 13px">New Patients</h6>
+                                        <h6 class="number_of_patients" style="font-size: 13px">Confirmed Appointments</h6>
                                     </div>
                                 </div>
                                 <div class="row mt-2 ">
                                     <div class="col ">
-                                        <h3>5</h3>
+                                        <h3 id="confirmed_appointments">0</h3>
                                     </div>
                                 </div>
                             </div>
@@ -55,12 +55,12 @@ include_once "header.php";
                             <div class="col-8 ">
                                 <div class="row ">
                                     <div class="col mt-2 ">
-                                        <h6 class="number_of_patients" style="font-size: 13px">Total Patients</h6>
+                                        <h6 class="number_of_patients" style="font-size: 13px">Pending Appointments</h6>
                                     </div>
                                 </div>
                                 <div class="row mt-2 ">
                                     <div class="col ">
-                                        <h3>120</h3>
+                                        <h3 id="pending_appointments">0</h3>
                                     </div>
                                 </div>
                             </div>
