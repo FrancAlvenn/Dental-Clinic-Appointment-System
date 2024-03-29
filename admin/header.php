@@ -2,7 +2,7 @@
   session_start();
   include_once "../php/config.php";
   if(!isset($_SESSION['unique_id'])){
-    header("location: /admin-login.php");
+    header("location: /DentalClinicAppointment_SAD/admin/admin-login.php");
   }
 ?>
 <!DOCTYPE html>

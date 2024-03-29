@@ -30,7 +30,7 @@ include_once "header.php";
                     <div class="col-3 ">
                         <div class="row">
                             <div class="col-4 d-flex align-items-center">
-                                <i class="fa-solid fa-user-plus"></i>
+                                <i class="fa-solid fa-calendar-check"></i>
                             </div>
                             <div class="col-8 ">
                                 <div class="row ">
@@ -50,7 +50,7 @@ include_once "header.php";
                     <div class="col-3 ">
                         <div class="row">
                             <div class="col-4 d-flex align-items-center">
-                            <i class="fa-solid fa-address-book" style="font-size: 19px;"></i>
+                            <i class="fa-solid fa-spinner"></i>
                             </div>
                             <div class="col-8 ">
                                 <div class="row ">

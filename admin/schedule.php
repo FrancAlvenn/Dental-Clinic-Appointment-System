@@ -22,31 +22,48 @@
                         </div>
                         
                         <header style="display: flex; justify-content: space-between;margin-bottom: 10px;">
-                        <div class="form-floating form-appointment">
+                        <div class="container outer d-flex align-items-center justify-content-start">
+                        <div class="d-flex align-items-center ">
+                        <div class="form-floating form-appointment form-check-inline">
                             <input type="date" class="form-control input-date" name="schedule_date" placeholder ="Enter a date" style="font-size:12px;" value="<?php echo date('Y-m-d'); ?>">
                             <label for="date">Date</label>
                             <div class="invalid-feedback">Invalid Date</div>
                             <div class="valid-feedback">Valid Date</div>
                         </div>
-                        
-                        <div class="form-check">
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="" id="show-all-checkbox">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Display All Dates
+                            </label>
+                        </div>
+                        </div>
+                        <div class="vertical-line-schedule"></div>
+                        <div class="">
+                        <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="appointment-status" id="confirm-radio">
                             <label class="form-check-label custom-radio confirm-radio" for="confirm-radio">
                                 Confirmed
                             </label>
                         </div>
-                        <div class="form-check">
+                        <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="appointment-status" id="pending-radio">
                             <label class="form-check-label custom-radio pending-radio" for="pending-radio">
                                 Pending
                             </label>
                         </div>
-                        <div class="form-check">
+                        <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="appointment-status" id="rejected-radio">
                             <label class="form-check-label custom-radio rejected-radio" for="rejected-radio">
                                 Rejected
                             </label>
                         </div>
+                        </div>
+                        </div>
+                        
+                        
+
+                       
 
                         <div class="search" style="margin: 5px 0;">
                             <span class="text" ></span>

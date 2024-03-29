@@ -83,7 +83,7 @@ $(document).ready(function(){
 						xAxes: [{
 							scaleLabel: {
 								display: true,
-								labelString: 'Month'
+								labelString: 'Month (2024)'
 							}
 						}],
 						yAxes: [{

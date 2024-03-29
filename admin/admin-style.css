@@ -302,15 +302,20 @@ body{
 }
 
 .box-header i {
-  background-color: #e4e4e4;
+  background-color: #6fd1ff;
   font-size: 17px;
-  color: hsl(207,91%,63%);
   padding: 20px;
   border-radius: 100%;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   -ms-border-radius: 100%;
   -o-border-radius: 100%;
+  transition: color 0.3s;
+}
+
+.box-header i:hover{
+  background-color: whitesmoke;
+  color: #6fd1ff;
 }
 
 
@@ -663,6 +668,13 @@ body{
 
 
 /* Schedule Area */
+
+.vertical-line-schedule {
+  border-left: 1px solid black;
+  height: 40px;
+  margin: 0 20px;
+}
+
 .schedule-area{
   padding: 25px 30px;
   width: 100%;

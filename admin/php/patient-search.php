@@ -22,7 +22,28 @@ if (isset($_POST['searchTerm'])) {
         // Fetch and return the results as JSON
         $patients = array();
         while ($row = mysqli_fetch_assoc($result)) {
-            $patients[] = $row;
+            $address = '';
+            if (!empty($row['street'])) {
+                $address .= $row['street'] . ', ';
+            }
+            if (!empty($row['baranggay'])) {
+                $address .= $row['baranggay'] . ', ';
+            }
+            if (!empty($row['city_municipality'])) {
+                $address .= $row['city_municipality'] . ', ';
+            }
+            if (!empty($row['province'])) {
+                $address .= $row['province'];
+            }
+            $patients[] = array(
+                'patient_id' => $row['patient_id'],
+                'firstname' => $row['firstname'],
+                'lastname' => $row['lastname'],
+                'email' => $row['email'],
+                'phone_number' => $row['phone_number'],
+                'date_of_birth' => $row['date_of_birth'],
+                'address' => $address,
+            );
         }
         echo json_encode($patients);
     } else {
