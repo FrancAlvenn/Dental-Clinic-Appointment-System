@@ -15,7 +15,7 @@ include_once "header.php";
                             <div class="col-8 ">
                                 <div class="row ">
                                     <div class="col mt-2 ">
-                                        <h6 class="number_of_patients" style="font-size: 13px">Total Appointments</h6>
+                                        <h6 class="number_of_patients" style="font-size: 13px">Total Appointments <br>(This month)</h6>
                                     </div>
                                 </div>
                                 <div class="row mt-2 ">
@@ -35,7 +35,7 @@ include_once "header.php";
                             <div class="col-8 ">
                                 <div class="row ">
                                     <div class="col mt-2 ">
-                                        <h6 class="number_of_patients" style="font-size: 13px">Confirmed Appointments</h6>
+                                        <h6 class="number_of_patients" style="font-size: 13px">Confirmed Appointments  <br>(This month)</h6>
                                     </div>
                                 </div>
                                 <div class="row mt-2 ">
@@ -55,7 +55,7 @@ include_once "header.php";
                             <div class="col-8 ">
                                 <div class="row ">
                                     <div class="col mt-2 ">
-                                        <h6 class="number_of_patients" style="font-size: 13px">Pending Appointments</h6>
+                                        <h6 class="number_of_patients" style="font-size: 13px">Pending Appointments  <br>(This month)</h6>
                                     </div>
                                 </div>
                                 <div class="row mt-2 ">

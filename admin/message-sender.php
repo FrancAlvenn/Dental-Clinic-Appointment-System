@@ -30,7 +30,7 @@
                                         <div class="row mb-5 mb-lg-3 pt-4 mb-md-3 form-appointment">
                                             <div class="col">
                                                 <div class="form-floating">
-                                                    <textarea type="text" class="form-control" name="message" placeholder="Message" required="" id="message" style="height: 50vh;"></textarea>
+                                                    <textarea type="text" class="form-control" name="message" placeholder="Message" required="" id="message" style="height: 50vh; max-height:50vh;"></textarea>
                                                     <label for="text">Message</label>
                                                 </div>
                                             </div>
