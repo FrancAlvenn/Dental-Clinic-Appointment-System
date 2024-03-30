@@ -1,11 +1,7 @@
 $(document).ready(function() {
-  let form = document.querySelector(".login form"),
-  continueBtn = form.querySelector(".button input"),
-  errorText = form.querySelector(".error-text");
-
-  form.onsubmit = (e)=>{
-      e.preventDefault();
-  }
+  let forms = document.querySelector(".signup form"),
+  continueBtn = document.querySelector(".button input"),
+  errorText = document.querySelector(".error-text");
 
   const fetchContent = function(url) {
     // AJAX request to load content from PHP file
@@ -21,20 +17,23 @@ $(document).ready(function() {
     });
   };
 
+  forms.onsubmit = (e)=>{
+      e.preventDefault(); //preventing form from submitting
+  }
+
   continueBtn.onclick = ()=>{
-      let xhr = new XMLHttpRequest();
-      xhr.open("POST", "php/login.php", true);
+      //AJAX Start
+      let xhr = new XMLHttpRequest(); //create XML object
+      xhr.open("POST", "php/signup.php", true);
       xhr.onload = ()=>{
         if(xhr.readyState === XMLHttpRequest.DONE){
             if(xhr.status === 200){
                 let data = xhr.response;
-                if(data === "Receptionist"){
-                  location.href="dashboard.php";
-                }else if(data === "Doctor"){
-                  location.href = "doc-per/dashboard.php";
-                }else if(data === "IT Admin"){
-                  location.href = "it-admin/dashboard.php";
-                  console.log();
+                if(data === "success"){
+                  location.href="users.php";
+                }else if(data === "failed"){
+                  fetchContent('chat-user.php?user_id=1285204382');
+                  // location.href = "chat-user.php?user_id=1285204382";
                 }else{
                   errorText.style.display = "block";
                   errorText.textContent = data;
@@ -42,7 +41,7 @@ $(document).ready(function() {
             }
         }
       }
-      let formData = new FormData(form);
+      let formData = new FormData(forms);
       xhr.send(formData);
   }
 });

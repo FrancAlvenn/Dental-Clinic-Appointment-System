@@ -16,7 +16,7 @@ $(document).ready(function() {
         $('.chat_box').html(response); // Insert content into container div
       },
       error: function() {
-        console.error('Error loading content from ' + url);
+        console.error('Error loading content from ' + url);           
       }
     });
   };
@@ -28,13 +28,8 @@ $(document).ready(function() {
         if(xhr.readyState === XMLHttpRequest.DONE){
             if(xhr.status === 200){
                 let data = xhr.response;
-                if(data === "Receptionist"){
+                if(data === "success"){
                   location.href="dashboard.php";
-                }else if(data === "Doctor"){
-                  location.href = "doc-per/dashboard.php";
-                }else if(data === "IT Admin"){
-                  location.href = "it-admin/dashboard.php";
-                  console.log();
                 }else{
                   errorText.style.display = "block";
                   errorText.textContent = data;

@@ -1100,10 +1100,6 @@ body{
 
 /* Patient List Table */
 
-#userTable thead th {
-  background-color: #6fd1ff !important;
-}
-
 #patientTable thead th {
   background-color: #6fd1ff !important;
 }
@@ -1121,6 +1117,4 @@ body{
  white-space: nowrap;
  text-overflow: ellipsis !important;
 }
-
-
 

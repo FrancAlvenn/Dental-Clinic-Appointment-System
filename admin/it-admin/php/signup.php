@@ -17,7 +17,7 @@
                 $status = "Active now";
                 $encrypt_pass = md5($password);
                 $insert_query = mysqli_query($conn, "INSERT INTO users (unique_id, fname, lname, email, password, status, auth)
-                VALUES ({$ran_id}, '{$fname}','{$lname}', '{$email}','{$encrypt_pass}','{$status}', 'User')");
+                VALUES ({$ran_id}, '{$fname}','{$lname}', '{$email}','{$encrypt_pass}','{$status}', '0')");
                 if($insert_query){ //if these data inserted
                     $select_sql2 = mysqli_query($conn, "SELECT * FROM users WHERE email = '{$email}'");
                     

@@ -16,7 +16,7 @@
                     $_SESSION['unique_id'] = $row['unique_id'];
 
                     // Check user role
-                    if($row['auth'] == '1'){
+                    if($row['auth'] == 'Receptionist'){
                         // Redirect admins to users.php
                         echo "success";
                     } else {
