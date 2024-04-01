@@ -125,7 +125,7 @@ $(document).on('submit', '#updateAppointment', function (e) {
                 }, 5000);
 
             }else if(res.status == 200){
-                $('.alert').addRemove("error");
+                $('.alert').removeClass("error");
                 $('.alert').addClass("success");
                 $('#errorMessageUpdate').addClass('d-none');
 
@@ -174,7 +174,7 @@ $(document).on('click', '.deleteButton', function (e) {
                 
                 alert(res.message);
                 }else if(res.status == 200){
-                    $('.alert').addRemove("error");
+                    $('.alert').removeClass("error");
                     $('.alert').addClass("success");
                     $('#errorMessageUpdate').addClass('d-none');
                     $('#appointmentEditModal').modal('hide');

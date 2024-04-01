@@ -967,24 +967,10 @@ body{
 
 /* Calendar */
 
-.calendar-day {
-  width: 200px;
-  min-width: 170px;
-  max-width: 200px;
-  height: 120px;
-}
-.calendar-table {
-  margin: 0 auto;
-  width: 100px;
-}
-.selected {
-  background-color: #eee;
-}
-.outside .date {
-  color: #ccc;
-}
 
-
+.fc-event {
+  color: black !important;
+}
 
 
 
@@ -1077,6 +1063,8 @@ body{
   font-size: 22px;
   line-height: 40px;
 }
+
+
 
 
 
