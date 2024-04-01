@@ -57,6 +57,13 @@
         <span class="tooltip">Schedule</span>
         </li>
         <li>
+        <a href="users.php">
+            <i class='bx bx-chat' ></i>
+            <span class="links_name">Messages</span>
+        </a>
+        <span class="tooltip">Messages</span>
+        </li>
+        <li>
             <a href="calendar.php">
             <i class='bx bx-calendar' ></i>
             <span class="links_name">Calendar</span>
