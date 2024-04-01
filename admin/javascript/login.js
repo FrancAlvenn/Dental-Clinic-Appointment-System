@@ -34,7 +34,6 @@ $(document).ready(function() {
                   location.href = "doc-per/dashboard.php";
                 }else if(data === "IT Admin"){
                   location.href = "it-admin/dashboard.php";
-                  console.log();
                 }else{
                   errorText.style.display = "block";
                   errorText.textContent = data;

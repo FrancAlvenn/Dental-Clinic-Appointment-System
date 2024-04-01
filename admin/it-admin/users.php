@@ -1,44 +1,44 @@
 <?php 
-  include_once "../php/config.php";
+  include_once "php/config.php";
   include_once "header.php";
   if(!isset($_SESSION['unique_id'])){
-    header("location: ../login.php");
+    header("location: login.php");
   }
 ?>
-
-        <div class="container">
+    <div class="container">
             <div class="row ">
             
                 <div class="pt-5 ">
                     <div class="box p-2" style="height:90vh;">
                         <div class="center-div chat-space-admin d-flex flex-column align-items-center justify-content-top ">
                         <!-- Chat Area -->
-                            <section class="chat-area ">
+                          <section class="users">
                             <header>
+                              <div class="content">
                                 <?php 
-                                $user_id = mysqli_real_escape_string($conn, $_GET['user_id']);
-                                $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$user_id}");
-                                if(mysqli_num_rows($sql) > 0){
+                                  $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = 1285204382");
+                                  if(mysqli_num_rows($sql) > 0){
                                     $row = mysqli_fetch_assoc($sql);
-                                }else{
-                                    header("location: users.php");
-                                }
+                                  }
                                 ?>
-                                <a href="users.php" class="back-icon"><i class="fas fa-arrow-left"></i></a>
+                                
                                 <div class="details">
-                                <span><?php echo $row['fname']. " " . $row['lname'] ?></span>
-                                <p><?php echo $row['status']; ?></p>
+                                  <span><?php echo $row['fname']. " " . $row['lname'] ?></span>
+                                  <p><?php echo $row['status']; ?></p>
+                                </div>
+                              </div>
+                                <div class="search" style="width: 40%;">
+                                    <span class="text"></span>
+                                    <input type="text" placeholder="Enter name to search...">
+                                    <button><i class="fas fa-search"></i></button>
                                 </div>
                             </header>
-                            <div class="chat-box">
-
+                            <!-- add div.class here to show search container below header -->
+                            <div class="users-list">
+                        
                             </div>
-                            <form action="#" class="typing-area">
-                                <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $user_id; ?>" hidden>
-                                <input type="text" name="message" class="input-field" placeholder="Type a message here..." autocomplete="off">
-                                <button><i class="fab fa-telegram-plane"></i></button>
-                            </form>
-                        </section>
+                            <script src="javascript/load-content.js"></script>
+                          </section>
 
                         <script src="javascript/load-content.js"></script>
                         <script src="javascript/users.js"></script>
@@ -46,9 +46,7 @@
                 </div>
             </div>
     </div>
-</div>
-<script src="javascript/chat.js"></script>
-
+    <script src="javascript/load-content.js"></script>
 
 
     <script>

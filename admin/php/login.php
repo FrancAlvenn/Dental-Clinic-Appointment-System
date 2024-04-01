@@ -27,7 +27,7 @@
                         echo $row['auth'];
                     }else {
                         //For User Login
-                        echo "failed";
+                        echo "Account invalid, try again!";
                     }
 
                 }else{

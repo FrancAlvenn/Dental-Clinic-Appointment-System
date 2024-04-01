@@ -131,17 +131,6 @@ if(isset($_POST['update_patient']))
         return;
     }
 
-    // Validate date of birth
-    $current_date = date('Y-m-d');
-    if ($date_of_birth > $current_date) {
-        $res = [
-            'status' => 422,
-            'message' => 'Date of birth cannot be greater than today\'s date.'
-        ];
-        echo json_encode($res);
-        return;
-    }
-
     // Check for existing appointments with the same firstname, lastname, email, and request_id
     $query_check_duplicate = "SELECT * FROM patient_list WHERE firstname = '$firstname' AND lastname = '$lastname' AND email = '$email' AND patient_id != '$patient_id'";
     $result_duplicate = mysqli_query($conn, $query_check_duplicate);
