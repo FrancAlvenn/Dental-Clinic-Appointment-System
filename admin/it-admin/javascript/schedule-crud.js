@@ -16,6 +16,7 @@ $(document).on('submit', '#saveAppointment', function (e) {
             
             const res = jQuery.parseJSON(response);
             if(res.status == 422) {
+                $('.alert').addClass("error");
                 const alertMessage = document.querySelector('.alert-msg');
                 alertMessage.textContent = res.message;
                 $('.alert').addClass("show");
@@ -28,6 +29,8 @@ $(document).on('submit', '#saveAppointment', function (e) {
                 }, 5000);
                 
             }else if(res.status == 200){
+                $('.alert').removeClass("error");
+                $('.alert').addClass("success");
                 $('#saveAppointment')[0].reset();
                 $('#add_appointment').modal('hide');
                 // Show the notification popup
@@ -42,6 +45,7 @@ $(document).on('submit', '#saveAppointment', function (e) {
                 }, 5000);
 
             }else if(res.status == 500) {
+                $('.alert').addClass("error");
                 alert(res.message);
             }
             $('#saveAppointment')[0].reset();
@@ -108,6 +112,7 @@ $(document).on('submit', '#updateAppointment', function (e) {
             
             var res = jQuery.parseJSON(response);
             if(res.status == 422) {
+                $('.alert').addClass("error");
                 const alertMessage = document.querySelector('.alert-msg');
                 alertMessage.textContent = res.message;
                 $('.alert').addClass("show");
@@ -120,7 +125,8 @@ $(document).on('submit', '#updateAppointment', function (e) {
                 }, 5000);
 
             }else if(res.status == 200){
-
+                $('.alert').addRemove("error");
+                $('.alert').addClass("success");
                 $('#errorMessageUpdate').addClass('d-none');
 
                 $('#appointmentEditModal').modal('hide');
@@ -137,6 +143,7 @@ $(document).on('submit', '#updateAppointment', function (e) {
                 }, 5000);
 
             }else if(res.status == 500) {
+                $('.alert').addClass("error");
                 alert(res.message);
             }
         }
@@ -167,6 +174,8 @@ $(document).on('click', '.deleteButton', function (e) {
                 
                 alert(res.message);
                 }else if(res.status == 200){
+                    $('.alert').addRemove("error");
+                    $('.alert').addClass("success");
                     $('#errorMessageUpdate').addClass('d-none');
                     $('#appointmentEditModal').modal('hide');
                     // Show the notification popup

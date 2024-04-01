@@ -16,6 +16,7 @@ $(document).on('submit', '#savePatient', function (e) {
             
             const res = jQuery.parseJSON(response);
             if(res.status == 422) {
+                $('.alert').addClass("error");
                 const alertMessage = document.querySelector('.alert-msg');
                 alertMessage.textContent = res.message;
                 $('.alert').addClass("show");
@@ -27,6 +28,8 @@ $(document).on('submit', '#savePatient', function (e) {
                 }, 5000);
                 
             }else if(res.status == 200){
+                $('.alert').removeClass("error");
+                $('.alert').addClass("success");
                 $('#savePatient')[0].reset();
                 $('#add_patient').modal('hide');
                 // Show the notification popup
@@ -37,6 +40,7 @@ $(document).on('submit', '#savePatient', function (e) {
                 $('.alert').addClass("showAlert");
                 setTimeout(function(){
                     $('.alert').removeClass("show");
+                    $('.alert').removeClass("success");
                     $('.alert').addClass("hide");
                 }, 5000);
 
@@ -103,9 +107,9 @@ $(document).on('submit', '#updatePatient', function (e) {
         processData: false,
         contentType: false,
         success: function (response) {
-            console.log(response + "This works");
             var res = jQuery.parseJSON(response);
             if(res.status == 422) {
+                $('.alert').addClass("error");
                 const alertMessage = document.querySelector('.alert-msg');
                 alertMessage.textContent = res.message;
                 $('.alert').addClass("show");
@@ -117,7 +121,8 @@ $(document).on('submit', '#updatePatient', function (e) {
                 }, 5000);
 
             }else if(res.status == 200){
-
+                $('.alert').removeClass("error");
+                $('.alert').addClass("success");
                 $('#errorMessageUpdate').addClass('d-none');
 
                 $('#patientEditModal').modal('hide');
@@ -131,6 +136,7 @@ $(document).on('submit', '#updatePatient', function (e) {
                 setTimeout(function(){
                     $('.alert').removeClass("show");
                     $('.alert').addClass("hide");
+                    $('.alert').removeClass("success");
                 }, 5000);
 
             }else if(res.status == 500) {
@@ -161,9 +167,19 @@ $(document).on('click', '.deleteButton', function (e) {
 
                 var res = jQuery.parseJSON(response);
                 if(res.status == 500) {
-                
+                    $('.alert').addClass("error");
+                    const alertMessage = document.querySelector('.alert-msg');
+                    alertMessage.textContent = res.message;
+                    $('.alert').addClass("show");
+                    $('.alert').removeClass("hide");
+                    $('.alert').addClass("showAlert");
+                    setTimeout(function(){
+                        $('.alert').removeClass("show");
+                        $('.alert').addClass("hide");
+                    }, 5000);
                 alert(res.message);
                 }else if(res.status == 200){
+                    $('.alert').addClass("success ");
                     $('#errorMessageUpdate').addClass('d-none');
                     $('#patientEditModal').modal('hide');
                     // Show the notification popup
@@ -174,10 +190,20 @@ $(document).on('click', '.deleteButton', function (e) {
                     $('.alert').addClass("showAlert");
                     setTimeout(function(){
                         $('.alert').removeClass("show");
+                        $('.alert').removeClass("success");
                         $('.alert').addClass("hide");
                     }, 5000);
                 }else{
-
+                    $('.alert').addClass("error");
+                    const alertMessage = document.querySelector('.alert-msg');
+                    alertMessage.textContent = res.message;
+                    $('.alert').addClass("show");
+                    $('.alert').removeClass("hide");
+                    $('.alert').addClass("showAlert");
+                    setTimeout(function(){
+                        $('.alert').removeClass("show");
+                        $('.alert').addClass("hide");
+                    }, 5000);
                 }
             }
         });
