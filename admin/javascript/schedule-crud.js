@@ -1,5 +1,5 @@
 
-// Add Appointment
+// Add Appointment s
 $(document).on('submit', '#saveAppointment', function (e) {
     e.preventDefault();
 
@@ -99,9 +99,14 @@ $(document).on('click', '.editAppointment', function () {
 // Update Appointment
 $(document).on('submit', '#updateAppointment', function (e) {
     e.preventDefault();
-    const appointment_id = document.getElementsByClassName('updateButton').value
+    let appointment_id = document.getElementsByClassName('updateButton').value;
+    if(appointment_id == undefined){
+        const appointmentButton = document.getElementsByClassName('updateButton')[0]; // Access the first element with the class 'updateButton'
+        appointment_id = appointmentButton.value;
+    }
     const formData = new FormData(this);
     formData.append("update_appointment", true);
+    console.log(appointment_id);
     $.ajax({
         type: "POST",
         url: "php/schedule-crud.php?update_appointment=" + appointment_id,
@@ -159,7 +164,10 @@ $(document).on('click', '.deleteButton', function (e) {
     if(confirm('Are you sure you want to delete this data?'))
     {
         const delete_id = document.getElementsByClassName('deleteButton').value
-        console.log(delete_id);
+        if(delete_id == undefined){
+            const appointmentButton = document.getElementsByClassName('deleteButton')[0]; // Access the first element with the class 'updateButton'
+            delete_id = appointmentButton.value;
+        }
         $.ajax({
             type: "POST",
             url: "php/schedule-crud.php",
