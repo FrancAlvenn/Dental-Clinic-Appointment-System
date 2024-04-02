@@ -65,7 +65,7 @@
     <script src="javascript/patient-list.js"></script>
     
     
-    <!-- Add Appointment -->
+    <!-- Add Patient -->
 
     <div class="modal fade" id="add_patient" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -155,7 +155,7 @@
         </div>
     </div>
 
-    <!-- Update/Edit Appointment -->
+    <!-- Update/Edit Patient -->
 
     <div class="modal fade" id="patientEditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">

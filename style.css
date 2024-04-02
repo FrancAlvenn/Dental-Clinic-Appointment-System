@@ -23,10 +23,20 @@ body{
 }
 
 
+
 /* Web Design */
 #nav{
   flex-grow: 0;
 
+}
+
+#nav button{
+  background-color: #9BE0FF;
+}
+
+.carousel-item button{
+  background-color: #9BE0FF;
+  font-size: 15px!important;
 }
 .box{
   background: #9BE0FF;
@@ -558,7 +568,7 @@ header h2 {
   }
 
   .carousel-item p{
-      visibility: hidden;
+      visibility: hidden !important;
   }
 
   .carousel-item button{

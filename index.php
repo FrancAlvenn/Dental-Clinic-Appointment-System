@@ -17,6 +17,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
+    <!-- Scroll Reveal -->
+    <link rel="stylesheet" href="scrollreveal.min.js">
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
@@ -33,10 +36,12 @@
     </div>
     
     <!-- Navigation Bar -->
-    <nav class="navbar fixed-top navbar-expand-md bg-white shadow-lg p-3 mb-5 bg-white rounded">
+    <nav class="navbar fixed-top navbar-expand-md bg-white shadow-lg  mb-5 bg-white rounded">
         <div class="container" id="nav-container">
-            <img src="resources\brand_logo.jpg" alt="Brand Logo" class="img-fluid rounded-5 navbar-img">
-            <a href="#" class="navbar-brand collapse navbar-collapse px-3 " style="font-size: 16px;">Dr. Johnny Mar Cabugon Dental Clinic </a>
+            <a href="#headerCarousel">
+                <img src="resources\brand_logo.jpg" alt="Brand Logo" class="img-fluid rounded-5 navbar-img" style="width: 65px !important;" >
+            </a>
+            <a href="#headerCarousel" class="navbar-brand collapse navbar-collapse px-3 " style="font-size: 16px;">Dr. Johnny Mar Cabugon Dental Clinic </a>
             <button class="navbar-toggler" data-bs-toggle="collapse"
             data-bs-target="#nav" aria-controls = "nav" aria-label="Expand Navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -44,24 +49,27 @@
             <div class="collapse navbar-collapse" id="nav">
                 <ul class="navbar-nav me-lg-4 " style="font-size: 13px;">
                     <li class="nav-item me-lg-2">
-                        <a href="#" class="nav-link active" >Home</a>
+                        <a href="#headerCarousel" class="nav-link active" >Home</a>
                     </li>
                     <li class="nav-item me-lg-2">
-                        <a href="#" class="nav-link">Services</a>
+                        <a href="#servicesSection" class="nav-link">Services</a>
                     </li>
                     <li class="nav-item me-lg-2">
-                        <a href="#" class="nav-link">Contact Us</a>
+                        <a href="#testimonialSection" class="nav-link">Testimonials</a>
                     </li>
                     <li class="nav-item me-lg-2">
-                        <a href="#" class="nav-link">About Us</a>
+                        <a href="#appointmentSection" class="nav-link">Contact Us</a>
                     </li>
                     <li class="nav-item">
                         <hr class="divider">
                     </li>
 
                 </ul>
-                <button class="btn rounded-5 px-4 nav-btn"><i class="fa-solid fa-calendar"
+                <a href="#appointmentSection">
+                <button class="btn rounded-5 px-4 nav-btn" ><i class="fa-solid fa-calendar"
                 style="margin-right: 10px;"></i>Book an Appointment</button>
+                </a>
+                
             </div>
         </div>
     </nav>
@@ -69,7 +77,7 @@
     
 
     <!-- Header Carousel-->
-    <div id="headerCarousel" class="carousel slide pt-2 pb-5  " data-bs-ride="carouse">
+    <div id="headerCarousel" class="carousel slide pt-2 pb-5  " data-bs-ride="carousel" style="margin-bottom: 20px;">
         <div class="carousel-inner">
 
             <div class="carousel-item active carousel-item">
@@ -117,7 +125,7 @@
     </div>
 
     <!-- Image Text Container-->
-    <div class="container pt-5 pb-5  image-header-text">
+    <div class="container pt-5 pb-5  image-header-text" >
         <div class="row">
             <div class="col-md-6">
                 <div class="inner-div">
@@ -143,10 +151,10 @@
     </div>
 
 
-    <hr style="width: 75%; border: none; height: 1px; background-color: black; margin: 40px auto;">
+    <hr style="width: 75%; border: none; height: 1px; background-color: black; margin: 150px auto;" id="servicesSection" >
 
     <!-- Services Carousel(by 3)-->
-    <div class="container ps-0">
+    <div class="container ps-0" >
         
             <div class="title text-center pt-5 pb-5">
                 <h2>Services</h2>
@@ -225,13 +233,13 @@
     </div>
 
 
-    <hr style="width: 75%; border: none; height: 1px; background-color: black; margin: 40px auto;">
+    <hr style="width: 75%; border: none; height: 1px; background-color: black; margin: 150px auto;" id="testimonialSection">
 
     <!-- Testimonials Section-->
-    <div class="container">
+    <div class="container" >
         <section id="testimonial-section">
             <div class="row d-flex justify-content-center pb-5 ">
-                <div class="col-md-8 col-xl-8 text-center">
+                <div class="col-md-8 col-xl-8 text-center testimonials">
                 <h3 class="mb-4">Testimonials</h3>
                 <p class="mb-4 pb-2 mb-md-5 pb-md-0">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet
@@ -297,11 +305,11 @@
     </div>
     
 
-    <hr style="width: 75%; border: none; height: 1px; background-color: black; margin: 40px auto;">
+    <hr style="width: 75%; border: none; height: 1px; background-color: black; margin: 40px auto;" id="appointmentSection">
 
 
     <!-- Appointment Form Section-->
-    <div class="container" style="margin-bottom: 200px;">
+    <div class="container" style="margin-bottom: 200px;" >
         <div class="row d-flex justify-content-around  d-lg-flex justify-content-lg-start ">
             <!-- Form Column-->
             <div class="form-header mt-5 pt-5 mb-5 ps-lg-0 col-md-8 ps-lg-5 " >
@@ -383,14 +391,101 @@
                     <h5 class="py-2 ">Our Phone</h5>
                     <p class="py-2 ">0943 359 9161</p>
                     <hr>
-                    <h class="py-2 ">Our Email</h>
+                    <h5 class="py-2 ">Our Email</h5>
                     <p class="py-2">docjohnny2018@gmail.com</p>
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="container" style="margin-bottom: 200px;" >
+        <div class="row d-flex justify-content-around  d-lg-flex justify-content-lg-start ">
+            <!-- Form Column-->
+            <div class="form-header mt-5 pt-5 mb-5 ps-lg-0 col-md-8 ps-lg-5 " >
+                <h3>Get Appointment</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br>
+                    Nam corrupti molestiae totam.Velit dignissimos soluta beatae.</p>
+            </div>
+            <div class="col-lg-6 p-lg-4 p-xl-5 col-md-8 col-10 p-4 mb-5  rounded-5 form-body" style="background-color: #9BE0FF;">
 
+                <form action="" method="POST" enctype="multipart/form-data" novalidate id="appointmentForm" >
+                    <div class="row mb-5 mb-lg-3 pt-4 mb-md-3 form-appointment" >
+                        <div class="col-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" name="firstname" placeholder ="First Name" required style="margin-right: 10px;">
+                                <label for="text">First Name*</label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" name="lastname" placeholder ="First Name" required>
+                                <label for="text">Last Name*</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-5 mb-lg-3 mb-md-3 form-appointment">
+                        <div class="col-6">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" name="email" placeholder ="Enter you email here:" required>
+                                <label for="email" >Email*</label>
+                                <div class="invalid-feedback">Invalid Email</div>
+                                <div class="valid-feedback">Valid Email</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-floating">
+                                <input type="number_format" class="form-control" name="phone_number" placeholder ="Enter you phone number here" required>
+                                <label for="number" >Phone Number*</label>
+                                <div class="invalid-feedback">Invalid Phone Number</div>
+                                <div class="valid-feedback">Valid Phone Number</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-5 mb-lg-3 mb-md-3 form-appointment">
+                        <input type="date" class="form-control" name="preferred_date" placeholder ="Enter your preferred date" required>
+                        <label for="date" >Preferred Date*</label>
+                        <div class="invalid-feedback">Invalid Date</div>
+                        <div class="valid-feedback">Valid Date</div>
+                    </div>
+                    <div class="form-floating mb-5 mb-lg-3 mb-md-3 form-appointment">
+                        <input type="time" class="form-control" name="preferred_time" placeholder ="Enter your preferred time" required>
+                        <label for="time" >Preferred Time*</label>
+                        <div class="invalid-feedback">Invalid Time</div>
+                        <div class="valid-feedback">Valid Time</div>
+                    </div>
+                    <div class="form-floating mb-5 mb-lg-3 mb-md-3 form-appointment">
+                        <textarea class="form-control" id="textarea" rows="4" name="comments" placeholder ="Comments/Concerns" style="height: 200px; resize: none;"></textarea>
+                        <label for="textarea">Comments/Concerns</label>
+                    </div>
+                    <div class="container d-flex justify-content-end ">
+                        <button class="btn mt-4 px-5 py-2 rounded-5 border-1 border-black sched-btn" id="submit-button" style="color: black;">Submit</button>
+                    </div>
+                </form>
+            </div>
+
+            <script src="javascript/submit-appointment.js"></script>
+
+            <div class="col-lg-5 col-6 rounded-5 col-md-8 mt-md-5 col-10">
+                <div class="container">
+                    <h4 class="py-2">Our Address</h4>
+                    <div class="container p-0">
+                        <!--Google map-->
+                        <div id="map-container-google-1" class="z-depth-1-half map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d964.3760947637345!2d120.92813962851038!3d14.796923995733389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ad6fb57f5813%3A0x2ba0a06c1d88eb1a!2s17%20Gov%20Fortunato%20Halili%20Ave%2C%20Bocaue%2C%20Bulacan!5e0!3m2!1sen!2sph!4v1708916664903!5m2!1sen!2sph"
+                             width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                    <p class="py-2 ">019 Gov. F Halili Ext Ave Binang 2nd , Bocaue, Philippines</p>
+                    <hr>
+                    <h5 class="py-2 ">Our Phone</h5>
+                    <p class="py-2 ">0943 359 9161</p>
+                    <hr>
+                    <h5 class="py-2 ">Our Email</h5>
+                    <p class="py-2">docjohnny2018@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     
@@ -440,7 +535,7 @@
         </div>
 
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-            © 2020 Copyright
+            © 2024 Copyright
         </div>
     </footer>
 
@@ -487,8 +582,8 @@
     </div>
     
     <script src="javascript/load-content.js"></script>
-
-
+    <script src="scrollreveal.js"></script>
+    <script src="script.js"></script>
     <script>
         const form = document.querySelector("form")
 
