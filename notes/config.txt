@@ -3,6 +3,7 @@ When changing database, don't forget to change the location href to the unique i
 login.php
 login.js
 signup.js
+appointment-trend.php on admin
 
 
 Admin Unique ID : 1285204382
