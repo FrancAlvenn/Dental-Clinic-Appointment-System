@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	display_events();
-}); //end document.ready block
+    setInterval(display_events, 500);
+});
 
 function display_events() {
 	var events = new Array();
