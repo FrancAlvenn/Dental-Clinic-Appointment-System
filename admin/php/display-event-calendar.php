@@ -17,6 +17,8 @@ if($count>0)
 
 	$data_arr[$i]['request_id'] = $data_row['request_id'];
 	$data_arr[$i]['title'] = $fullname;
+    $data_arr[$i]['firstname'] = $data_row['firstname'];
+    $data_arr[$i]['lastname'] = $data_row['lastname'];
 	$data_arr[$i]['start'] = date("Y-m-d H:i:s", strtotime($data_row['preferred_date'] . ' ' . $data_row['preferred_time']));
     $data_arr[$i]['end'] = date("Y-m-d H:i:s", strtotime($data_row['preferred_date'] . ' ' . $data_row['preferred_time'] . ' +1 hour'));
     $data_arr[$i]['service'] = $data_row['service'];

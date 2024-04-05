@@ -17,6 +17,8 @@ $.ajax({
     	events.push({
             request_id: result[i].request_id,
             title:result[i].title,
+            firstname:result[i].firstname,
+            lastname:result[i].lastname,
             start: result[i].start,
             end: result[i].end,
             service: result[i].service,
@@ -48,13 +50,13 @@ $.ajax({
                 '<div class="row mb-5 mb-lg-3 pt-4 mb-md-3 form-appointment">' +
                 '<div class="col-6">' +
                 '<div class="form-floating">' +
-                '<input type="text" class="form-control" name="firstname" placeholder="First Name" required="" style="margin-right: 10px;" value="' + event.title + '" >' +
+                '<input type="text" class="form-control" name="firstname" placeholder="First Name" required="" style="margin-right: 10px;" value="' + event.firstname + '" >' +
                 '<label for="text">First Name*</label>' +
                 '</div>' +
                 '</div>' +
                 '<div class="col-6">' +
                 '<div class="form-floating">' +
-                '<input type="text" class="form-control" name="lastname" placeholder="First Name" required="" value="' + event.title + '" >' +
+                '<input type="text" class="form-control" name="lastname" placeholder="First Name" required="" value="' + event.lastname + '" >' +
                 '<label for="text">Last Name*</label>' +
                 '</div>' +
                 '</div>' +
