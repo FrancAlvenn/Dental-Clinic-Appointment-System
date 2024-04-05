@@ -34,10 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // User is not a patient, insert a new patient record
         $ran_id = rand(time(),100000000);
-        $insert_patient_query = "INSERT INTO patient_list (patient_id, firstname, lastname, email, phone_number)
-                                VALUES ('$ran_id', '$firstname', '$lastname', '$email', '$phone_number')";
-        mysqli_query($conn, $insert_patient_query);
-        
         $patient_id = $ran_id;
     }
 
@@ -46,6 +42,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             VALUES ('$patient_id','$firstname', '$lastname', '$email', '$phone_number', '$preferred_date', '$preferred_time', '$comments')";
 
     if (mysqli_query($conn, $sql)) {
+        $subject = "Appointment Request";
+        $comment =  $firstname . " " . $lastname . " requested an appointment.";
+        $query = "INSERT INTO comments(comment_subject, comment_text)VALUES ('$subject', '$comment')";
+        mysqli_query($conn, $query);
         $res = [
             'status' => 200,
             'message' => 'Appointment Request Sent! Please wait for approval!'
