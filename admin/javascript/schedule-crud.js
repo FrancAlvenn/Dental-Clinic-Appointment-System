@@ -163,7 +163,7 @@ $(document).on('click', '.deleteButton', function (e) {
 
     if(confirm('Are you sure you want to delete this data?'))
     {
-        const delete_id = document.getElementsByClassName('deleteButton').value
+        let delete_id = document.getElementsByClassName('deleteButton').value
         if(delete_id == undefined){
             const appointmentButton = document.getElementsByClassName('deleteButton')[0]; // Access the first element with the class 'updateButton'
             delete_id = appointmentButton.value;

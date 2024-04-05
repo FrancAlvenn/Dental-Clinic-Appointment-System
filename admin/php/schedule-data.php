@@ -38,7 +38,7 @@
             $output .= '<div class="col d-flex justify-content-center align-items-center pb-5 col-xl-4">
                         <div class="card" style="width: 30rem;">
                             <div class="container pt-3">
-                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle" style="color: green!important"></i>
                                 <h4 class="card-title text-center pt-3">' . $row2['service'] . '</h4>
                                 <div class="card-body text-center">
                                     <p class="card-text">' . $row2['firstname'] . ' ' . $row2['lastname'] . '</p>
