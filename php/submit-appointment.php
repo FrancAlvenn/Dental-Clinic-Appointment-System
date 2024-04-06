@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mysqli_query($conn, $sql)) {
         $subject = "Appointment Request";
         $comment =  $firstname . " " . $lastname . " requested an appointment.";
-        $query = "INSERT INTO comments(comment_subject, comment_text)VALUES ('$subject', '$comment')";
+        $query = "INSERT INTO comments(request_id, comment_subject, comment_text)VALUES ('$patient_id','$subject', '$comment')";
         mysqli_query($conn, $query);
         $res = [
             'status' => 200,

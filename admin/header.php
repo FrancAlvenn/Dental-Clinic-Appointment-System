@@ -71,7 +71,6 @@
         </div>
     </div>
 
-
     <div class="sidebar">
         <div class="logo-details">
         <i class='bx bxs-user-circle icon'></i>
@@ -134,6 +133,9 @@
         </li>
         </ul>
     </div>
+
+
+    <?php include_once "sched-crud.php"; ?>
 
     <script src="javascript/fetchNotification.js"></script>
     <script src="javascript/sidebar.js"></script>
