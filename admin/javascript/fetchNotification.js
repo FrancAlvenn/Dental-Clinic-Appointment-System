@@ -11,7 +11,7 @@ $(document).on('click', '.dropdown-toggle', function(){
  //set Interval
  setInterval(function(){
   load_unseen_notification();;
- }, 500);
+ }, 1000);
 
 // Viewed Notification
 $(document).on('click', '.subject-comment a', function(e) {
@@ -29,7 +29,7 @@ $(document).on('click', '.subject-comment a', function(e) {
   });
 });
 
-
+let new_notif = 0;
 function load_unseen_notification(view = '')
     {
      $.ajax({
@@ -43,6 +43,13 @@ function load_unseen_notification(view = '')
        if(data.unseen_notification > 0)
        {
         $('.count').html(data.unseen_notification);
+
+        if(data.unseen_notification > new_notif){
+            new_notif = data.unseen_notification;
+            let audio = new Audio("../resources/system-notification-199277.mp3")
+            audio.play();
+        }
+
        }
       }
      });

@@ -77,12 +77,10 @@ function getRelativeTime($timestamp) {
       return $hours . " hour" . ($hours > 1 ? "s" : "") . " ago";
   } elseif ($minutes > 0) {
       return $minutes . " minute" . ($minutes > 1 ? "s" : "") . " ago";
-  } else if($seconds > 45){
-      return $seconds . " second" . ($seconds > 1 ? "s" : "") . " ago";
-  } else if($seconds > 30){
+  } else if($seconds = 30){
     return $seconds . " second" . ($seconds > 1 ? "s" : "") . " ago";
-  }else if($seconds > 15){
-    return $seconds . " second" . ($seconds > 1 ? "s" : "") . " ago";
+  }else{
+    return "just now";
   }
 }
 
