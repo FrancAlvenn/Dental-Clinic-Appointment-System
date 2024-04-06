@@ -15,7 +15,7 @@ while($row = mysqli_fetch_array($result))
     $output .= '
     <li class="notifications-list">
       <div class="subject-comment">
-        <a href="calendar.php"  value="'. $row["comment_id"]  .'">
+        <a href="#"  value="'. $row["request_id"]  .'" class="editAppointments" data-comment-id="' . $row["comment_id"] . '">
           <strong>'.$row["comment_subject"].'</strong><br />
           <small>'.$row["comment_text"].'</small>
         </a>

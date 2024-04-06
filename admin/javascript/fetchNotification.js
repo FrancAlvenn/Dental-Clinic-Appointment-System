@@ -16,7 +16,7 @@ $(document).on('click', '.dropdown-toggle', function(){
 // Viewed Notification
 $(document).on('click', '.subject-comment a', function(e) {
   e.preventDefault();
-  let id = $(this).attr('value'); // Get value attribute of the clicked <a> tag
+  let id = $(this).data('comment-id');
   $.ajax({
       url: "php/fetchNotification.php", // PHP file to update comment status
       method: "POST",
