@@ -7,14 +7,11 @@ function loadAppointmentTrend(){
         url : "http://localhost/DentalClinicAppointment_SAD/admin/php/appointment-trend.php",
         type : "GET",
         success : function(data){
-            console.log(data);
-
             var currentDate = new Date();
             var currentMonth = currentDate.getMonth() + 1;
             var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
             var currentMonthName = months[currentDate.getMonth()];
 
-            console.log("" + currentMonth);
 
             let _month = [];
             let _total_appointments = [];
