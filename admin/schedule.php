@@ -29,19 +29,37 @@
                         <header style="display: flex; justify-content: space-between;margin-bottom: 10px;">
                         <div class="container outer d-flex align-items-center justify-content-start">
                         <div class="d-flex align-items-center ">
-                        <div class="form-floating form-appointment form-check-inline">
-                            <input type="date" class="form-control input-date" name="schedule_date" placeholder ="Enter a date" style="font-size:12px;" value="<?php echo date('Y-m-d'); ?>">
-                            <label for="date">Date</label>
-                            <div class="invalid-feedback">Invalid Date</div>
-                            <div class="valid-feedback">Valid Date</div>
-                        </div>
-
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" value="" id="show-all-checkbox">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Display All Dates
-                            </label>
-                        </div>
+                            <div class="form-floating form-appointment form-check-inline">
+                                <input type="date" class="form-control input-date" name="schedule_date" placeholder ="Enter a date" style="font-size:12px;" value="<?php echo date('Y-m-d'); ?>">
+                                <label for="date">Date</label>
+                                <div class="invalid-feedback">Invalid Date</div>
+                                <div class="valid-feedback">Valid Date</div>
+                            </div>
+                            <div class="input-group">
+                                <label class="input-group-text" for="show-all-select">Sort</label>
+                                <select class="form-select" id="show-all-select">
+                                    <option value=""selected>None</option>
+                                    <optgroup label="Date Range">
+                                        <option value="all">All Appointments</option>
+                                        <option value="upcoming">Upcoming Appointments</option>
+                                        <option value="past">Past Appointments</option>
+                                    </optgroup>
+                                    <optgroup label="Months">
+                                        <option value="1">January</option>
+                                        <option value="2">February</option>
+                                        <option value="3">March</option>
+                                        <option value="4">April</option>
+                                        <option value="5">May</option>
+                                        <option value="6">June</option>
+                                        <option value="7">July</option>
+                                        <option value="8">August</option>
+                                        <option value="9">September</option>
+                                        <option value="10">October</option>
+                                        <option value="11">November</option>
+                                        <option value="12">December</option>
+                                    </optgroup>
+                                </select>
+                            </div>
                         </div>
                         <div class="vertical-line-schedule"></div>
                         <div class="">
