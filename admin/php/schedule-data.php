@@ -54,20 +54,20 @@
     if ($comboBoxSelect === "all") {
         // Retrieve all appointments regardless of status
         $sql = "SELECT * FROM appointment_requests WHERE status = '$status' ORDER BY preferred_date, TIME(preferred_time)";
-        $text .= "No appointments found!";
+        $text .= "No ". $status ." appointments found!";
     } elseif ($comboBoxSelect === "upcoming") {
         // Retrieve upcoming appointments based on the current date
         $sql = "SELECT * FROM appointment_requests WHERE status = '$status' AND preferred_date >= CURDATE() ORDER BY preferred_date, TIME(preferred_time) ";
-        $text .= "No upcoming appointments found!";
+        $text .= "No ". $status ." upcoming appointments found!";
     } elseif ($comboBoxSelect === "past") {
         // Retrieve past appointments based on the current date
         $sql = "SELECT * FROM appointment_requests WHERE status = '$status' AND preferred_date < CURDATE() ORDER BY preferred_date DESC, TIME(preferred_time) DESC";
-        $text .= "No past appointments found!";
+        $text .= "No ". $status ." past appointments found!";
     } elseif (in_array($comboBoxSelect, ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'])) {
         // Retrieve appointments for a specific month
         $selectedMonth = $months[$comboBoxSelect];
         $sql = "SELECT * FROM appointment_requests WHERE status = '$status' AND MONTH(preferred_date) = '$comboBoxSelect' ORDER BY preferred_date, TIME(preferred_time)";
-        $text .= "No appointments found in " . $selectedMonth;
+        $text .= "No ". $status ." appointments found in " . $selectedMonth;
     }else{
         $sql = "SELECT * FROM appointment_requests WHERE preferred_date = '$selectedDate' ORDER BY preferred_date, TIME(preferred_time)";
         $text .= "No appointments found on " .  $selectedDate;
