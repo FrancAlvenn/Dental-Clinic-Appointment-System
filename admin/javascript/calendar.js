@@ -1,11 +1,10 @@
 $(document).ready(function() {
 	display_events();
-    setInterval(display_events, 500);
+    setInterval(display_events, 1000);
 });
 
 function display_events() {
 	var events = new Array();
-    console.log("update");
 $.ajax({
     url: 'php/display-event-calendar.php',  
     dataType: 'json',

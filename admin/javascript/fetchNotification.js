@@ -29,9 +29,10 @@ $(document).on('click', '.subject-comment a', function(e) {
   });
 });
 
-let new_notif = 0;
+let new_notif;
 function load_unseen_notification(view = '')
     {
+        console.log("New Notif = " + new_notif);
      $.ajax({
       url:"php/fetchNotification.php",
       method:"POST",
@@ -44,7 +45,11 @@ function load_unseen_notification(view = '')
        {
         $('.count').html(data.unseen_notification);
 
-        if(data.unseen_notification > new_notif){
+
+        if(new_notif == undefined){
+            new_notif = data.unseen_notification;
+        }
+        if (data.unseen_notification > new_notif) {
             new_notif = data.unseen_notification;
             let audio = new Audio("../resources/system-notification-199277.mp3")
             audio.play();

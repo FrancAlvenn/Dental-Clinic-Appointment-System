@@ -31,8 +31,9 @@ $(document).on('submit', '#saveAppointment', function (e) {
             }else if(res.status == 200){
                 $('.alert').removeClass("error");
                 $('.alert').addClass("success");
-                $('#saveAppointment')[0].reset();
                 $('#add_appointment').modal('hide');
+                $('.modal-backdrop').remove();
+                $('#saveAppointment')[0].reset();
                 // Show the notification popup
                 const alertMessage = document.querySelector('.alert-msg');
                 alertMessage.textContent = res.message;
@@ -206,7 +207,7 @@ $(document).on('submit', '#updateAppointment', function (e) {
                 $('.alert').removeClass("error");
                 $('.alert').addClass("success");
                 $('#errorMessageUpdate').addClass('d-none');
-
+                $('.modal-backdrop').remove();
                 $('#appointmentEditModal').modal('hide');
                 $('#updateAppointment')[0].reset();
                 // Show the notification popup
@@ -219,6 +220,9 @@ $(document).on('submit', '#updateAppointment', function (e) {
                     $('.alert').removeClass("show");
                     $('.alert').addClass("hide");
                 }, 5000);
+
+                let audio = new Audio("../resources/system-notification-199277.mp3")
+                audio.play();
 
             }else if(res.status == 500) {
                 $('.alert').addClass("error");
@@ -258,6 +262,7 @@ $(document).on('click', '.deleteButton', function (e) {
                     $('.alert').removeClass("error");
                     $('.alert').addClass("success");
                     $('#errorMessageUpdate').addClass('d-none');
+                    $('.modal-backdrop').remove();
                     $('#appointmentEditModal').modal('hide');
                     // Show the notification popup
                     const alertMessage = document.querySelector('.alert-msg');
@@ -269,6 +274,9 @@ $(document).on('click', '.deleteButton', function (e) {
                         $('.alert').removeClass("show");
                         $('.alert').addClass("hide");
                     }, 5000);
+
+                    let audio = new Audio("../resources/system-notification-199277.mp3")
+                    audio.play();
                 }else{
 
                 }

@@ -12,11 +12,18 @@ if(isset($_POST['view'])){
             if ($row["comment_status"] == 1){
                 $status = "viewed";
             }
+            $notification_class = "";
+            if ($row["comment_subject"] == "Appointment Request" || $row["comment_subject"] == "Appointment Added" || $row["comment_subject"] == "Appointment Updated"){
+              $notification_class = "editAppointments";
+            }else if($row["comment_subject"] == "Patient Record Added" || $row["comment_subject"] == "Patient Record Edit"){
+
+            }
+
             $notification_timestamp = $row["notification_timestamp"];
             $output .= '
             <li class="notifications-list">
               <div class="subject-comment">
-                <a href="#"  value="'. $row["request_id"]  .'" class="editAppointments" data-comment-id="' . $row["comment_id"] . '">
+                <a href="#"  value="'. $row["request_id"]  .'" class="'. $notification_class  .'" data-comment-id="' . $row["comment_id"] . '">
                   <strong>'.$row["comment_subject"].'</strong><br />
                   <small>'.$row["comment_text"].'</small>
                   <p class="timestamp '. $status .'" id="timestamp">'.getRelativeTime($notification_timestamp).'</p>
@@ -77,8 +84,8 @@ function getRelativeTime($timestamp) {
       return $hours . " hour" . ($hours > 1 ? "s" : "") . " ago";
   } elseif ($minutes > 0) {
       return $minutes . " minute" . ($minutes > 1 ? "s" : "") . " ago";
-  } else if($seconds = 30){
-    return $seconds . " second" . ($seconds > 1 ? "s" : "") . " ago";
+  } else if($seconds > 30){
+    return "30 seconds ago";
   }else{
     return "just now";
   }

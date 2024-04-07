@@ -786,6 +786,8 @@ body{
   justify-content: space-between;
 }
 
+
+
 :is(.schedule, .schedule-list) .content{
   display: flex;
   align-items: center;
@@ -800,7 +802,7 @@ body{
 }
 
 .schedule .search{
-  width: 40%;
+  width: 30%;
   margin: 15px 0;
   display: flex;
   position: relative;
@@ -916,7 +918,7 @@ body{
   min-width: 450px;
   position: absolute;
   right: 0;
-  top: 130px;
+  top: 80vh;
   border-radius: 4px;
   border-left: 8px solid #1CB358;
   overflow: hidden;
