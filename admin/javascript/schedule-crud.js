@@ -173,6 +173,7 @@ function loadAppointmentDetails(commentId) {
 // Update Appointment
 $(document).on('submit', '#updateAppointment', function (e) {
     e.preventDefault();
+    e.stopImmediatePropagation();
     let appointment_id = document.getElementsByClassName('updateButton').value;
     if(appointment_id == undefined){
         const appointmentButton = document.getElementsByClassName('updateButton')[0]; // Access the first element with the class 'updateButton'
@@ -221,8 +222,6 @@ $(document).on('submit', '#updateAppointment', function (e) {
                     $('.alert').addClass("hide");
                 }, 5000);
 
-                let audio = new Audio("../resources/system-notification-199277.mp3")
-                audio.play();
 
             }else if(res.status == 500) {
                 $('.alert').addClass("error");
@@ -232,6 +231,7 @@ $(document).on('submit', '#updateAppointment', function (e) {
     });
 
 });
+
 
 
 //Delete Appointment
@@ -275,8 +275,6 @@ $(document).on('click', '.deleteButton', function (e) {
                         $('.alert').addClass("hide");
                     }, 5000);
 
-                    let audio = new Audio("../resources/system-notification-199277.mp3")
-                    audio.play();
                 }else{
 
                 }

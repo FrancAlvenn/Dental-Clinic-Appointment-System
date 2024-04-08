@@ -24,12 +24,14 @@ $(document).on('click', '.subject-comment a', function(e) {
       success: function(response) {
           console.log("Comment status updated successfully");
           $('.count').html('');
+          new_notif -= 1;
+          console.log("New_Notif After View: " , new_notif);
           load_unseen_notification();
       }
   });
 });
 
-let new_notif;
+let new_notif = 0;
 function load_unseen_notification(view = '')
     {
         console.log("New Notif = " + new_notif);
@@ -46,7 +48,7 @@ function load_unseen_notification(view = '')
         $('.count').html(data.unseen_notification);
 
 
-        if(new_notif == undefined){
+        if(new_notif == undefined || 0){
             new_notif = data.unseen_notification;
         }
         if (data.unseen_notification > new_notif) {
