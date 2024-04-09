@@ -31,7 +31,8 @@ $(document).on('click', '.subject-comment a', function(e) {
   });
 });
 
-let new_notif = 0;
+let new_notif;
+let notificationsLoaded = false;
 function load_unseen_notification(view = '')
     {
         console.log("New Notif = " + new_notif);
