@@ -63,7 +63,8 @@
                 <span><i class="fa-solid fa-bell fa-shake" style="font-size:20px;"></i></span>
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <li class="dropdown-header">Notifications</li>
+            <li class="dropdown-header">Notifications<span><a href="#">Mark all as read</a></span></li>
+            <hr style="width: 90%; margin: 15px auto;">
             <div class="notifications-items">
 
             </div>
