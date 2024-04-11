@@ -15,8 +15,6 @@ if(isset($_POST['view'])){
             $notification_class = "";
             if ($row["comment_subject"] == "Appointment Request" || $row["comment_subject"] == "Appointment Added" || $row["comment_subject"] == "Appointment Updated"){
               $notification_class = "editAppointments";
-            }else if($row["comment_subject"] == "Patient Record Added" || $row["comment_subject"] == "Patient Record Edit"){
-
             }
 
             $notification_timestamp = $row["notification_timestamp"];
@@ -47,11 +45,17 @@ if(isset($_POST['view'])){
     );
     echo json_encode($data);
 
-    if($_POST["view"] != '')
+    if($_POST["view"] == 'yes')
     {
         $id = mysqli_real_escape_string($conn, $_POST['comment_id']);
         $update_query = "UPDATE comments SET comment_status = 1 WHERE comment_id =" .$id;
         mysqli_query($conn, $update_query);
+    }
+
+    if($_POST["view"] == 'yes-all')
+    {
+      $update_query = "UPDATE comments SET comment_status = 1";
+      mysqli_query($conn, $update_query);
     }
 }
 

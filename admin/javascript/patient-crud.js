@@ -108,6 +108,7 @@ $(document).on('submit', '#updatePatient', function (e) {
         contentType: false,
         success: function (response) {
             var res = jQuery.parseJSON(response);
+            console.log(res)
             if(res.status == 422) {
                 $('.alert').addClass("error");
                 const alertMessage = document.querySelector('.alert-msg');
@@ -124,7 +125,6 @@ $(document).on('submit', '#updatePatient', function (e) {
                 $('.alert').removeClass("error");
                 $('.alert').addClass("success");
                 $('#errorMessageUpdate').addClass('d-none');
-
                 $('#patientEditModal').modal('hide');
                 $('#updatePatient')[0].reset();
                 // Show the notification popup

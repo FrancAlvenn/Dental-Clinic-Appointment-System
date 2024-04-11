@@ -26,7 +26,7 @@ body{
 /* Notification / Notification-Area */
 
 .notification-area{
-  position: absolute;
+  position: fixed;
   right: 6%;
   top: 5%;
   height: auto;
@@ -40,7 +40,7 @@ body{
 }
 
 .notifications-items{
-  height: 382px!important;
+  height: 360px!important;
   overflow-y: auto!important;
 }
 
@@ -57,10 +57,19 @@ body{
 }
 
 .dropdown-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 25px;
   color: #000;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
-  margin-bottom: 10px;
+}
+
+.dropdown-header span a{
+  font-size: 10px;
+  color: #6fd1ff;
+  text-decoration: underline;
 }
 
 
@@ -80,6 +89,11 @@ body{
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.notifications-items strong{
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .subject-comment {
@@ -108,6 +122,14 @@ body{
 }
 .notification-dot.viewed{
   color: #ccc;
+}
+
+.notifications-items .editAppointments strong{
+  color: #6fd1ff!important;
+}
+
+.notifications-items .editAppointments strong:hover{
+  text-decoration: underline ;
 }
 
 
@@ -224,23 +246,6 @@ body{
   padding: 0 20px 0 50px;
   width: 100%;
 }
-.sidebar .bx-search{
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  font-size: 22px;
-  background: #6fd1ff;
-  color: #000;
-}
-.sidebar.open .bx-search:hover{
-  background: #6fd1ff;
-  color: #000;
-}
-.sidebar .bx-search:hover{
-  background: #000;
-  color: #6fd1ff;
-}
 .sidebar li a{
   display: flex;
   height: 100%;
@@ -356,6 +361,171 @@ body{
     display: none;
   }
 }
+
+/* Contacts */
+
+.modal-contact-content{
+ 
+  overflow-y: auto;
+}
+
+#modal-contact-body{
+  height: 500px!important;
+  overflow: auto;
+}
+
+.list-group-item{
+  height: 60px;
+  line-height: 40px;
+}
+
+.list-group-item:hover{
+  background-color: #9BE0FF;
+}
+
+.list-group-item label{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.numContact{
+  font-size: 14px;
+
+}
+
+.icon-holder{
+  text-align: left;
+  padding-top: 10px;
+}
+
+#openContactSelector{
+  font-size: 30px;
+  color: #6fd1ff;
+}
+
+.modal-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-footer{
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-footer  .unselectContact{
+  padding: 10px 10px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.unselectContact {
+  width: 10px;
+  height: 10px;
+  font-size: 10px;
+  margin-right: 15px;
+  background-color: #f5c6cb;
+}
+
+.modal-footer  .unselectContact:hover{
+  background-color: #DC3545;
+}
+
+.contact-btn{
+  width: 150px;
+  margin-left: 10px;
+  background-color: #ade5ffea;
+}
+
+.contact-btn:hover{
+  background-color: #6fd1ff;
+}
+
+.contact-btn-close{
+  background-color: #f5c6cb;
+}
+
+.contact-btn-close:hover{
+  background-color: #f74254;
+}
+
+
+.contact-header .search{
+  width: 40%;
+  margin: 15px 0;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+}
+.contact-header .search .text{
+  font-size: 13px;
+  margin-right: 10px!important;
+}
+.contact-header .search input{
+  position: absolute;
+  height: 42px;
+  width: calc(100% - 50px);
+  font-size: 13px;
+  padding: 0 13px;
+  border: 1px solid #e6e6e6;
+  outline: none;
+  border-radius: 5px 0 0 5px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+.contact-header .search input.show{
+  opacity: 1;
+  pointer-events: auto;
+}
+.contact-header .search button{
+  position: relative;
+  z-index: 1;
+  width: 47px;
+  height: 42px;
+  font-size: 17px;
+  cursor: pointer;
+  border: none;
+  background: #fff;
+  color: #333;
+  outline: none;
+  border-radius: 0 5px 5px 0;
+  transition: all 0.2s ease;
+}
+.contact-header .search button.active{
+  background: #9BE0FF;
+  color: #fff;
+}
+
+.search button.active i::before{
+  content: '\f00d';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Web Design */
 #nav{

@@ -31,7 +31,8 @@ $(document).on('click', '.subject-comment a', function(e) {
   });
 });
 
-let new_notif = 0;
+let new_notif;
+let notificationsLoaded = false;
 function load_unseen_notification(view = '')
     {
         console.log("New Notif = " + new_notif);
@@ -62,4 +63,17 @@ function load_unseen_notification(view = '')
      });
     }
 
-    
+$(document).on('click', '.dropdown-header span a',function(e){
+    e.preventDefault();
+    $.ajax({
+        url: "php/fetchNotification.php",
+        method: "POST",
+        data: { view: 'yes-all'},
+        success: function(response) {
+            console.log("All notification viewed");
+            $('.count').html('');
+            new_notif = 0;
+            load_unseen_notification();
+        }
+    });
+})
