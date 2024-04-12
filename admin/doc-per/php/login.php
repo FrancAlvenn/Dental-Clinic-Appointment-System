@@ -16,12 +16,18 @@
                     $_SESSION['unique_id'] = $row['unique_id'];
 
                     // Check user role
-                    if($row['auth'] == '1'){
-                        // Redirect admins to users.php
-                        echo "success";
-                    } else {
-                        // Redirect regular users to chat.php with admin's unique_id
-                        echo "failed";
+                    if($row['auth'] == 'Receptionist'){
+                        //For Receptionist Login
+                        echo $row['auth'];
+                    }else if ($row['auth'] == 'Doctor'){
+                        //For Doctor Persona Login
+                        echo $row['auth'];
+                    }else if ($row['auth'] == 'IT Admin'){
+                        //For IT Administrator
+                        echo $row['auth'];
+                    }else {
+                        //For User Login
+                        echo "Account invalid, try again!";
                     }
 
                 }else{

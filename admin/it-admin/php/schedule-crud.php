@@ -58,6 +58,10 @@ if(isset($_POST['save_appointment']))
 
     if($query_run)
     {
+        $subject = "Appointment Added";
+            $comment = "Appointment scheduled for " . $firstname . " " . $lastname;
+            $query = "INSERT INTO comments(request_id, comment_subject, comment_text)VALUES ('$ran_id','$subject', '$comment')";
+            mysqli_query($conn, $query);
         $res = [
             'status' => 200,
             'message' => 'Appointment Created Successfully'
@@ -166,6 +170,10 @@ if(isset($_POST['update_appointment']))
 
     if($query_run)
     {
+        $subject = "Appointment Updated";
+            $comment = "Appointment details have been successfully updated for , " . $firstname . " " . $lastname;
+            $query = "INSERT INTO comments(request_id, comment_subject, comment_text)VALUES ('$appointment_id','$subject', '$comment')";
+            mysqli_query($conn, $query);
         $res = [
             'status' => 200,
             'message' => 'Appointment Updated Successfully'
@@ -196,6 +204,10 @@ if(isset($_POST['delete_appointment']))
 
     if($query_run)
     {
+        $subject = "Appointment Deleted";
+            $comment = "Appointment for " . $firstname . " " . $lastname . " has been deleted!";
+            $query = "INSERT INTO comments(request_id, comment_subject, comment_text)VALUES ('$delete_id','$subject', '$comment')";
+            mysqli_query($conn, $query);
         $res = [
             'status' => 200,
             'message' => 'Appointment Deleted Successfully'

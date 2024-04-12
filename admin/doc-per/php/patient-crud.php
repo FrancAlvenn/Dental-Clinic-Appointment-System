@@ -56,6 +56,10 @@ if(isset($_POST['save_patient']))
 
     if($query_run)
     {
+        $subject = "Patient Record Added";
+            $comment = "Patient record successfully added for , " . $firstname . " " . $lastname;
+            $query = "INSERT INTO comments(request_id, comment_subject, comment_text)VALUES ('$ran_id','$subject', '$comment')";
+            mysqli_query($conn, $query);
         $res = [
             'status' => 200,
             'message' => 'Patient Added Successfully'
@@ -131,6 +135,17 @@ if(isset($_POST['update_patient']))
         return;
     }
 
+    // Validate date of birth
+    $current_date = date('Y-m-d');
+    if ($date_of_birth > $current_date) {
+        $res = [
+            'status' => 422,
+            'message' => 'Date of birth cannot be greater than today\'s date.'
+        ];
+        echo json_encode($res);
+        return;
+    }
+
     // Check for existing appointments with the same firstname, lastname, email, and request_id
     $query_check_duplicate = "SELECT * FROM patient_list WHERE firstname = '$firstname' AND lastname = '$lastname' AND email = '$email' AND patient_id != '$patient_id'";
     $result_duplicate = mysqli_query($conn, $query_check_duplicate);
@@ -151,6 +166,10 @@ if(isset($_POST['update_patient']))
 
     if($query_run)
     {
+        $subject = "Patient Record Updated";
+            $comment = "Patient record successfully updated for , " . $firstname . " " . $lastname;
+            $query = "INSERT INTO comments(request_id, comment_subject, comment_text)VALUES ('$patient_id','$subject', '$comment')";
+            mysqli_query($conn, $query);
         $res = [
             'status' => 200,
             'message' => 'Patient Information Updated Successfully'
@@ -181,6 +200,10 @@ if(isset($_POST['delete_patient']))
 
     if($query_run)
     {
+        $subject = "Patient Record Deleted";
+            $comment = "Patient record successfully deleted for , " . $firstname . " " . $lastname;
+            $query = "INSERT INTO comments(request_id, comment_subject, comment_text)VALUES ('$delete_id','$subject', '$comment')";
+            mysqli_query($conn, $query);
         $res = [
             'status' => 200,
             'message' => 'Patient Record Deleted Successfully'

@@ -83,9 +83,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .
                 $response->getReasonPhrase();
             }
-        }
-        catch(HTTP_Request2_Exception $e) {
-            echo 'Error: ' . $e->getMessage();
+        }catch (\Throwable $e) {
+            $responseData = [
+                'success' => false,
+                'message' => 'Failed to send message: ' . $e->getMessage(),
+                'exception' => $e->getTraceAsString() // Log the full exception trace
+            ];
         }
     }
 } else {
