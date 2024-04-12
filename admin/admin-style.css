@@ -363,6 +363,10 @@ body{
 }
 
 /* Contacts */
+.custom-tooltip {
+  --bs-tooltip-bg: #9BE0FF;
+  --bs-tooltip-color: var(--bs-white);
+}
 
 .modal-contact-content{
  
@@ -404,10 +408,10 @@ body{
   color: #6fd1ff;
 }
 
-.modal-header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+
+.modal-header input{
+  margin-left: 10px;
+  margin-right: 20px;
 }
 
 .modal-footer{
@@ -452,6 +456,13 @@ body{
 
 .contact-btn-close:hover{
   background-color: #f74254;
+}
+
+.contact-header{
+  padding: 20px 20px 0px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 

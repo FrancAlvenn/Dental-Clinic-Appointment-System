@@ -26,7 +26,7 @@
                                     </div>
                                 </div>
                                 <div class="col-1 icon-holder">
-                                    <a href="#" id="openContactSelector" class="tooltip-container"><i class="fas fa-address-book"></i></a>
+                                    <a href="#" id="openContactSelector" class="tooltip-container" data-bs-toggle="tooltip" data-bs-title="Contact List"><i class="fas fa-address-book"></i></a>
                                 </div>
 
                             </div>
@@ -54,17 +54,21 @@
 <div class="modal fade" id="contactSelectorModal" tabindex="-1" aria-labelledby="contactSelectorModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content" id="modal-contact-content">
-            <div class="modal-header contact-header">
-                <h5 class="modal-title" id="contactSelectorModalLabel">Select Recipient</h5>
+            <div class="contact-header">
+            <h5 class="modal-title" id="contactSelectorModalLabel">Select Recipient</h5>
                 <div class="search" style="margin: 5px 0;">
                     <span class="text" ></span>
                     <input type="text" placeholder="Enter name to search..." id="searchInput">
                     <button><i class="fas fa-search" id="searchButton"></i></button>
                 </div>
             </div>
+            <div class="modal-header">
+                <input type="checkbox" name="selectAllContact" id="selectAllContact">
+                <label for="selectAllContact">Select All</label>
+            </div>
             
             <div class="modal-body" id="modal-contact-body">
-            <p class="numContact">25 contacts available!</p>
+            <p class="numContact">0 contacts available!</p>
                 <!-- Contacts list goes here -->
                 <ul class="list-group list-group-flush">
                    
