@@ -24,26 +24,31 @@ if (isset($_POST['searchTerm'])) {
         while ($row = mysqli_fetch_assoc($result)) {
             $contacts[] = $row;
         }
-        $totalContacts = mysqli_num_rows($result);
-        // Construct the response object
+        $totalContacts = count($contacts);
         $response = array(
             'success' => true,
             'contacts' => $contacts,
             'count' => $totalContacts
         );
-
-        // Return the response as JSON
-        header('Content-Type: application/json');
-        echo json_encode($response);
-        exit;
     } else {
-        // No matching patients found
-        echo json_encode(array());
+        // No matching contacts found
+        $response = array(
+            'success' => false,
+            'message' => 'No match',
+            'count' => 0
+        );
     }
 } else {
     // Search term not provided
-    echo json_encode(array());
+    $response = array(
+        'success' => false,
+        'message' => 'Search term not provided'
+    );
 }
+
+// Return the response as JSON
+header('Content-Type: application/json');
+echo json_encode($response);
 
 // Close database connection
 mysqli_close($conn);

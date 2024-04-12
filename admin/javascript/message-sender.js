@@ -1,3 +1,5 @@
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 $(document).ready(function() {
     //declarations
     let selectedContacts = [];
@@ -51,7 +53,24 @@ $(document).ready(function() {
         $('.contact-checkbox').prop('checked', false);
         $('#number').val('');
         document.querySelector('.selected-info').innerHTML =  "0 selected!";
+        // Uncheck the "Select All" checkbox
+        $('#selectAllContact').prop('checked', false);
     });
+
+    $('#selectAllContact').on('click', function(){
+        console.log("select all");
+        // Get the state of the "Select All" checkbox
+        var isChecked = $(this).prop('checked');
+        
+        // Check or uncheck all checkboxes in the list
+        $('.list-group-item input.contact-checkbox').prop('checked', isChecked);
+
+        // Update the count of selected checkboxes
+        var selectedCount = isChecked ? $('.list-group-item input.contact-checkbox').length : 0;
+        
+        // Update the inner HTML of the .selected-info element
+        document.querySelector('.selected-info').innerHTML = selectedCount + " selected!";
+    })
 
     // event listener on document ready to show the contact selector modal on page load.
     // The AJAX request is sent to fetch the contacts and the contacts are inserted into the modal.
@@ -191,6 +210,7 @@ $(document).ready(function() {
             if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
                 var response = JSON.parse(xhr.responseText);
                 if (response.success) {
+                    //Displays the contact that match the search term in the database
                     var contacts = response.contacts;
                     var output = '';
                     contacts.forEach(function(contact) {
@@ -205,10 +225,18 @@ $(document).ready(function() {
                     });
                     $('.numContact').html(response.count + " contacts available!");
                     $('.list-group').html(output);
+                } else {
+                    // Displays "No match" message when no contacts are found
+                    if (response.message === 'No match') {
+                        $('.list-group').html('<li class="list-group-item">No match</li>');
+                        $('.numContact').html('0 contacts available');
+                    }
                 }
             }
         };
         xhr.send("searchTerm=" + searchTerm);
     }
+
+   
   });
   
