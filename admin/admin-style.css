@@ -414,12 +414,12 @@ body{
   margin-right: 20px;
 }
 
-.modal-footer{
+.modal-footer-contact{
   display: flex;
   justify-content: space-between;
 }
 
-.modal-footer  .unselectContact{
+.modal-footer-contact  .unselectContact{
   padding: 10px 10px;
   border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -436,7 +436,7 @@ body{
   background-color: #f5c6cb;
 }
 
-.modal-footer  .unselectContact:hover{
+.modal-footer-contact  .unselectContact:hover{
   background-color: #DC3545;
 }
 
