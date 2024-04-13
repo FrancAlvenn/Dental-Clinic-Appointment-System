@@ -37,6 +37,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $patient_id = $ran_id;
     }
 
+    // Check for existing appointments with the same preferred_date and preferred_time
+    $query_check_date_time = "SELECT * FROM appointment_requests WHERE preferred_date = '$preferred_date' AND preferred_time = '$preferred_time'";
+    $result_date_time = mysqli_query($conn, $query_check_date_time);
+
+    if (mysqli_num_rows($result_date_time) > 0) {
+        // Appointment already exists at the selected date and time
+        $res = [
+            'status' => 422,
+            'message' => 'An appointment already exists at the selected date and time.'
+        ];
+        echo json_encode($res);
+        return;
+    }
+
     // Insert appointment details, associating them with the patient record
     $sql = "INSERT INTO appointment_requests (request_id,firstname, lastname, email, phone_number, preferred_date, preferred_time, comments)
             VALUES ('$patient_id','$firstname', '$lastname', '$email', '$phone_number', '$preferred_date', '$preferred_time', '$comments')";
