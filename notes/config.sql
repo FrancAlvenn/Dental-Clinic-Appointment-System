@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 07, 2024 at 06:51 PM
+-- Generation Time: Apr 15, 2024 at 04:39 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -46,6 +46,17 @@ CREATE TABLE `appointment_requests` (
 -- Dumping data for table `appointment_requests`
 --
 
+INSERT INTO `appointment_requests` (`id`, `request_id`, `firstname`, `lastname`, `email`, `phone_number`, `service`, `preferred_date`, `preferred_time`, `comments`, `status`, `viewed`) VALUES
+(1, 1699807961, 'John', 'Smith', 'john_smith@example.com', '639760900764', 'Teeth Cleaning', '2024-03-18', '10:00:00', '', 'pending', 0),
+(2, 1382883353, 'Jane', 'Doe', 'jane_doe@example.com', '639760900764', 'Dental Checkup', '2024-03-18', '12:00:00', '', 'confirmed', 0),
+(3, 731906361, 'Michael', 'Johnson', 'michael_johnson@example.com', '639760900764', 'Tooth Extraction', '2024-04-19', '09:30:00', 'This is a test!', 'confirmed', 0),
+(4, 1369986069, 'Emily', 'Brown', 'emily_brown@example.com', '639760900764', 'Dental Fillings', '2024-03-19', '14:00:00', '', 'pending', 0),
+(5, 540758717, 'William', 'Taylor', 'william_taylor@example.com', '639760900764', 'Root Canal Therapy', '2024-04-20', '11:30:00', '', 'pending', 0),
+(6, 1443227303, 'Olivia', 'Martinez', 'olivia_martinez@example.com', '639760900764', 'Dental Crowns', '2024-04-20', '15:45:00', '', 'pending', 0),
+(7, 453476536, 'Ethan', 'Anderson', 'ethan_anderson@example.com', '639760900764', 'Dental Implants', '2024-03-21', '08:15:00', '', 'pending', 0),
+(8, 296976782, 'Sophia', 'Wilson', 'sophia_wilson@example.com', '639760900764', 'Braces', '2024-03-21', '13:20:00', '', 'pending', 0),
+(9, 829451207, 'Liam', 'Thomas', 'liam_thomas@example.com', '639760900764', 'Teeth Whitening', '2024-03-21', '16:00:00', '', 'pending', 0),
+(10, 715390864, 'Isabella', 'Garcia', 'isabella_garcia@example.com', '639760900764', 'Orthodontics', '2024-03-22', '18:30:00', '', 'pending', 0);
 
 -- --------------------------------------------------------
 
@@ -111,7 +122,9 @@ CREATE TABLE `messages` (
 --
 
 INSERT INTO `messages` (`msg_id`, `incoming_msg_id`, `outgoing_msg_id`, `msg`) VALUES
-(1, 1285204384, 1285204382, 'Hello, Admin!');
+(1, 1285204384, 1285204382, 'Hello, Admin!'),
+(2, 1285204382, 208484704, 'Hello'),
+(3, 208484704, 1285204382, 'Hi!');
 
 -- --------------------------------------------------------
 
@@ -137,7 +150,7 @@ CREATE TABLE `patient_list` (
 --
 
 INSERT INTO `patient_list` (`patient_id`, `firstname`, `lastname`, `email`, `phone_number`, `date_of_birth`, `street`, `baranggay`, `city_municipality`, `province`) VALUES
-(688110452, 'Franc Alvenn', 'Dela Cruz', 'francalvenndelacruz@gmail.com', '09760900764', '2024-03-01', '374 Halvanz Drv', 'Sulucan', 'Bocaue', 'Bulacan'),
+(688110452, 'Franc Alvenn', 'Dela Cruz', 'francalvenndelacruz@gmail.com', '09760900764', '2003-09-24', '374 Halvanz Drv', 'Sulucan', 'Bocaue', 'Bulacan'),
 (1638266931, 'Patricia', 'Polintan', 'patpat@gmail.com', '09476877959', '2024-03-25', '374 Halvanz Drv', 'Sulucan', 'Bocaue', 'Bulacan');
 
 -- --------------------------------------------------------
@@ -164,7 +177,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`user_id`, `unique_id`, `fname`, `lname`, `email`, `password`, `status`, `auth`) VALUES
 (1, 1285204382, 'Receptionist', '(1)', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 'Active now', 'Receptionist'),
 (2, 1285204383, 'Doc Johnny Mar', 'Cabungon', 'docjohnnymarcabungon@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 'Offline now', 'Doctor'),
-(3, 1285204384, 'IT Administrator', '(1)', 'itadmin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 'Offline now', 'IT Admin');
+(3, 1285204384, 'IT Administrator', '(1)', 'itadmin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 'Offline now', 'IT Admin'),
+(7, 208484704, 'Franc Alvenn', 'Dela Cruz', 'francalvenndelacruz@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 'Offline now', 'User');
 
 --
 -- Indexes for dumped tables
@@ -214,7 +228,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointment_requests`
 --
 ALTER TABLE `appointment_requests`
-  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT for table `appointment_trend`
@@ -226,19 +240,19 @@ ALTER TABLE `appointment_trend`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=192;
 
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `msg_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
