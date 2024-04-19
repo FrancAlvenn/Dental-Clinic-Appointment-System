@@ -54,8 +54,13 @@
             <p class="alert-msg" style="margin: 5px 0px!important"></p>
         </div>
     </div>
-
-    <div class="notification-area">
+    <nav>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <label></label>
+      <div class="notification-area">
         <div class="dropdown">
             
             <a href="#" class="dropdown-toggle" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none !important;">
@@ -71,10 +76,12 @@
             </ul>
         </div>
     </div>
+    </nav>
+    
 
     <div class="sidebar">
         <div class="logo-details">
-        <i class='bx bxs-user-circle icon'></i>
+            <i class='bx bxs-user-circle icon'></i>
             <div class="logo_name">Administrator</div>
             <i class='bx bx-menu' id="btn" ></i>
         </div>
@@ -141,3 +148,4 @@
     <script src="javascript/fetchNotification.js"></script>
     <script src="javascript/sidebar.js"></script>
     <script src="../javascript/sidebar.js"></script>
+    </script>

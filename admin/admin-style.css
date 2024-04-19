@@ -19,8 +19,27 @@ body{
   max-width: 450px;
   width: 100%;
   border-radius: 16px;
-  box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
-              0 32px 64px -48px rgba(0,0,0,0.5);
+
+}
+
+.container{
+  padding-top: 80px!important;
+}
+
+
+/* Navigation Bar */
+nav{
+  position: fixed;
+  background: #6fd1ff;
+  height: 80px;
+  width: 100%;
+}
+label.logo{
+  color: white;
+  font-size: 35px;
+  line-height: 80px;
+  padding: 0 100px;
+  font-weight: bold;
 }
 
 /* Notification / Notification-Area */
@@ -28,7 +47,7 @@ body{
 .notification-area{
   position: fixed;
   right: 6%;
-  top: 5%;
+  top: 2%;
   height: auto;
   width: 50px;
   padding: 6px 14px;
@@ -36,7 +55,7 @@ body{
 }
 
 .notification-area a{
-  color:#6fd1ff;
+  color:white;
 }
 
 .notifications-items{
@@ -549,22 +568,31 @@ body{
 
 .box{
   background: #fff;
-  box-shadow: 3px 3px 10px gray;
   height: 75vh;
 }
 
 .box-body{
   background: #fff;
-  box-shadow: 3px 3px 10px gray;
   height: 75vh;
 }
 
 .box-header{
   background: #fff;
-  box-shadow: 3px 3px 10px gray;
   height: 17vh;
   margin-bottom: 2vh;
 }
+
+.dashboard-box{
+  align-items: center;
+    border-radius: 12px;
+    width: 350px;
+    padding: 15px 20px;
+    background-color: var(--box1-color);
+    transition: var(--tran-05);
+    white-space: nowrap;
+    background-color: #6fd1ff;
+}
+
 
 .box-header i {
   background-color: #6fd1ff;
@@ -1069,7 +1097,6 @@ body{
 .card i{
   position: absolute;
   top: 10px;
-  right: 12px;
   font-size: 15px;
   display: inline;
   color: #4daa80;
@@ -1080,7 +1107,7 @@ body{
 }
 
 
-.schedule .container button{
+.schedule button{
   font-size: 12px;
   background-color: #9BE0FF;
 }

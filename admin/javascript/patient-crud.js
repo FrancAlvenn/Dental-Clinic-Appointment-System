@@ -228,3 +228,15 @@ $(document).on('click', '.deleteButtonPatient', function (e) {
         });
     }
 });
+
+
+
+document.querySelector('#print').addEventListener('click', function() {
+    // Get the patient_id from the button
+    const patient_id = document.getElementsByClassName('updateButton').value;
+    console.log(patient_id);
+    // Construct the print URL
+    const printUrl = 'print.php?patient_id=' + patient_id;
+    // Open the print URL in a new tab
+    window.open(printUrl, '_blank');
+});

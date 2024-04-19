@@ -19,7 +19,7 @@
                     
                     <!-- Schedule -->
                     <section class="schedule">
-                        <div class="container d-flex justify-content-between mb-3 ">
+                        <div class="d-flex justify-content-between mb-3 ">
                             <h6 style="margin-bottom:15px!important;">Appointment List</h6>
                             <button type="button" class="btn float-end" data-bs-toggle="modal" data-bs-target="#add_appointment">
                                 Add Appointment
@@ -27,7 +27,7 @@
                         </div>
                         
                         <header style="display: flex; justify-content: space-between;margin-bottom: 10px;">
-                        <div class="container outer d-flex align-items-center justify-content-start">
+                        <div class="outer d-flex align-items-center justify-content-start">
                         <div class="d-flex align-items-center ">
                             <div class="form-floating form-appointment form-check-inline">
                                 <input type="date" class="form-control input-date" name="schedule_date" placeholder ="Enter a date" style="font-size:12px;" value="<?php echo date('Y-m-d'); ?>">
