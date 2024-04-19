@@ -144,7 +144,14 @@
                             </div>
                         </div>
 
-
+                        <hr>
+                        <div>
+                        <h6>Past Visit History</h6>
+                            <div class="form-floating">
+                                    <input type="text" class="form-control" name="patient-history" placeholder="Add a visit" required="">
+                                    <label for="text">Add a visit</label>
+                            </div>
+                        </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -234,10 +241,24 @@
                             </div>
                         </div>
 
+                        <hr>
+                        <div>
+                        <h6>Past Visit History</h6>
+                        <div id="pastVisitHistory">
+                            <ul id="patientHistoryList" >
+                                
+                            </ul>
+                        </div>
+                            <div class="form-floating">
+                                    <input type="text" class="form-control" name="patient-history" placeholder="Add a visit" required="">
+                                    <label for="text">Add a visit</label>
+                            </div>
+                        </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" value="" class="deleteButton btn btn-danger">Delete</button>
+                    <button type="button" value="" class="deleteButtonPatient btn btn-danger">Delete</button>
                     <button type="submit" value="" class="btn btn-primary updateButton">Update Appointment</button>
                 </div>
             </form>

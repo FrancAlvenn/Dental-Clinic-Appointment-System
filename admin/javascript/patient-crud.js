@@ -22,6 +22,7 @@ $(document).on('submit', '#savePatient', function (e) {
                 $('.alert').addClass("show");
                 $('.alert').removeClass("hide");
                 $('.alert').addClass("showAlert");
+                $('.modal-backdrop').remove();
                 setTimeout(function(){
                     $('.alert').removeClass("show");
                     $('.alert').addClass("hide");
@@ -32,6 +33,7 @@ $(document).on('submit', '#savePatient', function (e) {
                 $('.alert').addClass("success");
                 $('#savePatient')[0].reset();
                 $('#add_patient').modal('hide');
+                $('.modal-backdrop').remove();
                 // Show the notification popup
                 const alertMessage = document.querySelector('.alert-msg');
                 alertMessage.textContent = res.message;
@@ -83,6 +85,19 @@ $(document).on('click', '.editPatient', function () {
                 $('[name="city"]').val(res.data.city_municipality);
                 $('[name="province"]').val(res.data.province);
 
+                $('#patientHistoryList').empty();
+
+                if (res && Array.isArray(res.history)) {
+                    // Loop through each entry in patient history
+                    res.history.forEach(function (visit) {
+                        // Append a new <li> element for each visit
+                        $('#patientHistoryList').append('<li>' + visit.service + '<span>' + visit.appointment_date + '</span>' +'</li>');
+                    });
+                } else {
+                    // Handle the case when there is no data in the database or res.history is not an array
+                    $('#patientHistoryList').append('<li>No past visits</li>');
+                }
+
                 $('#patientEditModal').modal('show');
             }
 
@@ -116,6 +131,7 @@ $(document).on('submit', '#updatePatient', function (e) {
                 $('.alert').addClass("show");
                 $('.alert').removeClass("hide");
                 $('.alert').addClass("showAlert");
+                $('.modal-backdrop').remove();
                 setTimeout(function(){
                     $('.alert').removeClass("show");
                     $('.alert').addClass("hide");
@@ -127,6 +143,7 @@ $(document).on('submit', '#updatePatient', function (e) {
                 $('#errorMessageUpdate').addClass('d-none');
                 $('#patientEditModal').modal('hide');
                 $('#updatePatient')[0].reset();
+                $('.modal-backdrop').remove();
                 // Show the notification popup
                 const alertMessage = document.querySelector('.alert-msg');
                 alertMessage.textContent = res.message;
@@ -149,7 +166,7 @@ $(document).on('submit', '#updatePatient', function (e) {
 
 
 //Delete Appointment
-$(document).on('click', '.deleteButton', function (e) {
+$(document).on('click', '.deleteButtonPatient', function (e) {
     e.preventDefault();
 
     if(confirm('Are you sure you want to delete this data?'))
@@ -188,6 +205,7 @@ $(document).on('click', '.deleteButton', function (e) {
                     $('.alert').addClass("show");
                     $('.alert').removeClass("hide");
                     $('.alert').addClass("showAlert");
+                    $('.modal-backdrop').remove();
                     setTimeout(function(){
                         $('.alert').removeClass("show");
                         $('.alert').removeClass("success");
@@ -200,6 +218,7 @@ $(document).on('click', '.deleteButton', function (e) {
                     $('.alert').addClass("show");
                     $('.alert').removeClass("hide");
                     $('.alert').addClass("showAlert");
+                    $('.modal-backdrop').remove();
                     setTimeout(function(){
                         $('.alert').removeClass("show");
                         $('.alert').addClass("hide");

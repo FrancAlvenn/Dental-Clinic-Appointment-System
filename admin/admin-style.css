@@ -1368,5 +1368,20 @@ body{
  text-overflow: ellipsis !important;
 }
 
+#patientHistoryList {
+  list-style-type: disc; /* Add dot */
+}
+
+#patientHistoryList li{
+  display: flex;
+  justify-content: space-between;
+}
+ 
+.modal-content{
+  height: auto;
+  max-height: 750px;
+  overflow: auto;
+}
+
 
 

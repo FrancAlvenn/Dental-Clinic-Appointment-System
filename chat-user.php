@@ -15,11 +15,17 @@
           }else{
             header("location: index.php");
           }
+
+          $sql2 = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = 1285204382");
+          if(mysqli_num_rows($sql2) > 0){
+            $row2 = mysqli_fetch_assoc($sql2);
+          }
         ?>
         <a href="php/logout.php?logout_id=<?php echo $row['unique_id']; ?>" class="back-icon"><i class="fas fa-arrow-left"></i></a>
-        <div class="details">
-          <h5>Administrator</h5>
-          <h6><?php echo $row['status']; ?></h6>
+        <div class="details d-flex justify-content-start align-items-center ">
+          <div><i class="fa-solid fa-headset" style="font-size:40px;margin-right: 20px;"></i></div>
+          <div class="status-dot <?php echo $row2['status']; ?>"><i class="fas fa-circle"></i></div>
+          <div><h5>Customer Support</h5></div>
         </div>
       </header>
       <div class="chat-box">

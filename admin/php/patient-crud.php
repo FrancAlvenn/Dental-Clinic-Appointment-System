@@ -14,6 +14,7 @@ if(isset($_POST['save_patient']))
     $baranggay = mysqli_real_escape_string($conn,$_POST['baranggay']);
     $city = mysqli_real_escape_string($conn,$_POST['city']);
     $province = mysqli_real_escape_string($conn,$_POST['province']);
+    $service = mysqli_real_escape_string($conn,$_POST['patient-history']);
 
     if($firstname == NULL || $lastname == NULL || $email == NULL || $phone_number == NULL)
     {
@@ -54,6 +55,10 @@ if(isset($_POST['save_patient']))
               VALUES ('$ran_id','$firstname','$lastname','$email','$phone_number','$date_of_birth','$street','$baranggay','$city','$province')";
     $query_run = mysqli_query($conn, $query);
 
+
+    $query2 = "INSERT INTO patient_history (patient_id, service) VALUES ('$ran_id','$service');";
+    $query_run2 = mysqli_query($conn, $query2);
+
     if($query_run)
     {
         $subject = "Patient Record Added";
@@ -86,6 +91,21 @@ if(isset($_GET['patient_id']))
     $query = "SELECT * FROM patient_list WHERE patient_id='$patient_id'";
     $query_run = mysqli_query($conn, $query);
 
+    $query2 = "SELECT service, appointment_date FROM patient_history WHERE patient_id='$patient_id'";
+    $query_run2 = mysqli_query($conn, $query2);
+
+    $history_array = array(); // Initialize an empty array to store the results
+
+    if ($query_run2) {
+        // Fetch and store results in the array
+        while ($row = mysqli_fetch_assoc($query_run2)) {
+            $history_array[] = $row; // Append each row to the array
+        }
+    } else {
+        // Handle query error
+        echo "Error: " . mysqli_error($conn);
+    }
+
     if(mysqli_num_rows($query_run) == 1)
     {
         $patient = mysqli_fetch_array($query_run);
@@ -93,7 +113,8 @@ if(isset($_GET['patient_id']))
         $res = [
             'status' => 200,
             'message' => 'Appointment Fetch Successfully by id',
-            'data' => $patient
+            'data' => $patient,
+            'history' => $history_array
         ];
         echo json_encode($res);
         return;
@@ -123,7 +144,7 @@ if(isset($_POST['update_patient']))
     $baranggay = mysqli_real_escape_string($conn,$_POST['baranggay']);
     $city = mysqli_real_escape_string($conn,$_POST['city']);
     $province = mysqli_real_escape_string($conn,$_POST['province']);
-
+    $service = mysqli_real_escape_string($conn,$_POST['patient-history']);
 
     if($firstname == NULL || $lastname == NULL || $email == NULL || $phone_number == NULL)
     {
@@ -164,6 +185,9 @@ if(isset($_POST['update_patient']))
                 WHERE patient_id='$patient_id'";
     $query_run = mysqli_query($conn, $query);
 
+    $query2 = "INSERT INTO patient_history (patient_id, service) VALUES ('$patient_id','$service');";
+    $query_run2 = mysqli_query($conn, $query2);
+
     if($query_run)
     {
         $subject = "Patient Record Updated";
@@ -198,10 +222,13 @@ if(isset($_POST['delete_patient']))
     $query = "DELETE FROM patient_list WHERE patient_id='$delete_id'";
     $query_run = mysqli_query($conn, $query);
 
+    $query2 = "DELETE FROM patient_history WHERE patient_id='$delete_id'";
+    $query_run2 = mysqli_query($conn, $query2);
+
     if($query_run)
     {
         $subject = "Patient Record Deleted";
-            $comment = "Patient record successfully deleted for , " . $firstname . " " . $lastname;
+            $comment = "Patient record successfully deleted";
             $query = "INSERT INTO comments(request_id, comment_subject, comment_text)VALUES ('$delete_id','$subject', '$comment')";
             mysqli_query($conn, $query);
         $res = [
