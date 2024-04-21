@@ -69,7 +69,8 @@ include_once "header.php";
             </div>
         </div>
 
-        <div class="row box-body   ">
+        <div class="row box-body  pt-5 ">
+            <h6 class="pb-4">Annual Appointment Chart</h6>
             <div class="center-div chat-space-admin d-flex flex-column align-items-center justify-content-center ">
             <!-- Dashboard -->
             <div class="chart-container d-flex justify-content-center align-content-center">
