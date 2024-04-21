@@ -205,7 +205,7 @@ if(isset($_POST['delete_appointment']))
     if($query_run)
     {
         $subject = "Appointment Deleted";
-            $comment = "Appointment for " . $firstname . " " . $lastname . " has been deleted!";
+            $comment = "Appointment deleted!";
             $query = "INSERT INTO comments(request_id, comment_subject, comment_text)VALUES ('$delete_id','$subject', '$comment')";
             mysqli_query($conn, $query);
         $res = [

@@ -5,9 +5,9 @@ include_once "header.php";
 <div class="container">
     <div class=" p-4">
         <div class="row box-header">
-            <div class="center-div chat-space-admin d-flex align-items-center justify-content-around text-center ">
+            <div class="center-div chat-space-admin d-flex align-items-center justify-content-between text-center ">
             <!-- Dashboard Header-->
-                    <div class="col-3 ">
+                    <div class="col-3 dashboard-box">
                         <div class="row">
                             <div class="col-4 d-flex align-items-center">
                                 <i class="fa-solid fa-users"></i>
@@ -27,7 +27,7 @@ include_once "header.php";
                         </div>
                     </div>
                     <div class="vertical-line"></div>
-                    <div class="col-3 ">
+                    <div class="col-3 dashboard-box">
                         <div class="row">
                             <div class="col-4 d-flex align-items-center">
                                 <i class="fa-solid fa-calendar-check"></i>
@@ -47,7 +47,7 @@ include_once "header.php";
                         </div>
                     </div>
                     <div class="vertical-line"></div>
-                    <div class="col-3 ">
+                    <div class="col-3 dashboard-box">
                         <div class="row">
                             <div class="col-4 d-flex align-items-center">
                             <i class="fa-solid fa-spinner"></i>

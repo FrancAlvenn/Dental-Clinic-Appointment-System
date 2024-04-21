@@ -12,7 +12,7 @@
                         <div class="center-div chat-space-admin d-flex flex-column align-items-center justify-content-center ">
                             <!-- Patient List Area -->
                             <section class="schedule">
-                                <div class="container d-flex justify-content-between mb-3 ">
+                                <div class="d-flex justify-content-between mb-3 ">
                                     <h6 style="margin-bottom:15px!important;">Patient List</h6>
                                     <button type="button" class="btn float-end pt-2 pb-2 pe-5 ps-5 " data-bs-toggle="modal" data-bs-target="#add_patient">
                                         Add Patient
@@ -29,7 +29,7 @@
                                 <div class="schedule-list">
                                 <div class="row mb-5 patient-list-area">
                                     <!-- Patient List Area -->
-                                    <div class="container">
+                                    <div>
                                     
                                     <table class="table table-hover text-center" id="patientTable">
                                         <thead class="">
@@ -144,7 +144,14 @@
                             </div>
                         </div>
 
-
+                        <hr>
+                        <div>
+                        <h6>Past Visit History</h6>
+                            <div class="form-floating">
+                                    <input type="text" class="form-control" name="patient-history" placeholder="Add a visit" required="">
+                                    <label for="text">Add a visit</label>
+                            </div>
+                        </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -234,10 +241,25 @@
                             </div>
                         </div>
 
+                        <hr>
+                        <div>
+                        <h6>Past Visit History</h6>
+                        <div id="pastVisitHistory">
+                            <ul id="patientHistoryList" >
+                                
+                            </ul>
+                        </div>
+                            <div class="form-floating">
+                                    <input type="text" class="form-control" name="patient-history" placeholder="Add a visit" required="">
+                                    <label for="text">Add a visit</label>
+                            </div>
+                        </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" value="" class="deleteButton btn btn-danger">Delete</button>
+                    <button type="button" value="" class="btn btn-success" id="print">Print</button>
+                    <button type="button" value="" class="deleteButtonPatient btn btn-danger">Delete</button>
                     <button type="submit" value="" class="btn btn-primary updateButton">Update Appointment</button>
                 </div>
             </form>
@@ -246,29 +268,7 @@
     </div>
 
     <script src="javascript/patient-crud.js"></script>
-    <script>
-        $(document).ready(function() {
-            // Define the AJAX function using a variable
-            const fetchContent = function(url) {
-                // AJAX request to load content from PHP file
-                $.ajax({
-                url: url, // URL of the PHP file
-                type: 'GET',
-                success: function(response) {
-                    $('.chat-space-admin').html(response); // Insert content into container div
-                },
-                error: function() {
-                    console.error('Error loading content from ' + url);
-                }
-                });
-            };
-
-            window.onload = function() {
-                // fetchContent('../login.php');
-                console.log("Page loaded");
-            };
-        });
-    </script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>

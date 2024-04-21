@@ -432,6 +432,21 @@ header h2 {
   pointer-events: auto;
 }
 
+.status-dot{
+  position: absolute;
+  left: 90px;
+  top:40px;
+  font-size: 12px;
+  padding-left: 10px;
+}
+
+.status-dot.Active{
+  color: green;
+}
+.status-dot.Offline{
+  color: #ccc;
+}
+
 
 
 /* Alert Notification */
