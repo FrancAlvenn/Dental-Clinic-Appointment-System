@@ -30,6 +30,7 @@ body{
 /* Navigation Bar */
 nav{
   position: fixed;
+  z-index: 2;
   background: #6fd1ff;
   height: 80px;
   width: 100%;
@@ -1014,7 +1015,7 @@ label.logo{
 }
 
 .schedule .search{
-  width: 30%;
+  width: 25%;
   margin: 15px 0;
   display: flex;
   position: relative;
@@ -1406,7 +1407,7 @@ label.logo{
  
 .modal-content{
   height: auto;
-  max-height: 750px;
+  max-height: 700px;
   overflow: auto;
 }
 

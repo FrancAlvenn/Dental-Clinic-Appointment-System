@@ -12,7 +12,7 @@
 
 <div class="container p-2 ">
         <div class="row ">
-            <div class="pt-5 ">
+            <div>
                 <div class="row box-body p-3" style="height:90vh;">
 
                     <div class="center-div chat-space-admin d-flex justify-content-center">
