@@ -15,6 +15,7 @@ $(document).on('submit', '#saveAppointment', function (e) {
         success: function (response) {
             
             const res = jQuery.parseJSON(response);
+            console.log(res);
             if(res.status == 422) {
                 $('.alert').addClass("error");
                 const alertMessage = document.querySelector('.alert-msg');
@@ -222,6 +223,9 @@ $(document).on('submit', '#updateAppointment', function (e) {
                     $('.alert').addClass("hide");
                 }, 5000);
 
+                if(res.send_sms == 0){
+                    sendConfirmationMessage(res.recipient, res.notification_message)
+                }
 
             }else if(res.status == 500) {
                 $('.alert').addClass("error");
@@ -232,7 +236,46 @@ $(document).on('submit', '#updateAppointment', function (e) {
 
 });
 
+function sendConfirmationMessage(recipientFromDatabase, messageFromDatabase) {
+    // get the value from the number input field
+    var recipientValue = recipientFromDatabase;
 
+    // split the value using the separator ','
+    var recipients = recipientValue.split(',');
+
+    // get the message value
+    var message = messageFromDatabase;
+
+    // iterate over each number and send separate AJAX calls
+    recipients.forEach(function(recipient) {
+        // trim any leading or trailing whitespace
+        recipient = recipient.trim();
+
+        // collect form data for each number
+        var formData = {
+            number: recipient,
+            message: message
+        };
+
+        console.log(formData);
+
+        //send AJAX request for each number
+        $.ajax({
+             type: 'POST',
+             url: 'php/message-sender.php',
+             data: formData,
+             dataType: 'json',
+             success: function(response) {
+                 alert('Message sent successfully!');
+             },
+             error: function(xhr, status, error) {
+                 // handle error
+                console.error(xhr.responseText);
+            }
+         });
+    });
+    
+}
 
 //Delete Appointment
 $(document).on('click', '.deleteButton', function (e) {

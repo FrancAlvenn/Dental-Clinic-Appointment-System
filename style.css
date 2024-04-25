@@ -194,7 +194,7 @@ body.show-chat_box .chat_box-toggler span:last-child {
   position: fixed;
   right: 90px;
   bottom: 120px;
-  width: 450px;
+  width: 400px;
   background: #fff;
   border-radius: 15px;
   overflow: hidden;
@@ -327,11 +327,12 @@ header h2 {
 .chat-area header{
   display: flex;
   align-items: center;
-  padding: 18px 30px;
+  padding: 18px 10px;
 }
 .chat-area header .back-icon{
   color: #333;
   font-size: 18px;
+  margin-left: 20px;
   padding-right: 25px;
 }
 
@@ -345,8 +346,8 @@ header h2 {
 .chat-box{
   
   position: relative;
-  min-height: 500px;
-  max-height: 500px;
+  min-height: 300px;
+  max-height: 350px;
   overflow-y: auto;
   padding: 10px 30px 20px 30px;
   background: #f7f7f7;
@@ -434,8 +435,8 @@ header h2 {
 
 .status-dot{
   position: absolute;
-  left: 90px;
-  top:40px;
+  left: 85px;
+  top:30px;
   font-size: 12px;
   padding-left: 10px;
 }
@@ -636,7 +637,7 @@ header h2 {
     padding: 15px 20px;
   }
   .chat-box{
-    min-height: 400px;
+    min-height: 200px;
     padding: 10px 15px 15px 20px;
   }
   .chat-box .chat p{

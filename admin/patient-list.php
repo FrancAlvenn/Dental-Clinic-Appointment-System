@@ -250,7 +250,7 @@
                             </ul>
                         </div>
                             <div class="form-floating">
-                                    <input type="text" class="form-control" name="patient-history" placeholder="Add a visit" required="">
+                                    <input type="text" class="form-control" name="patient-history" placeholder="Add a visit">
                                     <label for="text">Add a visit</label>
                             </div>
                         </div>

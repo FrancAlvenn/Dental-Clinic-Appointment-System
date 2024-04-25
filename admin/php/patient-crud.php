@@ -56,8 +56,10 @@ if(isset($_POST['save_patient']))
     $query_run = mysqli_query($conn, $query);
 
 
-    $query2 = "INSERT INTO patient_history (patient_id, service) VALUES ('$ran_id','$service');";
-    $query_run2 = mysqli_query($conn, $query2);
+    if($service !== ""){
+        $query2 = "INSERT INTO patient_history (patient_id, service) VALUES ('$ran_id','$service');";
+        $query_run2 = mysqli_query($conn, $query2);
+    }
 
     if($query_run)
     {
@@ -185,8 +187,11 @@ if(isset($_POST['update_patient']))
                 WHERE patient_id='$patient_id'";
     $query_run = mysqli_query($conn, $query);
 
-    $query2 = "INSERT INTO patient_history (patient_id, service) VALUES ('$patient_id','$service');";
-    $query_run2 = mysqli_query($conn, $query2);
+    if($service !== ""){
+        $query2 = "INSERT INTO patient_history (patient_id, service) VALUES ('$patient_id','$service');";
+        $query_run2 = mysqli_query($conn, $query2);
+    }
+    
 
     if($query_run)
     {
