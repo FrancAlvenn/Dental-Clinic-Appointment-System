@@ -17,32 +17,9 @@ submitButton.addEventListener('click', function(event) {
         success: function(response) {
         const res = jQuery.parseJSON(response);
             if(res.status == 422) {
-                $('.alert').addClass("error");
-                const alertMessage = document.querySelector('.alert-msg');
-                alertMessage.textContent = res.message;
-                $('.alert').addClass("show");
-                $('.alert').removeClass("hide");
-                $('.alert').addClass("showAlert");
-                setTimeout(function(){
-                    $('.alert').removeClass("show");
-                    $('.alert').addClass("hide");
-                }, 5000);
-                
+                alert(res.message);
             }else if(res.status == 200){
-                $('.alert').removeClass("error");
-                $('.alert').addClass("success");
-                // Show the notification popup
-                const alertMessage = document.querySelector('.alert-msg');
-                alertMessage.textContent = res.message;
-                $('.alert').addClass("show");
-                $('.alert').removeClass("hide");
-                $('.alert').addClass("showAlert");
-                setTimeout(function(){
-                    $('.alert').removeClass("show");
-                    $('.alert').removeClass("success");
-                    $('.alert').addClass("hide");
-                }, 5000);
-
+                alert(res.message);
             }else if(res.status == 500) {
                 alert(res.message);
             }

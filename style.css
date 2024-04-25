@@ -695,6 +695,7 @@ header h2 {
 /* Extra small devices (phones, 600px and down) */
 @media (max-width: 600px) {
   /*Navigation Bar*/
+
   .navbar-img{
       width: 50px!important;
   }
@@ -711,8 +712,19 @@ header h2 {
       font-size: 10px!important;
   }
 
+  iframe{
+    width: 330px!important;
+    height: 330px!important;
+  }
+
+  hr{
+    width:100%!important;
+    margin: 10px!important;
+  }
+
   /*Header Carousel*/
   #headerCarousel{
+    width: 380px!important;
       margin-top: 60px;
   }
   .collapse button{
@@ -727,12 +739,20 @@ header h2 {
   }
 
   .carousel-item button{
+    display: none;
       font-size: 8px;
   }
 
   .carousel-caption{
       top: 30%!important;
   }
+
+  .carousel-item img {
+    height: 200px;
+    width: 380px!important;
+    object-fit: cover;
+    object-position: center top;
+}
 
   /*Image Header Text*/
   .container p{
@@ -762,20 +782,26 @@ header h2 {
   /*Appointment Form*/
 
   .form-header{
-      padding-left: 50px;
+      padding-left: 10px;
   }
 
   .form-body{
-      font-size: small;
+      font-size: 8px;
+      margin-bottom: 5px!important;
+      width: 300px;
   }
 
   #map-container-google-1 iframe{
-      width: 600px;
-      height: 600px;
+      width: 350px;
+      height: 350px;
   }
 
   .form-appointment{
       margin-bottom: 10px!important;
+  }
+
+  .form-control {
+    font-size: 8px!important;
   }
 
   /*Footer*/
@@ -792,6 +818,7 @@ header h2 {
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media (min-width: 576px) {
+  
           /*Navigation Bar*/
           .navbar-img{
               width: 50px!important;
@@ -879,6 +906,11 @@ header h2 {
 /* Medium devices (landscape tablets, 768px and up) */
 @media (min-width: 768px) {
 
+  .carousel-item img {
+    height: 500px;
+    /* object-fit: cover; */
+    object-position: center top;
+}
       /*Navigation Bar*/
       .navbar-img{
           width: 50px!important;
@@ -966,6 +998,11 @@ header h2 {
 /* Large devices (laptops/desktops, 992px and up) */
 @media  (min-width: 992px) {
   /*Navigation Bar*/
+  .carousel-item img {
+    height: 800px;
+    /* object-fit: cover; */
+    object-position: center top;
+}
   .navbar-img{
       width: 60px!important;
   }

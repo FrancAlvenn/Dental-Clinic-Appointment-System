@@ -25,12 +25,12 @@
 </head>
 <body>
     <!-- Alert Notification -->
-    <div class="notification-container d-flex  justify-content-between ">
+    <!-- <div class="notification-container d-flex  justify-content-between ">
         <div class="alert">
             <span class="fas fa-exclamation-circle"></span>
             <p class="alert-msg" style="margin: 5px 0px!important"></p>
         </div>
-    </div>
+    </div> -->
     
     <!-- Navigation Bar -->
     <nav class="navbar fixed-top navbar-expand-md bg-white shadow-lg  mb-5 bg-white rounded">
@@ -279,7 +279,7 @@
     </div>
     
 
-    <hr style="width: 75%; border: none; height: 1px; background-color: black; margin: 40px auto;" id="appointmentSection">
+    <hr style="width: 75%; border: none; height: 1px; background-color: black; margin: 40px;" id="appointmentSection">
 
 
     <!-- Appointment Form Section-->
@@ -291,10 +291,10 @@
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br>
                     Nam corrupti molestiae totam.Velit dignissimos soluta beatae.</p>
             </div>
-            <div class="col-lg-6 p-lg-4 p-xl-5 col-md-8 col-10 p-4 mb-5  rounded-5 form-body" style="background-color: #9BE0FF;">
+            <div class="col-lg-6 p-lg-4 p-xl-5 col-md-8 col p-lg-4 mb-lg-5 mb-sm-1   rounded-5 form-body" style="background-color: #9BE0FF;">
 
                 <form action="" method="POST" enctype="multipart/form-data" novalidate id="appointmentForm" >
-                    <div class="row mb-5 mb-lg-3 pt-4 mb-md-3 form-appointment" >
+                    <div class="row  mb-lg-3 pt-4 mb-md-3 mb-sm-1  form-appointment" >
                         <div class="col-6">
                             <div class="form-floating">
                                 <input type="text" class="form-control" name="firstname" placeholder ="First Name" required style="margin-right: 10px;">
@@ -308,7 +308,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-5 mb-lg-3 mb-md-3 form-appointment">
+                    <div class="row  mb-lg-3 mb-md-3 mb-sm-1  form-appointment">
                         <div class="col-6">
                             <div class="form-floating">
                                 <input type="email" class="form-control" name="email" placeholder ="Enter you email here:" required>
@@ -326,23 +326,23 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-floating mb-5 mb-lg-3 mb-md-3 form-appointment">
+                    <div class="form-floating  mb-lg-3 mb-md-3 mb-sm-1  form-appointment">
                         <input type="date" class="form-control" name="preferred_date" placeholder ="Enter your preferred date" required>
                         <label for="date" >Preferred Date*</label>
                         <div class="invalid-feedback">Invalid Date</div>
                         <div class="valid-feedback">Valid Date</div>
                     </div>
-                    <div class="form-floating mb-5 mb-lg-3 mb-md-3 form-appointment">
+                    <div class="form-floating  mb-lg-3 mb-md-3 mb-sm-1  form-appointment">
                         <input type="time" class="form-control" name="preferred_time" placeholder ="Enter your preferred time" required>
                         <label for="time" >Preferred Time*</label>
                         <div class="invalid-feedback">Invalid Time</div>
                         <div class="valid-feedback">Valid Time</div>
                     </div>
-                    <div class="form-floating mb-5 mb-lg-3 mb-md-3 form-appointment">
+                    <div class="form-floating  mb-lg-3 mb-md-3 mb-sm-1  form-appointment">
                         <textarea class="form-control" id="textarea" rows="4" name="comments" placeholder ="Comments/Concerns" style="height: 200px; resize: none;"></textarea>
                         <label for="textarea">Comments/Concerns</label>
                     </div>
-                    <div class="container d-flex justify-content-end ">
+                    <div class="container mb-3 d-flex justify-content-end ">
                         <button class="btn mt-4 px-5 py-2 rounded-5 border-1 border-black sched-btn" id="submit-button" style="color: black;">Submit</button>
                     </div>
                 </form>
