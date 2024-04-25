@@ -16,9 +16,11 @@
                                 <div class="details">
                                     <p>'. $row['msg'] .'</p>
                                 </div>
+                                
                                 </div>';
                 }else{
                     $output .= '<div class="chat incoming">
+                                <span><i class="fa-solid fa-circle-user" style="font-size:25px;margin-bottom:20px"></i></span>
                                 <div class="details">
                                     <p>'. $row['msg'] .'</p>
                                 </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 15, 2024 at 04:39 PM
+-- Generation Time: Apr 21, 2024 at 04:12 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -105,6 +105,26 @@ CREATE TABLE `comments` (
   `notification_timestamp` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`comment_id`, `request_id`, `comment_subject`, `comment_text`, `comment_status`, `notification_timestamp`) VALUES
+(192, 436448274, 'Patient Record Added', 'Patient record successfully added for , Michael Johnson', 1, '2024-04-19 10:23:55'),
+(193, 473892510, 'Patient Record Added', 'Patient record successfully added for , Alexa Johnson', 1, '2024-04-19 10:27:43'),
+(194, 473892510, 'Patient Record Updated', 'Patient record successfully updated for , Alexa Johnson', 1, '2024-04-19 10:29:15'),
+(195, 473892510, 'Patient Record Updated', 'Patient record successfully updated for , Alexa Johnson', 1, '2024-04-19 10:30:14'),
+(196, 473892510, 'Appointment Deleted', 'Appointment for   has been deleted!', 1, '2024-04-19 10:30:44'),
+(197, 473892510, 'Patient Record Deleted', 'Patient record successfully deleted for ,  ', 1, '2024-04-19 10:30:45'),
+(198, 436448274, 'Patient Record Updated', 'Patient record successfully updated for , Michael Johnson', 1, '2024-04-19 10:30:58'),
+(199, 436448274, 'Patient Record Updated', 'Patient record successfully updated for , Michael Johnson', 1, '2024-04-19 10:31:04'),
+(200, 436448274, 'Appointment Deleted', 'Appointment for   has been deleted!', 1, '2024-04-19 10:38:02'),
+(201, 436448274, 'Patient Record Deleted', 'Patient record successfully deleted for ,  ', 1, '2024-04-19 10:38:03'),
+(202, 1638266931, 'Patient Record Deleted', 'Patient record successfully deleted for ,  ', 1, '2024-04-19 10:39:46'),
+(203, 688110452, 'Patient Record Updated', 'Patient record successfully updated for , Franc Alvenn Dela Cruz', 1, '2024-04-19 10:42:32'),
+(204, 1291949294, 'Patient Record Added', 'Patient record successfully added for , Patricia Polintan', 1, '2024-04-19 10:42:58');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `messages`
@@ -125,6 +145,27 @@ INSERT INTO `messages` (`msg_id`, `incoming_msg_id`, `outgoing_msg_id`, `msg`) V
 (1, 1285204384, 1285204382, 'Hello, Admin!'),
 (2, 1285204382, 208484704, 'Hello'),
 (3, 208484704, 1285204382, 'Hi!');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `patient_history`
+--
+
+CREATE TABLE `patient_history` (
+  `patient_id` int(11) NOT NULL,
+  `service` text NOT NULL,
+  `appointment_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `patient_history`
+--
+
+INSERT INTO `patient_history` (`patient_id`, `service`, `appointment_date`) VALUES
+(688110452, 'Dental Checkup', '2024-04-18 01:30:00'),
+(688110452, 'Tooth Extraction', '2024-04-19 02:42:32'),
+(1291949294, 'Dental Checkup', '2024-04-19 02:42:58');
 
 -- --------------------------------------------------------
 
@@ -151,7 +192,7 @@ CREATE TABLE `patient_list` (
 
 INSERT INTO `patient_list` (`patient_id`, `firstname`, `lastname`, `email`, `phone_number`, `date_of_birth`, `street`, `baranggay`, `city_municipality`, `province`) VALUES
 (688110452, 'Franc Alvenn', 'Dela Cruz', 'francalvenndelacruz@gmail.com', '09760900764', '2003-09-24', '374 Halvanz Drv', 'Sulucan', 'Bocaue', 'Bulacan'),
-(1638266931, 'Patricia', 'Polintan', 'patpat@gmail.com', '09476877959', '2024-03-25', '374 Halvanz Drv', 'Sulucan', 'Bocaue', 'Bulacan');
+(1291949294, 'Patricia', 'Polintan', 'patpat@gmail.com', '09760900764', '2024-04-09', '374 Halvanz Drv', 'Sulucan', 'Bocaue', 'Bulacan');
 
 -- --------------------------------------------------------
 
@@ -231,30 +272,3 @@ ALTER TABLE `appointment_requests`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
--- AUTO_INCREMENT for table `appointment_trend`
---
-ALTER TABLE `appointment_trend`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT for table `comments`
---
-ALTER TABLE `comments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=192;
-
---
--- AUTO_INCREMENT for table `messages`
---
-ALTER TABLE `messages`
-  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

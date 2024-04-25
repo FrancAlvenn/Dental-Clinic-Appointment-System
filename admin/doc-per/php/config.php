@@ -2,7 +2,7 @@
   $hostname = "localhost";
   $username = "root";
   $password = "";
-  $dbname = "chat-feature";
+  $dbname = "dental_clinic_db";
 
   $conn = mysqli_connect($hostname, $username, $password, $dbname);
   if(!$conn){
