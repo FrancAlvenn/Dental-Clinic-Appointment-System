@@ -91,6 +91,7 @@ include_once "header.php";
 </div>
 
 
+<script src="javascript/schedule-crud.js"></script>
 <script>
     $(document).ready(function() {
         // Define the AJAX function using a variable
@@ -113,6 +114,8 @@ include_once "header.php";
             console.log("Page loaded");
         };
     });
+
+
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
