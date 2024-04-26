@@ -255,3 +255,69 @@ if(isset($_POST['delete_appointment']))
         return;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $query = "SELECT * FROM appointment_requests WHERE DATE(preferred_date) = DATE(DATE_ADD(CURDATE(), INTERVAL 1 DAY))";
+    $query_run = mysqli_query($conn, $query);
+
+    if ($query_run) {
+        if (mysqli_num_rows($query_run) > 0) {
+            $appointments = mysqli_fetch_all($query_run, MYSQLI_ASSOC);
+
+            // Initialize an empty array to store notification messages
+            $recipients = [];
+            $notificationMessages = [];
+            $viewedArray = [];
+            $statusArray=[];
+
+            // Iterate over each appointment to construct the notification message
+            foreach ($appointments as $appointment) {
+                $notificationMessage = 'Hello '.$appointment['firstname'].' '.$appointment['lastname'].', this is a friendly reminder of your upcoming appointment with Dr. Johnny Mar Cabungon Dental Clinic on '.$appointment['preferred_date'].' at '.$appointment['preferred_time'].'. Please remember to arrive on time. If you have any questions or need to reschedule, please contact us. We look forward to seeing you!';
+                $notificationMessages[] = $notificationMessage;
+
+                $recipient =  $appointment['phone_number'] .','. $appointment['email'];
+                $recipients[] = $recipient;
+
+                $viewed = $appointment['viewed'];
+                $viewedArray[] = $viewed;
+
+                $stat = $appointment['status'];
+                $statusArray[] = $stat;
+            }
+
+            // Prepare the response
+            $res = [
+                'status' => 200,
+                'message' => 'Appointments Fetched Successfully',
+                'appointments' => $recipients,
+                'notificationMessages' => $notificationMessages,
+                'notification_sent' => $viewedArray,
+                'appointmentStatus' => $statusArray
+            ];
+            echo json_encode($res);
+
+            $updateQuery = "UPDATE appointment_requests SET viewed = 1 WHERE DATE(preferred_date) = DATE(DATE_ADD(CURDATE(), INTERVAL 1 DAY)) AND status = 'confirmed'";
+            mysqli_query($conn, $updateQuery);
+            return;
+        } else {
+            $res = [
+                'status' => 404,
+                'message' => 'No Appointments Found'
+            ];
+            echo json_encode($res);
+            return;
+        }
+    }
+}
+

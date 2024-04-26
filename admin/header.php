@@ -82,7 +82,7 @@
     <div class="sidebar">
         <div class="logo-details">
             <i class='bx bxs-user-circle icon'></i>
-            <div class="logo_name">Administrator</div>
+            <div class="logo_name">WELCOME</div>
             <i class='bx bx-menu' id="btn" ></i>
         </div>
         <ul class="nav-list">
