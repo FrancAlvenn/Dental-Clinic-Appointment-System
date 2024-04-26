@@ -163,7 +163,6 @@ $(document).ready(function() {
                 error: function(xhr, status, error) {
                     // handle error
                     console.error(xhr.responseText);
-                    alert('Error: Message not sent to ' + number);
                 }
             });
         });

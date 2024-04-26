@@ -288,8 +288,7 @@
             <!-- Form Column-->
             <div class="form-header mt-5 pt-5 mb-5 ps-lg-0 col-md-8 ps-lg-5 " >
                 <h3>Get Appointment</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br>
-                    Nam corrupti molestiae totam.Velit dignissimos soluta beatae.</p>
+                <p>Book an appointment today, bring out your brightest smile!</p>
             </div>
             <div class="col-lg-6 p-lg-4 p-xl-5 col-md-8 col p-lg-4 mb-lg-5 mb-sm-1   rounded-5 form-body" style="background-color: #9BE0FF;">
 
