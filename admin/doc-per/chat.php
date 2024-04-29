@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row ">
             
-                <div class="pt-5 ">
+                <div>
                     <div class="box p-2" style="height:90vh;">
                         <div class="center-div chat-space-admin d-flex flex-column align-items-center justify-content-top ">
                         <!-- Chat Area -->

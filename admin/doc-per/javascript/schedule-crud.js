@@ -15,6 +15,7 @@ $(document).on('submit', '#saveAppointment', function (e) {
         success: function (response) {
             
             const res = jQuery.parseJSON(response);
+            console.log(res);
             if(res.status == 422) {
                 $('.alert').addClass("error");
                 const alertMessage = document.querySelector('.alert-msg');
@@ -222,6 +223,9 @@ $(document).on('submit', '#updateAppointment', function (e) {
                     $('.alert').addClass("hide");
                 }, 5000);
 
+                if(res.send_sms == 0){
+                    sendConfirmationMessage(res.recipient, res.notification_message)
+                }
 
             }else if(res.status == 500) {
                 $('.alert').addClass("error");
@@ -232,7 +236,155 @@ $(document).on('submit', '#updateAppointment', function (e) {
 
 });
 
+$(document).ready(function() {
+    // Function to load appointments and send notifications
+    function loadAppointmentToSendNotification() {
+        $.ajax({
+            type: "GET",
+            url: "php/schedule-crud.php",
+            dataType: "json",
+            success: function(response) {
+                if (response.status == 404) {
+                    console.log(response.message);
+                } else if (response.status == 200) {
+                    // Iterate over each appointment
+                    response.appointments.forEach(function(appointment, index) {
+                        // Check if notification has already been sent for this appointment
+                        if (response.notification_sent[index] == 0 && response.status == 'confirmed' ) {
+                            // Use phoneNumber and notificationMessage as needed
+                            console.log("Phone number: " + appointment);
+                            console.log("Notification message: " + response.notificationMessages[index]);
+                            console.log("Viewed: " + response.notification_sent[index]);
+                            console.log("Status:" + response.appointmentStatus[index])
+                            
+                            // Here you can call the function to send SMS notifications
+                            sendNotificationMessage(appointment, response.notificationMessages[index]);
+                        } else {
+                            console.log("Notification already sent for appointment or the appointment status is not yet confirmed!");
+                        }
+                    });
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error(xhr.responseText);
+                console.error(error);
+            }
+        });
+    }
 
+    var now = new Date();
+    var millisTill7 = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 7, 0, 0, 0) - now;
+
+    // Function to calculate and print time until the next interval
+    function printTimeUntilNextInterval() {
+        if (millisTill7 < 0) {
+            millisTill7 += 86400000; // it's after 7am, try again tomorrow
+        }
+        var hoursTillNextInterval = Math.floor((millisTill7 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutesTillNextInterval = Math.floor((millisTill7 % (1000 * 60 * 60)) / (1000 * 60));
+        var secondsTillNextInterval = Math.floor((millisTill7 % (1000 * 60)) / 1000);
+
+        console.log("Time until next interval: " + hoursTillNextInterval + " hours, " + minutesTillNextInterval + " minutes, " + secondsTillNextInterval + " seconds");
+    }
+
+    // Run the function initially
+    loadAppointmentToSendNotification();
+
+    // Calculate and print time until the next interval
+    printTimeUntilNextInterval();
+
+    // Set interval to run the function once a day at 7 am
+    setTimeout(function() {
+        setInterval(function() {
+            loadAppointmentToSendNotification();
+            printTimeUntilNextInterval();
+        }, 24 * 60 * 60 * 1000); // 24 hours
+    }, millisTill7);
+});
+
+
+function sendNotificationMessage(recipients, notificationMessages) {
+    // Iterate over each recipient and message pair
+    for (var i = 0; i < recipients.length; i++) {
+        var recipientValue = recipients[i];
+        var message = notificationMessages[i];
+
+        // Split the recipient value using the separator ','
+        var recipientsList = recipientValue.split(',');
+
+        // Iterate over each number and send separate AJAX calls
+        recipientsList.forEach(function(recipient) {
+            // Trim any leading or trailing whitespace
+            recipient = recipient.trim();
+
+            // Collect form data for each number
+            var formData = {
+                number: recipient,
+                message: message
+            };
+
+            console.log(formData);
+
+            // Send AJAX request for each number
+            $.ajax({
+                type: 'POST',
+                url: 'php/message-sender.php',
+                data: formData,
+                dataType: 'json',
+                success: function(response) {
+                    console.log('Message sent successfully!');
+                },
+                error: function(xhr, status, error) {
+                    // Handle error
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+    }
+}
+
+
+
+function sendConfirmationMessage(recipientFromDatabase, messageFromDatabase) {
+    // get the value from the number input field
+    var recipientValue = recipientFromDatabase;
+
+    // split the value using the separator ','
+    var recipients = recipientValue.split(',');
+
+    // get the message value
+    var message = messageFromDatabase;
+
+    // iterate over each number and send separate AJAX calls
+    recipients.forEach(function(recipient) {
+        // trim any leading or trailing whitespace
+        recipient = recipient.trim();
+
+        // collect form data for each number
+        var formData = {
+            number: recipient,
+            message: message
+        };
+
+        console.log(formData);
+
+        //send AJAX request for each number
+        $.ajax({
+             type: 'POST',
+             url: 'php/message-sender.php',
+             data: formData,
+             dataType: 'json',
+             success: function(response) {
+                 alert('Message sent successfully!');
+             },
+             error: function(xhr, status, error) {
+                 // handle error
+                console.error(xhr.responseText);
+            }
+         });
+    });
+    
+}
 
 //Delete Appointment
 $(document).on('click', '.deleteButton', function (e) {

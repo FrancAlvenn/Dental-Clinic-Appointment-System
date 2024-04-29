@@ -15,16 +15,16 @@
         ($row['status'] == "Offline now") ? $offline = "offline" : $offline = "";
         ($outgoing_id == $row['unique_id']) ? $hid_me = "hide" : $hid_me = "";
 
-        $output .= '<a href="chat.php?user_id='. $row['unique_id'] .'" style="text-decoration:none;"">
-                    <div class="content">
-                    
+        $output .= '<a href="chat.php?user_id='. $row['unique_id'] .'" style="text-decoration:none;">
+                <div class="content">
+                    <i class="fas fa-user-circle user-icon"></i>
                     <div class="details">
                         <span>'. $row['fname']. " " . $row['lname'] .'</span>
-                        <p>'. $you . $msg .'</p>
+                        <p style="margin-bottom:0px">'. $you . $msg .'</p>
                     </div>
-                    </div>
-                    <div class="status-dot '. $offline .'"><i class="fas fa-circle"></i></div>
-                    
-                </a>';
+                </div>
+                <div class="status-dot '. $offline .'"><i class="fas fa-circle"></i></div>
+            </a>';
+
     }
 ?>
