@@ -168,16 +168,46 @@ if(isset($_POST['update_appointment']))
                 WHERE request_id='$appointment_id'";
     $query_run = mysqli_query($conn, $query);
 
+    $sql = "SELECT sms_sent FROM appointment_requests WHERE request_id = '$appointment_id'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $sms_sent;
+    if ($row) {
+        $sms_sent = $row['sms_sent'];
+    }
+
     if($query_run)
     {
         $subject = "Appointment Updated";
-            $comment = "Appointment details have been successfully updated for , " . $firstname . " " . $lastname;
-            $query = "INSERT INTO comments(request_id, comment_subject, comment_text)VALUES ('$appointment_id','$subject', '$comment')";
-            mysqli_query($conn, $query);
+        $comment = "Appointment details have been successfully updated for , " . $firstname . " " . $lastname;
+        $query = "INSERT INTO comments(request_id, comment_subject, comment_text)VALUES ('$appointment_id','$subject', '$comment')";
+        mysqli_query($conn, $query);
+
+        $send_message;
+        if($status == 'confirmed' && $sms_sent == 0){
+            $send_message = 0;
+        }else{
+            $send_message = 1;
+        }
+        // Check if the phone number starts with a zero
+        if (substr($phone_number, 0, 1) === "0") {
+            // Remove the leading zero and prepend "63"
+            $modifiedPhoneNumber = "63" . substr($phone_number, 1);
+        } else {
+            // If the number doesn't start with zero, keep it unchanged
+            $modifiedPhoneNumber = $phone_number;
+        }
+
         $res = [
             'status' => 200,
-            'message' => 'Appointment Updated Successfully'
+            'message' => 'Appointment Updated Successfully',
+            'recipient' => $modifiedPhoneNumber .','. $email,
+            'notification_message' => 'Your appointment has been confirmed! Please be available on '. $preferred_date .' at '. $preferred_time .'. Thank you for choosing Doc. Johnny Mar Cabungon Dental Clinic',
+            'send_sms' => $send_message
         ];
+
+        $sql_update = "UPDATE appointment_requests SET sms_sent = 1 WHERE request_id = '$appointment_id'";
+        $query_update = mysqli_query($conn, $sql_update);
         echo json_encode($res);
         return;
     }
@@ -205,7 +235,7 @@ if(isset($_POST['delete_appointment']))
     if($query_run)
     {
         $subject = "Appointment Deleted";
-            $comment = "Appointment for " . $firstname . " " . $lastname . " has been deleted!";
+            $comment = "Appointment deleted!";
             $query = "INSERT INTO comments(request_id, comment_subject, comment_text)VALUES ('$delete_id','$subject', '$comment')";
             mysqli_query($conn, $query);
         $res = [
@@ -225,3 +255,69 @@ if(isset($_POST['delete_appointment']))
         return;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $query = "SELECT * FROM appointment_requests WHERE DATE(preferred_date) = DATE(DATE_ADD(CURDATE(), INTERVAL 1 DAY))";
+    $query_run = mysqli_query($conn, $query);
+
+    if ($query_run) {
+        if (mysqli_num_rows($query_run) > 0) {
+            $appointments = mysqli_fetch_all($query_run, MYSQLI_ASSOC);
+
+            // Initialize an empty array to store notification messages
+            $recipients = [];
+            $notificationMessages = [];
+            $viewedArray = [];
+            $statusArray=[];
+
+            // Iterate over each appointment to construct the notification message
+            foreach ($appointments as $appointment) {
+                $notificationMessage = 'Hello '.$appointment['firstname'].' '.$appointment['lastname'].', this is a friendly reminder of your upcoming appointment with Dr. Johnny Mar Cabungon Dental Clinic on '.$appointment['preferred_date'].' at '.$appointment['preferred_time'].'. Please remember to arrive on time. If you have any questions or need to reschedule, please contact us. We look forward to seeing you!';
+                $notificationMessages[] = $notificationMessage;
+
+                $recipient =  $appointment['phone_number'] .','. $appointment['email'];
+                $recipients[] = $recipient;
+
+                $viewed = $appointment['viewed'];
+                $viewedArray[] = $viewed;
+
+                $stat = $appointment['status'];
+                $statusArray[] = $stat;
+            }
+
+            // Prepare the response
+            $res = [
+                'status' => 200,
+                'message' => 'Appointments Fetched Successfully',
+                'appointments' => $recipients,
+                'notificationMessages' => $notificationMessages,
+                'notification_sent' => $viewedArray,
+                'appointmentStatus' => $statusArray
+            ];
+            echo json_encode($res);
+
+            $updateQuery = "UPDATE appointment_requests SET viewed = 1 WHERE DATE(preferred_date) = DATE(DATE_ADD(CURDATE(), INTERVAL 1 DAY)) AND status = 'confirmed'";
+            mysqli_query($conn, $updateQuery);
+            return;
+        } else {
+            $res = [
+                'status' => 404,
+                'message' => 'No Appointments Found'
+            ];
+            echo json_encode($res);
+            return;
+        }
+    }
+}
+

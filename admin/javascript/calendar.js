@@ -128,8 +128,8 @@ function openEventModal(event) {
         '</div>' +
         '<div class="modal-footer">' +
         '<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>' +
-        '<button type="button" value="' + event.request_id + '" class="deleteButton btn btn-danger">Delete</button>' +
-        '<button type="submit" value="' + event.request_id + '" class="btn btn-primary updateButton">Update Appointment</button>' +
+        // '<button type="button" value="' + event.request_id + '" class="deleteButton btn btn-danger">Delete</button>' +
+        // '<button type="submit" value="' + event.request_id + '" class="btn btn-primary updateButton">Update Appointment</button>' +
         '</div>';
 
     // Set the content of the modal body

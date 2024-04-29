@@ -24,13 +24,13 @@
     $colorText;
     $text;
     if($status === 'confirmed'){
-        $colorText = "color:green!important";
+        $colorText = "color:green!important;margin-left: 20px!important;";
         $text = "confirmed";
     }else if($status === 'pending'){
-        $colorText = "color:orange!important";
+        $colorText = "color:orange!important;margin-left: 20px!important;";
         $text = "pending";
     }else{
-        $colorText = "color:red!important";
+        $colorText = "color:red!important;margin-left: 20px!important;";
         $text = "rejected";
     }
 
@@ -69,8 +69,8 @@
         $sql = "SELECT * FROM appointment_requests WHERE status = '$status' AND MONTH(preferred_date) = '$comboBoxSelect' ORDER BY preferred_date, TIME(preferred_time)";
         $text .= "No ". $status ." appointments found in " . $selectedMonth;
     }else{
-        $sql = "SELECT * FROM appointment_requests WHERE preferred_date = '$selectedDate' ORDER BY preferred_date, TIME(preferred_time)";
-        $text .= "No appointments found on " .  $selectedDate;
+        $sql = "SELECT * FROM appointment_requests WHERE preferred_date = '$selectedDate' AND status = '$status' ORDER BY preferred_date, TIME(preferred_time)";
+        $text .= "No ". $status ." appointments found on " .  $selectedDate;
     }
     
 
@@ -83,7 +83,7 @@
     while($row2 = mysqli_fetch_assoc($query2)) {
     $output .= '<div class="col d-flex justify-content-center align-items-center pb-5 col-xl-4">
                 <div class="card" style="width: 30rem;">
-                    <div class="container pt-3">
+                    <div class="pt-3">
                         <i class="fas fa-circle" style="'. $colorText .'"></i>
                         <h4 class="card-title text-center pt-3">' . $row2['service'] . '</h4>
                         <div class="card-body text-center">

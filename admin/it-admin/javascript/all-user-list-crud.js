@@ -31,6 +31,7 @@ $(document).on('submit', '#saveUser', function (e) {
                 $('#saveUser')[0].reset();
                 $('#add_User').modal('hide');
                 // Show the notification popup
+                $('.modal-backdrop').remove();
                 const alertMessage = document.querySelector('.alert-msg');
                 alertMessage.textContent = res.message;
                 $('.alert').addClass("show");
@@ -106,6 +107,7 @@ $(document).on('submit', '#updateUser', function (e) {
             if(res.status == 422) {
                 const alertMessage = document.querySelector('.alert-msg');
                 alertMessage.textContent = res.message;
+                $('.modal-backdrop').remove();
                 $('.alert').addClass("show");
                 $('.alert').removeClass("hide");
                 $('.alert').addClass("showAlert");
@@ -117,7 +119,7 @@ $(document).on('submit', '#updateUser', function (e) {
             }else if(res.status == 200){
 
                 $('#errorMessageUpdate').addClass('d-none');
-
+                $('.modal-backdrop').remove();
                 $('#userEditModal').modal('hide');
                 $('#updateUser')[0].reset();
                 // Show the notification popup
@@ -164,6 +166,7 @@ $(document).on('click', '.deleteButton', function (e) {
                 }else if(res.status == 200){
                     $('#errorMessageUpdate').addClass('d-none');
                     $('#userEditModal').modal('hide');
+                    $('.modal-backdrop').remove();
                     // Show the notification popup
                     const alertMessage = document.querySelector('.alert-msg');
                     alertMessage.textContent = res.message;

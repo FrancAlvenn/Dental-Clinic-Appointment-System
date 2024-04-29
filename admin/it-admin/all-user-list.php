@@ -10,11 +10,11 @@
     <div class="container">
             <div class="row ">
                 <div class="pt-5 ">
-                    <div class="box p-3 "  style="height:90vh;">
+                    <div class="">
                         <div class="center-div chat-space-admin d-flex flex-column align-items-center justify-content-center ">
                             <!-- User List Area -->
                             <section class="schedule">
-                                <div class="container d-flex justify-content-between mb-3 ">
+                                <div class="d-flex justify-content-between mb-3 ">
                                     <h6 style="margin-bottom:15px!important;">User List</h6>
                                     <button type="button" class="btn float-end pt-2 pb-2 pe-5 ps-5 " data-bs-toggle="modal" data-bs-target="#add_User">
                                         Add User
@@ -31,7 +31,7 @@
                                 <div class="schedule-list">
                                 <div class="row mb-5 User-list-area">
                                     <!-- User List Area -->
-                                    <div class="container">
+                                    <div class="">
                                     
                                     <table class="table table-hover text-center" id="userTable">
                                         <thead class="">
@@ -217,7 +217,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="button" value="" class="deleteButton btn btn-danger">Delete</button>
-                    <button type="submit" value="" class="btn btn-primary updateButton">Update Appointment</button>
+                    <button type="submit" value="" class="btn btn-primary updateButton">Update Details</button>
                 </div>
             </form>
             </div>

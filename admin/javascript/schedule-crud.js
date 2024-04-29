@@ -245,7 +245,7 @@ $(document).ready(function() {
             dataType: "json",
             success: function(response) {
                 if (response.status == 404) {
-                    alert(response.message);
+                    console.log(response.message);
                 } else if (response.status == 200) {
                     // Iterate over each appointment
                     response.appointments.forEach(function(appointment, index) {

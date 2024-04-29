@@ -9,7 +9,7 @@
 
     <div class="container">
             <div class="row ">
-                <div class="pt-5 ">
+                <div>
                     <div class="box p-5 " style="height:auto;">
                         <div id="calendar">
                             <!-- Calendar Area -->

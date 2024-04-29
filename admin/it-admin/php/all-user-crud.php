@@ -131,13 +131,13 @@ if(isset($_POST['update_user']))
     }
 
     // Check if the password is changed
-    $sql = mysqli_query($conn, "SELECT * FROM users WHERE fname = '$firstname' AND lname = '$lastname' AND email = '$email' AND unique_id = '$user_id'");
+    $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = '$user_id'");
 
     $encrypt_pass = "";
     if(mysqli_num_rows($sql) > 0){
         $row = mysqli_fetch_assoc($sql);
         $enc_pass = $row['password']; // Existing encrypted password from the database
-        
+        $encrypt_pass = $row['password'];
         // Check if the provided password matches the existing password
         if($password === $enc_pass){
             // Password not changed, use existing encrypted password
