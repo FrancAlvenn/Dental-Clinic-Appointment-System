@@ -14,9 +14,14 @@
                             <section class="schedule">
                                 <div class="d-flex justify-content-between mb-3 ">
                                     <h6 style="margin-bottom:15px!important;">Patient List</h6>
-                                    <button type="button" class="btn float-end pt-2 pb-2 pe-5 ps-5 " data-bs-toggle="modal" data-bs-target="#add_patient">
-                                        Add Patient
-                                    </button>
+                                    <div>
+                                        <button type="button" class="btn float-start pt-2 pb-2 pe-5 ps-5 me-3  " onclick="window.open('print_record.php', '_blank');">
+                                            Print Records
+                                        </button>
+                                        <button type="button" class="btn float-end pt-2 pb-2 pe-5 ps-5 " data-bs-toggle="modal" data-bs-target="#add_patient">
+                                            Add Patient
+                                        </button>
+                                    </div>
                                 </div>
                                 
                                 <header style="display: flex; justify-content: end;margin-bottom: 0px; border: 0px !important">
@@ -266,6 +271,32 @@
             </div>
         </div>
     </div>
+
+    <style>
+    @page {
+            size: A4;
+            margin: 0;
+            orientation: landscape;
+        }
+
+        @media print {
+        .schedule-list {
+            max-width: unset;
+            box-shadow: none;
+            border: 0px;
+            background-color: white;
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-left: 70px;
+            font-size: 14px;
+            line-height: 18px;
+        }
+        }
+</style>
+
 
     <script src="javascript/patient-crud.js"></script>
     

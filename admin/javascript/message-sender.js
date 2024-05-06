@@ -166,7 +166,7 @@ $(document).ready(function() {
                 }
             });
         });
-        alert('Message sent successfully!');
+        console.log('Message sent successfully!');
     });
 });
 

@@ -250,13 +250,13 @@ $(document).ready(function() {
                     // Iterate over each appointment
                     response.appointments.forEach(function(appointment, index) {
                         // Check if notification has already been sent for this appointment
-                        if (response.notification_sent[index] == 0 && response.status == 'confirmed' ) {
+                        if (response.notification_sent[index] == 0 && response.appointmentStatus[index] == 'confirmed' ) {
                             // Use phoneNumber and notificationMessage as needed
                             console.log("Phone number: " + appointment);
                             console.log("Notification message: " + response.notificationMessages[index]);
                             console.log("Viewed: " + response.notification_sent[index]);
                             console.log("Status:" + response.appointmentStatus[index])
-                            
+                            console.log("Message sent succesfully!");
                             // Here you can call the function to send SMS notifications
                             sendNotificationMessage(appointment, response.notificationMessages[index]);
                         } else {
@@ -272,58 +272,35 @@ $(document).ready(function() {
         });
     }
 
-    var now = new Date();
-    var millisTill7 = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 7, 0, 0, 0) - now;
-
-    // Function to calculate and print time until the next interval
-    function printTimeUntilNextInterval() {
-        if (millisTill7 < 0) {
-            millisTill7 += 86400000; // it's after 7am, try again tomorrow
-        }
-        var hoursTillNextInterval = Math.floor((millisTill7 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutesTillNextInterval = Math.floor((millisTill7 % (1000 * 60 * 60)) / (1000 * 60));
-        var secondsTillNextInterval = Math.floor((millisTill7 % (1000 * 60)) / 1000);
-
-        console.log("Time until next interval: " + hoursTillNextInterval + " hours, " + minutesTillNextInterval + " minutes, " + secondsTillNextInterval + " seconds");
-    }
-
     // Run the function initially
     loadAppointmentToSendNotification();
 
-    // Calculate and print time until the next interval
-    printTimeUntilNextInterval();
-
     // Set interval to run the function once a day at 7 am
-    setTimeout(function() {
-        setInterval(function() {
-            loadAppointmentToSendNotification();
-            printTimeUntilNextInterval();
-        }, 24 * 60 * 60 * 1000); // 24 hours
-    }, millisTill7);
+    setInterval(function() {
+        loadAppointmentToSendNotification();
+        console.log("Interval Works")
+    },1000);
+
 });
 
 
 function sendNotificationMessage(recipients, notificationMessages) {
     // Iterate over each recipient and message pair
-    for (var i = 0; i < recipients.length; i++) {
-        var recipientValue = recipients[i];
-        var message = notificationMessages[i];
 
-        // Split the recipient value using the separator ','
-        var recipientsList = recipientValue.split(',');
+    // Split the recipient value using the separator ','
+    var recipientsList = recipients.split(',');
+    for (var i = 1; i < recipientsList.length; i++) {
 
         // Iterate over each number and send separate AJAX calls
         recipientsList.forEach(function(recipient) {
-            // Trim any leading or trailing whitespace
-            recipient = recipient.trim();
-
+            
             // Collect form data for each number
             var formData = {
                 number: recipient,
-                message: message
+                message: notificationMessages
             };
 
-            console.log(formData);
+            console.log("Form: " + formData);
 
             // Send AJAX request for each number
             $.ajax({
@@ -375,7 +352,7 @@ function sendConfirmationMessage(recipientFromDatabase, messageFromDatabase) {
              data: formData,
              dataType: 'json',
              success: function(response) {
-                 alert('Message sent successfully!');
+                console.log('Message sent successfully!');
              },
              error: function(xhr, status, error) {
                  // handle error

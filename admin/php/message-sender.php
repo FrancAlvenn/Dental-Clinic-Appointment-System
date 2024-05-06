@@ -14,10 +14,14 @@ require_once __DIR__ . "/../../vendor/autoload.php";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $number = $_POST["number"];
+
     $message = $_POST["message"];
 
     // Check if $number is a phone number
     if (preg_match("/^\+?\d{10,14}$/", $number)) {
+        if ($number[0] === '0') {
+            $number = '63' . substr($number, 1);
+        }
         $base_url = "https://2vnl2z.api.infobip.com";
         $api_key = "162c6972aefcfa36dbbef6fbaf46267a-35ffb26f-807a-4285-8d5a-b1e29f08e6a4";
 
@@ -69,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'Accept' => 'application/json'
         ));
         $request->addPostParameter(array(
-            'from' => 'Dr. Johnny Mar Cabugon Dental Clinic <francalvenndelacruz@mail.com>',
+            'from' => 'Dr. Johnny Mar Cabungon Dental Clinic <francalvenndelacruz@mail.com>',
             'subject' => 'Appointment Notice',
             'to' => '{"to":"'. $number .'","placeholders":{"firstName":"Ma\'am/Sir"}}',
             'text' => $message
